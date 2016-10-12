@@ -42,15 +42,16 @@ $C$ & 5 нФ \\
 \end{center}
 
 
-\section{Расчет элементов и параметров схемы}
+\section{Теоретические зависимости}
 Частота перегиба расчитывается следующим образом:
 \begin{equation}
 \omega_0 = \frac{1}{RC} = \frac{1}{15 \cdot 10^3 \cdot 5 \cdot 10^{-9}} \simeq 1.334 \cdot 10^4 \hspace*{2mm}
 \end{equation}
 Отсюда: 
 \begin{equation}
-f_0 = \frac{\omega_0}{2 \pi} = \frac{1.34}{2\cdot1.341} \simeq 2122.065   
+f_0 = \frac{\omega_0}{2 \pi} = \frac{1.34}{2\cdot1.341} \simeq 2122.065 (\text{Гц})
 \end{equation}
+
 Теоретическая ЛАЧХ для дифференцирующей RC-цепи строится по
 формуле
 \begin{equation}
@@ -58,15 +59,12 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+(\omega RC)^2),
 \end{equation}
 для построения ЛАЧХ интегрирующей RC-цепи используется выражение
 \begin{equation}
-L_u(\omega) = - 10lg(1+(\omega RC)^2),
+L_u(\omega) = -10lg(1+(\omega RC)^2),
 \end{equation}
 а ЛАЧХ соеденных последовательно дифференцирующей и интегриущей цепей рассчитывается по формуле
 \begin{equation}
 L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 \end{equation}
-
-
-\section{Теоретические зависимости}
 
 \begin{center}
 \begin{table}[h]
@@ -76,180 +74,232 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
     column type/.add={|c|}{},
     columns/f/.style={fixed, column name={$f,$ Гц}},
     columns/w/.style={fixed, precision=3, column name={$\omega = 2 \pi f$ }},
-    columns/L1/.style={fixed, precision=3, column name={$L_{\text{диф.}}$, дБ}},
+    columns/L1/.style={fixed, precision=3, column name={$L_{\text{дифф.}}$, дБ}},
     columns/L2/.style={fixed, precision=3, column name={$L_{\text{инт.}}$, дБ}},
-    columns/L3/.style={fixed, precision=3, column name={$L_{\text{соед.}}$, дБ}},
+    columns/L3/.style={fixed, precision=3, column name={$L_{\text{дифф-инт.}}$, дБ}},
     every nth row={1}{before row=\hline},
     every head row/.style = {before row=\hline, after row=\hline},
     every last row/.style = {after row=\hline}
    ]{adata.csv}
 \end{table}
 \end{center}
-    
-\subsection{Экспериментально снятые зависиости}
-В таблицах \ref{t:e1}, \ref{t:e2} и \ref{t:e3} приведены значения входного напряжения, выходного напряжения, коэффициента передачи и коэффициента передачи, выраженного в децибелах, дифференцирующей RC-цепи, для интегрирующей RC-цепи и соединенных последовательно дифференцирующей и интегрирующей RC-цепей соответсвенно. 
+
+\section{Экспериментально снятые зависимости}
+
+В таблицах \ref{tabular:1}, \ref{tabular:2} и \ref{tabular:3} приведены значения входного напряжения, выходного напряжения, коэффициента передачи и коэффициента передачи, выраженного в децибелах, дифференцирующей RC-цепи, для интегрирующей RC-цепи и соединенных последовательно дифференцирующей и интегрирующей RC-цепей соответсвенно. 
+
+%таблицы
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Коэффициент передачи дифференциующей RC-цепи.}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+			\hline
+			$f$, Гц & $U_{BX}$, В & $U_{BblX}$, В & $K$, В & $20$ · $lg(K)$, дБ\\\hline
+			32 & 5.01 & 0.074 & 0.015 & -36.612\\\hline
+			64 & 5.05 & 0.151 & 0.030 & -30.486\\\hline
+			128 & 5.03 & 0.302 & 0.060 & -24.431\\\hline
+			256 & 5.02 & 0.601 & 0.120 & -18.437\\\hline
+			512 & 5.03 & 1.133 & 0.225 & -12.947\\\hline
+			1024 & 5.00 & 2.130 & 0.426 & -7.412\\\hline
+			2048 & 5.01 & 3.380 & 0.675 & -3.418\\\hline
+			4096 & 5.00 & 4.260 & 0.852 & -1.391\\\hline
+			8192 & 5.03 & 4.660 & 0.926 & -0.664\\\hline
+			16384 & 5.02 & 4.750 & 0.946 & -0.480\\\hline
+			32768 & 5.00 & 4.780 & 0.956 & -0.391\\\hline
+			65536 & 5.01 & 4.780 & 0.954 & -0.408\\\hline
+			131072 & 5.02 & 4.790 & 0.954 & -0.407\\\hline
+			200000 & 5.03 & 4.800 & 0.954 & -0.407\\\hline	
+		\end{tabularx}
+		\label{tabular:1}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Коэффициент передачи интегрирующей RC-цепи.}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+			\hline
+			$f$, Гц & $U_{BX}$, В & $U_{BblX}$, В & $K$, В & $20$ · $lg(K)$, дБ\\\hline
+			32 & 4.99 & 4.840 & 0.970 & -0.265\\\hline
+			64 & 5.00 & 4.840 & 0.968 & -0.282\\\hline
+			128 & 5.03 & 4.870 & 0.968 & -0.281\\\hline
+			256 & 5.02 & 4.830 & 0.962 & -0.335\\\hline
+			512 & 5.03 & 4.720 & 0.938 & -0.553\\\hline
+			1024 & 5.02 & 4.320 & 0.861 & -1.304\\\hline
+			2048 & 5.03 & 3.430 & 0.682 & -3.325\\\hline
+			4096 & 5.02 & 2.170 & 0.432 & -7.285\\\hline
+			8192 & 5.00 & 1.170 & 0.234 & -12.616\\\hline
+			16384 & 5.02 & 0.596 & 0.119 & -18.509\\\hline
+			32768 & 5.02 & 0.299 & 0.060 & -24.501\\\hline
+			65536 & 5.03 & 0.150 & 0.030 & -30.510\\\hline
+			131072 & 5.01 & 0.075 & 0.015 & -36.496\\\hline
+			200000 & 5.01 & 0.049 & 0.010 & -40.193\\\hline			
+		\end{tabularx}
+		\label{tabular:2}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Коэффициент передачи дифференциующей и интегри-
+рующей RC-цепей, соединенных последовательно.}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+			\hline
+			$f$, Гц & $U_{BX}$, В & $U_{BblX}$, В & $K$, В & $20$ · $lg(K)$, дБ\\\hline
+			32 & 5.02 & 0.076 & 0.015 & -36.364\\\hline
+			64 & 5.01 & 0.151 & 0.030 & -30.417\\\hline
+			128 & 5.00 & 0.291 & 0.058 & -24.702\\\hline
+			256 & 5.01 & 0.562 & 0.112 & -19.002\\\hline
+			512 & 5.01 & 0.993 & 0.198 & -14.058\\\hline
+			1024 & 5.00 & 1.430 & 0.286 & -10.873\\\hline
+			2048 & 5.01 & 1.590 & 0.317 & -9.969\\\hline
+			4096 & 5.01 & 1.440 & 0.287 & -10.830\\\hline
+			8192 & 4.99 & 1.010 & 0.202 & -13.876\\\hline
+			16384 & 5.01 & 0.569 & 0.114 & -18.895\\\hline
+			32768 & 5.01 & 0.295 & 0.059 & -24.600\\\hline
+			65536 & 5.01 & 0.151 & 0.030 & -30.417\\\hline
+			131072 & 5.01 & 0.077 & 0.015 & -36.256\\\hline
+			200000 & 5.01 & 0.052 & 0.010 & -39.643\\\hline		
+		\end{tabularx}
+		\label{tabular:3}
+	\end{center}
+\end{table}
 
 На рисунках \ref{t:e1}, \ref{t:e2} и \ref{t:e3} приведены теоритические ЛАЧХ, экспериментальные ЛАЧХ и аппроксимирующие прямые для всех цепей.
+%рисунки
 
-Для каждой из полученных зависимостей было выполнено интерполирование в области частоты перегиба $f_0 = 2122.065$ Гц: был построен интерполяционный полином по трем точкам, значение частоты которых наиболее близко к частоте пергиба, а именно $f_1 = 1024$, $f_2 = 2048$, $f_3 = 4096$.  
-
-Интерполяционный полином ЛАЧХ дифференцирующей RC-цепи в области частоты перегибы имеет вид:
-\begin{equation}
-L_u(f) = -13.393 + (6.81 \cdot 10^{-3})f + (-9.474 \cdot 10^{-7})f^2. 
-\end{equation}
-Для ЛАЧХ интергрирующей RC-цепи аналогичный интерполяционный полином представляет собой выражение
-\begin{equation}
-L_u(f) = -0.744 + (2.013 \cdot 10^{-3})f + (-1.303 \cdot 10^{-8})f^2.
-\end{equation}
-Интерполяционны полином ЛАЧХ соединенных последовательно интергрирующей и дифференцирующей RC-цепей выглядит следующим образом:
-\begin{equation}
-L_u(f) = -12.667 + (2.186 \cdot 10^{-3})f + (-4.242 \cdot 10^{-7})f^2.
-\end{equation}
-
-Предельная допустимая относительная погрешность для дифференцирующей и интегрирующей цепей составляет
-\begin{equation}
-\delta f_0 = \sqrt{(\delta R)^2 + (\delta C)^2} = \sqrt{0.01 + 0.01} = 0.1414
-\end{equation} 
-
-Для дифференцирующей и интегрирующей цепи:
-\begin{equation}
-\delta f_0 = \sqrt{2 \cdot (\delta R)^2 + 2 \cdot (\delta C)^2} = \sqrt{0.01 + 0.01} = 0.2
-\end{equation} 
-
-На основе полученных выражений и с учетом погрешности были рассчитаны значения ЛАЧХ в точке перегиба для всех цепей:\\
-$L_u(f_0)_\text{дифф} = -3.427 \pm 0.485$ (дБ)\\ 
-$L_u(f_0)_\text{инт} = -3.350 \pm 0.473$ (дБ)\\
-$L_u(f_0)_\text{дифф-инт} = -9.546 \pm 1.350$ (дБ)\\
- 
-\begin{table}[!h]
-\caption{Коэффициент передачи дифференциующей RC-цепи.}
-\pgfplotstabletypeset[col sep=comma,
-    columns={f,Ui,Uo,K,L},
-    column type/.add={|c|}{},
-    columns/f/.style={fixed, column name={$f$, Гц}},
-    columns/Ui/.style={fixed, precision=3, column name={$U_{\text{вх}}$, В}},
-    columns/Uo/.style={fixed, precision=3, column name={$U_{\text{вых}}$, В}},
-    columns/K/.style={fixed, precision=3, column name={$K$, В}},
-    columns/L/.style={fixed, precision=3, column name={$-20 \cdot lg(K)$, дБ}},
-    every nth row={1}{before row=\hline},
-    every head row/.style = {before row=\hline, after row=\hline, fixed},
-    every last row/.style = {after row=\hline, fixed}
-   ]{e1data.csv}
-\label{t:e1}
-\end{table}
-
-\begin{figure}[h]
-\begin{tikzpicture}
-\begin{axis}[
-	legend pos=north west,
-	ylabel near ticks,
-	xlabel near ticks,
-    xmode=log,
-    width=0.85\textwidth,
-    log basis x={2},
-	xlabel={$f$, Гц},
-	ylabel={$L_u$, Дб},
-	%ylabel style={rotate=-90},
-	xtick={0, 32, 128, 512, 2048, 8192, 32768, 131072},
-	xticklabel style={/pgf/number format/.cd,fixed,precision=2}
-]
-\addplot table [x=f, y=L1, col sep=comma] {adata.csv};
-\addplot table [x=f, y=L, col sep=comma] {e1data.csv};
-\addplot +[mark=none, dashed, black, samples=2] coordinates {(2048,0) (131072,0)};
-\addplot +[mark=none, dashed, black, domain=32:2200] {-(log2(x)*(-6)+66.3)};
-\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ}
-\end{axis}
-\end{tikzpicture} \hfill
-\label{f:e1}
-\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей RC-цепи}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=13cm]{1}
+		\caption{Теоретическая и экспериментальная ЛАЧХ дифференциру-
+ющей RC-цепи
+} 
+		\label{t:e1} % название для ссылок внутри кода
+	\end{center}
 \end{figure}
 
-
-\begin{table}[!h]
-\caption{Коэффициент передачи интегрирующей RC-цепи.}
-\pgfplotstabletypeset[col sep=comma,
-    columns={f,Ui,Uo,K,L},
-    column type/.add={|c|}{},
-    columns/f/.style={fixed, column name={$f$, Гц}},
-    columns/Ui/.style={fixed, precision=3, column name={$U_{\text{вх}}$, В}},
-    columns/Uo/.style={fixed, precision=3, column name={$U_{\text{вых}}$, В}},
-    columns/K/.style={fixed, precision=3, column name={$K$, В}},
-    columns/L/.style={fixed, precision=3, column name={$-20 \cdot lg(K)$, дБ}},
-    every nth row={1}{before row=\hline},
-    every head row/.style = {before row=\hline, after row=\hline, fixed},
-    every last row/.style = {after row=\hline, fixed}
-   ]{e2data.csv}
-\label{t:e2}
-\end{table}
-
-\begin{figure}[h]
-\label{f:e2}
-\begin{tikzpicture}
-\begin{axis}[
-	ylabel near ticks,
-	xlabel near ticks,
-	legend pos=north east,
-    xmode=log,
-    width=0.85\textwidth,
-    log basis x={2},
-	xlabel={$f$, Гц},
-	ylabel={$L_u$, Дб},
-	%ylabel style={rotate=-90},
-	xtick={0, 32, 128, 512, 2048, 8192, 32768, 131072},
-	xticklabel style={/pgf/number format/.cd,fixed,precision=2}
-]
-\addplot table [x=f, y=L2, col sep=comma] {adata.csv};
-\addplot table [x=f, y=L, col sep=comma] {e2data.csv};
-\addplot +[mark=none, dashed, black, samples=2] coordinates {(32,0) (2300,0)};
-\addplot +[mark=none, dashed, black, domain=2048:131072] {log2(x)*(-6)+66.3};
-\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ}
-\end{axis}
-\end{tikzpicture} \hfill
-\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей RC-цепи}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=13cm]{2}
+		\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей
+RC-цепи} 
+		\label{t:e2} % название для ссылок внутри кода
+	\end{center}
 \end{figure}
 
-
-\begin{table}[!h]
-\caption{Коэффициент передачи дифференциующей и интегрирующей  RC-цепей, соединенных последовательно.}
-\pgfplotstabletypeset[col sep=comma,
-    columns={f,Ui,Uo,K,L},
-    column type/.add={|c|}{},
-    columns/f/.style={fixed, column name={$f$, Гц}},
-    columns/Ui/.style={fixed, precision=3, column name={$U_{\text{вх}}$, В}},
-    columns/Uo/.style={fixed, precision=3, column name={$U_{\text{вых}}$, В}},
-    columns/K/.style={fixed, precision=3, column name={$K$, В}},
-    columns/L/.style={fixed, precision=3, column name={$-20 \cdot lg(K)$, дБ}},
-    every nth row={1}{before row=\hline},
-    every head row/.style = {before row=\hline, after row=\hline, fixed},
-    every last row/.style = {after row=\hline, fixed}
-   ]{e3data.csv}
-\label{t:e3}
-\end{table}
-
-
-\begin{figure}[h]
-\label{f:e3}
-\begin{tikzpicture}
-\begin{axis}[
-	ylabel near ticks,
-	xlabel near ticks,
-	legend pos=north east,
-    xmode=log,
-    width=0.85\textwidth,
-    log basis x={2},
-	xlabel={$f$, Гц},
-	ylabel={$L_u$, Дб},
-	%ylabel style={rotate=-90},
-	xtick={0, 32, 128, 512, 2048, 8192, 32768, 131072},
-	xticklabel style={/pgf/number format/.cd,fixed,precision=2}
-]
-\addplot table [x=f, y=L3, col sep=comma] {adata.csv};
-\addplot table [x=f, y=L, col sep=comma] {e3data.csv};
-\addplot +[mark=none, dashed, black, domain=2000:131072] {log2(x)*(-6)+66.3};
-\addplot +[mark=none, dashed, black, domain=32:2280] {-(log2(x)*(-6)+66.3)};
-\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ}
-\end{axis}
-\end{tikzpicture} \hfill
-\caption{Теоретическая и экспериментальная ЛАЧХ соединенных последовательно интегрирующей и дифференцирующей RC-цепей}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=13cm]{3}
+		\caption{Теоретическая и экспериментальная ЛАЧХ соединенных
+последовательно интегрирующей и дифференцирующей RC-цепей} 
+		\label{t:e3} % название для ссылок внутри кода
+	\end{center}
 \end{figure}
+
+\section{Погрешности}
+
+\subsection{Предельно допустимые погрешности}
+
+$\delta R = 0.1$\\
+$\delta C = 0.1$\\
+
+\subsubsection{Дифференцирующей и интегрирующей цепей}
+
+Дифференцирующая и интегрирующая цепи включают в себя по одному резистору и по одному конденсатору, поэтому предельно допустимая относительная погрешность частоты перегиба вычисляется следующим образом:
+
+\begin{equation}
+\delta f_0 = \sqrt{(\delta R)^2 + (\delta C)^2} = \sqrt{0.1^2 + 0.1^2} = \sqrt{0.02} = 0.141 = 14.1 \%
+\end{equation}
+
+\subsubsection{Дифференцирующе-интегрирующей цепи}
+
+Дифференцирующе-интегрирующая цепь содержит два резистора и два конденсатора, поэтому предельно допустимая относительная погрешность частоты перегиба вычисляется по формуле:
+
+\begin{equation}
+\delta f_0 = \sqrt{2 \cdot ((\delta R)^2 + (\delta C)^2)} = \sqrt{2 \cdot (0.1^2 + 0.1^2)} = \sqrt{0.04} = 0.2 = 20 \%
+\end{equation}
+
+\subsection{Расчет значения f}
+  Необходимо рассчитать значение частоты f, при которой коэффициент передачи равен -3 дБ для дифференцирующей и интегрирующей цепей и -9 дБ для последовательного соединения дифференцирующей и интегрирующей цепей. Построим интерполяционный полином Лагранжа по 3-м точкам (2-й степени), наиболее близким к теоретической $f_0$ = 2122.065 Гц: 1024, 2048 и 4096 Гц.
+\subsubsection{Для дифференцирующей RC-цепи}
+
+Для дифференцирующей RC-цепи интерполирующий полином имеет вид:
+
+\begin{equation}
+Q_2(x) = (-9.474 \cdot 10^{-7})x^2 + (6.81 \cdot 10^{-3})x -13.393  
+\end{equation}
+
+Искомая частота равна f, такому, что $Q_2(f) = -3$:
+
+\begin{equation}
+(-9.474 \cdot 10^{-7})f^2 + (6.81 \cdot 10^{-3})f -13.393 = -3
+\end{equation}
+
+\begin{equation}
+f = 2197.92 (\text{Гц})
+\end{equation}
+
+Рассчитаем погрешность для полученного значения f:
+
+\begin{equation}
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2197.92|}{2122.065} = 3.57 \% 
+\end{equation}
+
+Имеем:\\
+$\delta f = 3.57 \% < \delta f_0 = 14.1\%$
+
+\subsubsection{Для интегрирующей RC-цепи}
+Для интергрирующей RC-цепи аналогичный интерполяционный полином представим в виде:
+
+\begin{equation}
+Q_2(x) = (1.303 \cdot 10^{-8})x^2 - (2.013 \cdot 10^{-3})x + 0.744
+\end{equation}
+
+Искомая частота равна f, такому, что $Q_2(f) = -3$:
+
+\begin{equation}
+(1.303 \cdot 10^{-8})f^2 - (2.013 \cdot 10^{-3})f + 0.744 = -3
+\end{equation}
+
+\begin{equation}
+f = 1882.39 (\text{Гц})
+\end{equation}
+
+Рассчитаем погрешность для полученного значения f:
+
+\begin{equation}
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 1882.39|}{2122.065} = 11.3 \% 
+\end{equation}
+
+Имеем:\\
+$\delta f = 11.3 \% < \delta f_0 = 14.1\%$
+
+\subsubsection{Дифференцирующе-интегрирующая цепь}
+Интерполяционный полином дифференцирующе-интегрирующей RC-цепи имеет вид:
+\begin{equation}
+L_u(f) = (-4.242 \cdot 10^{-7})f^2 + (2.186 \cdot 10^{-3})f -12.667
+\end{equation}
+Значение частоты перегиба - это то значение x, при котором 1-ая производная полинома обращается в 0:
+
+\begin{equation}
+\frac{d}{dx} (Q_2(x))_{x=f} = 2 \cdot (-4.242 \cdot 10^{-7})f + (2.186 \cdot 10^{-3}) = 0
+\end{equation}
+
+\begin{equation}
+f = 2576.62 (\text{Гц})
+\end{equation}
+
+\begin{equation}
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2576.62|}{2122.065} \simeq 20 \% 
+\end{equation}
+
+Имеем:\\
+$\delta f = 11.3 \% = \delta f_0 = 20\%$
+  
+\section{Выводы}
+ввсвс
 \end{document}
