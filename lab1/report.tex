@@ -30,17 +30,20 @@
 
 
 \section{Исходные данные}
-Исходные значения были подобраны следующим образом:
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline 
-$R$ & 15 кОм \\ 
-\hline 
-$C$ & 5 нФ \\ 
-\hline 
-\end{tabular}  
-\end{center}
+Исходные значения были подобраны как в таблице \ref{tabular:11}:
 
+\begin{table}[H]
+	\begin{center}
+	\caption{Исходные данные}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|}
+			\hline
+			$R$, кОм & $C$, нФ\\\hline
+		     15 & 5\\\hline	
+		\end{tabularx}
+		\label{tabular:11}
+	\end{center}
+\end{table}
 
 \section{Теоретические зависимости}
 Частота перегиба расчитывается следующим образом:
@@ -52,37 +55,48 @@ $C$ & 5 нФ \\
 f_0 = \frac{\omega_0}{2 \pi} = \frac{1.34}{2\cdot1.341} \simeq 2122.065 (\text{Гц})
 \end{equation}
 
-Теоретическая ЛАЧХ для дифференцирующей RC-цепи строится по
-формуле
+Теоретическая ЛАЧХ для дифференцирующей RC-цепи имеет вид:
 \begin{equation}
 L_u(\omega) = 20lg \omega RC - 10lg(1+(\omega RC)^2),
 \end{equation}
-для построения ЛАЧХ интегрирующей RC-цепи используется выражение
+
+Теоретическая ЛАЧХ для интегрирующей RC-цепи имеет вид:
 \begin{equation}
 L_u(\omega) = -10lg(1+(\omega RC)^2),
 \end{equation}
-а ЛАЧХ соеденных последовательно дифференцирующей и интегриущей цепей рассчитывается по формуле
+
+Теоретическая ЛАЧХ для дифференцирующей и интегрирующей RC-цепи имеет вид:
 \begin{equation}
 L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 \end{equation}
 
-\begin{center}
-\begin{table}[h]
-\caption{Значения для построения теоретических ЛАЧХ}
-\pgfplotstabletypeset[col sep=comma,
-    columns={f,w,L1,L2,L3},
-    column type/.add={|c|}{},
-    columns/f/.style={fixed, column name={$f,$ Гц}},
-    columns/w/.style={fixed, precision=3, column name={$\omega = 2 \pi f$ }},
-    columns/L1/.style={fixed, precision=3, column name={$L_{\text{дифф.}}$, дБ}},
-    columns/L2/.style={fixed, precision=3, column name={$L_{\text{инт.}}$, дБ}},
-    columns/L3/.style={fixed, precision=3, column name={$L_{\text{дифф-инт.}}$, дБ}},
-    every nth row={1}{before row=\hline},
-    every head row/.style = {before row=\hline, after row=\hline},
-    every last row/.style = {after row=\hline}
-   ]{adata.csv}
+При помощи 4.3 - 4.5 была сформирована таблица 4.1:
+\begin{table}[H]
+	\begin{center}
+	\caption{Значения для построения теоретических ЛАЧХ}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+			\hline
+			$f$, Гц & $\omega = 2 \pi f$ & $L_u^1$, дБ & $L_u^2$, дБ & $L_u^3$, дБ\\\hline	
+			32 & 201.062 & -36.433 & -0.001 & -36.439\\\hline
+			64 & 402.124 & -30.416 & -0.004 & -30.439\\\hline
+			128 & 804.248 & -24.407 & -0.016 & -24.500\\\hline
+			256 & 1608.495 & -18.433 & -0.063 & -18.793\\\hline
+			512 & 3216.991 & -12.596 & -0.246 & -13.845\\\hline
+			1024 & 6433.982 & -7.238 & -0.909 & -10.617\\\hline
+			2048 & 12867.964 & -3.167 & -2.859 & -9.545\\\hline
+			4096 & 25735.927 & -1.033 & -6.745 & -10.412\\\hline
+			8192 & 51471.854 & -0.282 & -12.015 & -13.418\\\hline
+			16384 & 102943.708 & -0.072 & -17.825 & -18.237\\\hline
+			32768 & 205887.416 & -0.018 & -23.792 & -23.900\\\hline
+			65536 & 411774.832 & -0.005 & -29.799 & -29.826\\\hline
+			131072 & 823549.665 & -0.001 & -35.816 & -35.823\\\hline
+			200000 & 1256637.061 & 0.000 & -39.486 & -39.489\\\hline
+
+		\end{tabularx}
+		\label{tt:11}
+	\end{center}
 \end{table}
-\end{center}
 
 \section{Экспериментально снятые зависимости}
 
@@ -92,7 +106,7 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 
 \begin{table}[H]
 	\begin{center}
-	\caption{Коэффициент передачи дифференциующей RC-цепи.}
+	\caption{ЛАЧХ дифференциующей RC-цепи}
 	\def\arraystretch{1.5}
 		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
 			\hline
@@ -118,7 +132,7 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 
 \begin{table}[H]
 	\begin{center}
-	\caption{Коэффициент передачи интегрирующей RC-цепи.}
+	\caption{ЛАЧХ интегрирующей RC-цепи}
 	\def\arraystretch{1.5}
 		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
 			\hline
@@ -144,8 +158,7 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 
 \begin{table}[H]
 	\begin{center}
-	\caption{Коэффициент передачи дифференциующей и интегри-
-рующей RC-цепей, соединенных последовательно.}
+	\caption{ЛАЧХ дифференцирующе-интегрирующей RC-цепи}
 	\def\arraystretch{1.5}
 		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
 			\hline
@@ -194,8 +207,7 @@ RC-цепи}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=13cm]{3}
-		\caption{Теоретическая и экспериментальная ЛАЧХ соединенных
-последовательно интегрирующей и дифференцирующей RC-цепей} 
+		\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей и интегрирующей RC-цепи} 
 		\label{t:e3} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
@@ -203,9 +215,10 @@ RC-цепи}
 \section{Погрешности}
 
 \subsection{Предельно допустимые погрешности}
-
+\begin{center}
 $\delta R = 0.1$\\
 $\delta C = 0.1$\\
+\end{center}
 
 \subsubsection{Дифференцирующей и интегрирующей цепей}
 
@@ -298,8 +311,8 @@ f = 2576.62 (\text{Гц})
 \end{equation}
 
 Имеем:\\
-$\delta f = 11.3 \% = \delta f_0 = 20\%$
+$\delta f \simeq 20 \% = \delta f_0 = 20\%$
   
 \section{Выводы}
-ввсвс
+Вычисленные значения частоты перегиба для дифференцирующей, интегрирующей и дифференцирующе-интегрирующей RC-цепей имеют относительную погрешность, которая не превосходит допустимую. Поэтому можно считать, что используемый в лабороторной работе метод определения ЛАЧХ является достаточно точным.
 \end{document}
