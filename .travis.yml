@@ -1,0 +1,24 @@
+language: generic
+
+sudo: required
+
+dist: trusty
+
+services:
+  - docker
+  
+install:
+  - docker pull lamtev/latex
+
+script:
+  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/lab1 && pdflatex report.tex && pdflatex report.tex "
+  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/lab1/report.pdf
+  
+deploy:
+  provider: releases
+  api_key: "$GITHUB_DEPLOY_TOKEN"
+  file: 
+    - ${TRAVIS_BUILD_DIR}/lab1/report.pdf
+  skip_cleanup: true
+  on:
+    tags: true
