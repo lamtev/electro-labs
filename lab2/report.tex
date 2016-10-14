@@ -6,14 +6,56 @@
 
 
 \section{Цель работы}
-Исследовать частотные свойства простейших пассивных RC­-цепей и познакомиться с правилами построения частотных характеристик.
-
+Исследовать процессы, происхожящие в дифференцирующей и интегрирующей RC-цепях при подаче на вход однополярного прямоугольного импульса.
 
 \section{Чертеж схемы исследуемого устройства}
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.35\textwidth}
+\includegraphics[scale=0.27]{diff.png}
+\caption{Дифференцирующая\\ цепь}\label{figure:2.1:a}
+\end{subfigure}
+\begin{subfigure}[b]{0.35\textwidth}
+\includegraphics[scale=0.27]{int.png}
+\caption{Интегрирующая\\ цепь}\label{figure:2.1:b}
+\end{subfigure}
+\end{figure}
+
+На рисунке \ref{figure:2.1:a} изображена дифференцирующая RC-цепь, на \ref{figure:2.1:b} - интегрирующая RC-цепь.
 
 
 \section{Исходные данные}
 
+Исходные значения были выбраны как в таблице \ref{tabular:11}:
+
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Исходные данные}
+	\def\arraystretch{1.5}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline 
+			№ & Тип цепи & $U_\text{имп}$, B & R, кОм & С, нФ & $t_\text{имп}$, $\mu c$ & Q\\ 
+			\hline 
+			1 & Дифф & 10 & 10 & 0.1 & 10 & 10\\ 
+			\hline 
+			2 & Дифф & 10 & 10 & 1 & 10 & 10\\ 
+			\hline 
+			3 & Дифф & 10 & 10 & 10 & 10 & 10\\ 
+			\hline 
+			4 & Инт & 10 & 10 & 0.1 & 10 & 10\\ 
+			\hline 
+			5 & Инт & 10 & 10 & 1 & 10 & 10\\ 
+			\hline 
+			6 & Инт & 10 & 10 & 10 & 10 & 10\\
+			\hline 
+			7 & Инт & 10 & 10 & 10 & 10 & 5\\ 
+			\hline 
+			8 & Инт & 10 & 10 & 10 & 10 & 3\\ 
+			\hline
+		\end{tabular} 
+	\end{center}
+\end{table}
 
 \section{Теоретические зависимости}
 
@@ -31,4 +73,5 @@ $\delta C = 0.1 = 10\%$\\
   
 \section{Выводы}
 Все классно
+
 \end{document}
