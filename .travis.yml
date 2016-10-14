@@ -10,15 +10,20 @@ services:
 install:
   - docker pull lamtev/latex
 
+matrix:
+  include:
+    - env: LAB="lab1"
+    - env: LAB="lab2"
+
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/lab1 && pdflatex report.tex && pdflatex report.tex "
-  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/lab1/report.pdf
+  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/${LAB} && pdflatex report.tex && pdflatex report.tex "
+  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/${LAB}/report.pdf
   
 deploy:
   provider: releases
   api_key: "$GITHUB_DEPLOY_TOKEN"
   file: 
-    - ${TRAVIS_BUILD_DIR}/lab1/report.pdf
+    - ${TRAVIS_BUILD_DIR}/${LAB}/report.pdf
   skip_cleanup: true
   on:
     tags: true
