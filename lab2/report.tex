@@ -130,7 +130,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 
 \item[] б) $t = t_\text{имп}$\\
 	\begin{equation}
-		U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-5}}} = 3.68 (\text{мВ})
+		U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-5}}} = 3.68 (\text{В})
 	\end{equation}
 	
 \item[] в) $t >> t_\text{имп}$\\
@@ -143,13 +143,30 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 \end{itemize}
 
 \item C = 10 нФ\\
+\begin{equation}
+		\tau = R \cdot C = 10 \cdot 10^3 \cdot 10 \cdot 10^{-9} = 10^{-4}
+\end{equation}
 \begin{itemize}
-\item[] а) $t < t_\text{имп}$\\
+\item[] а) $t << t_\text{имп}$\\
+	\begin{equation}
+		U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 10 \cdot e^{-\frac{t}{10^{-4}}}
+	\end{equation}
+	\begin{equation}
+		U_R(\frac{t_\text{имп}}{10}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-6}}{10^{-4}}} = 9.9 (\text{В})
+	\end{equation}
 
 \item[] б) $t = t_\text{имп}$\\
-
-\item[] в) $t > t_\text{имп}$\\
-
+	\begin{equation}
+		U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} = 9.04 (\text{В})
+	\end{equation}
+	
+\item[] в) $t >> t_\text{имп}$\\
+	\begin{equation}
+		U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-4}}} = -10 \cdot e^{-\frac{t}{10^{-4}}}
+	\end{equation}
+	\begin{equation}
+		U_R(10 \cdot t_\text{имп}) = -10 \cdot e^{-\frac{t}{\tau}} = -10 \cdot e^{-\frac{10^{-4}}{10^{-4}}} = -3.68 (\text{В})
+	\end{equation}
 \end{itemize}
 \end{itemize}
 
@@ -165,7 +182,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=14cm]{img/diff}
+		\includegraphics[width=14cm]{img/diff_with_theory}
 		\caption{Эксперементальная диаграмма входного и выходного импульса для дифференцирующей цепи при $R = 10$ кОм и: б) $C = 0.1$ нФ; в) $C = 1$ нФ; г) $C = 10$ нФ.} 
 		\label{t:1} % название для ссылок внутри кода
 	\end{center}
