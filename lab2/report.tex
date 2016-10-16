@@ -26,7 +26,7 @@
 
 \section{Исходные данные}
 
-Исходные значения были выбраны как в таблице \ref{tabular:11}:
+Исходные значения были выбраны как в таблице \ref{tab:3:1}:
 
 
 \begin{table}[H]
@@ -53,11 +53,84 @@
 			\hline 
 			8 & Инт & 10 & 10 & 10 & 10 & 3\\ 
 			\hline
-		\end{tabular} 
+		\end{tabular}
+		\label{tab:3:1}
 	\end{center}
 \end{table}
 
 \section{Теоретические зависимости}
+
+Рассчитаем теоретические занчения $U_R(t)$ и $U_C(T)$ для дифференцирующей и интегрирующей RC-цепей
+
+\subsection{Расчетные формулы}
+
+\begin{itemize}
+
+\item Входное напряжение\\
+\begin{equation}
+U_\text{вх} = \{(0 \text{при} t < 0); (U_\text{имп} \text{при} 0 \leq t \leq t_\text{имп}); (0 \text{при} t \geq t_\text{имп})\}
+\end{equation}
+
+\item Выходное напряжение\\
+\begin{enumerate}
+\item Дифференцирующая цепь\\
+\begin{equation}
+U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}}
+\end{equation}
+
+\item Интегрирующая цепь\\
+\begin{equation}
+U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
+\end{equation}
+
+\end{enumerate}
+\end{itemize}
+
+\subsection{Расчеты для дифференцирующей RC-цепи}
+\begin{itemize}
+\item C = 0.1 нФ\\
+\begin{equation}
+		\tau = R \cdot C = 10 \cdot 10^3 \cdot 0.1 \cdot 10^{-9} = 10^{-6}
+	\end{equation}
+\begin{itemize}
+\item[] а) $t < t_\text{имп}$\\
+	\begin{equation}
+		U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-6}}} = 10 \cdot e^{-\frac{t}{10^{-6}}}
+	\end{equation}
+	\begin{equation}
+		U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^-5}{10^{-6}}} = 454 (\text{мВ})
+	\end{equation}
+	
+\item[] б) $t > t_\text{имп}$\\
+	\begin{equation}
+		U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-6}}} = -10 \cdot e^{-\frac{t}{10^{-6}}}
+	\end{equation}
+	\begin{equation}
+		U_R(0) = -10 \cdot e^{-\frac{t}{\tau}} = -10 \cdot e^{-\frac{0}{10^{-6}}} = -10 (\text{В})
+	\end{equation}
+	\begin{equation}
+		U_R(t_\text{имп}) = -10 \cdot e^{-\frac{t}{\tau}} = -10 \cdot e^{-\frac{0}{10^{-6}}} = -10 (\text{В})
+	\end{equation}
+\end{itemize}
+
+\item C = 1 нФ\\
+\begin{itemize}
+\item[] а) $t < t_\text{имп}$\\
+
+\item[] б) $t > t_\text{имп}$\\
+
+\end{itemize}
+
+\item C = 10 нФ\\
+\begin{itemize}
+\item[] а) $t < t_\text{имп}$\\
+
+\item[] б) $t > t_\text{имп}$\\
+
+\end{itemize}
+\end{itemize}
+
+\subsection{Расчеты для интегрирующей RC-цепи}
 
 \section{Экспериментально снятые зависимости}
 
