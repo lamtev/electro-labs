@@ -13,15 +13,15 @@
 \begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.34\textwidth}
-\includegraphics[scale=0.4]{a_scheme.png}
+\includegraphics[scale=0.4]{img/a_scheme.png}
 \caption{Дифференцирующая\\ цепь}\label{figure:2.1:a}
 \end{subfigure}
 \begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[scale=0.4]{b_scheme.png}
+\includegraphics[scale=0.4]{img/b_scheme.png}
 \caption{Интегрирующая\\ цепь}\label{figure:2.1:b}
 \end{subfigure}
 \begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[scale=0.4]{v_scheme.png}
+\includegraphics[scale=0.4]{img/v_scheme.png}
 \caption{Дифференцирующая и интегрирующая цепь}\label{figure:2.1:c}
 \end{subfigure}
 \caption{}\label{figure:2.1}
@@ -183,11 +183,13 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 \end{table}
 
 На рисунках \ref{t:e1}, \ref{t:e2} и \ref{t:e3} приведены теоритические ЛАЧХ, экспериментальные ЛАЧХ и аппроксимирующие прямые для всех цепей.
-%рисунки
 
+%рисунки
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{-50pt} % чтобы влезло
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=13cm]{1}
+		\includegraphics[width=15cm]{img/1}
 		\caption{Теоретическая и экспериментальная ЛАЧХ дифференциру-
 ющей RC-цепи
 } 
@@ -197,16 +199,17 @@ L_u(\omega) = 20lg \omega RC - 10lg(1+7(\omega RC)^2 + (\omega RC)^4).
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=13cm]{2}
+		\includegraphics[width=15cm]{img/2}
 		\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей
 RC-цепи} 
 		\label{t:e2} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
 
+\setlength{\belowcaptionskip}{0pt} % back to normal
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=13cm]{3}
+		\includegraphics[width=14cm]{img/3}
 		\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей и интегрирующей RC-цепи} 
 		\label{t:e3} % название для ссылок внутри кода
 	\end{center}
