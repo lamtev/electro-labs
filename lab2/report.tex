@@ -214,12 +214,51 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 
 \section{Погрешности}
 
-\subsection{Предельно допустимые погрешности}
-\begin{center}
-$\delta R = 0.1 = 10\%$\\
-$\delta C = 0.1 = 10\%$\\
-\end{center}
+Рассчитаем отклнонение эксперементально полученных данных от теоретических по формуле:
 
+\begin{equation}
+		\epsilon = |\frac{U\text{теор}-U\text{эксп}}{U\text{теор}}|
+\end{equation}
+
+\subsection{Дифференцирующая цепь}
+\subsubsection{C = 0.1 нФ}
+\begin{itemize}
+\item[] а) $t = 0$: $\epsilon = |\frac{3.68 - 4.4}{ 3.68 }| * 100\% = 19 \%$
+
+\item[] б) $t = t_\text{имп} - 0$: $\epsilon = |\frac{454 * 10^{-6} - 0}{ 454 * 10^{-6} }| * 100\% = 100 \%$
+
+\item[] в) $t = t_\text{имп} + 0$: $\epsilon = |\frac{-3.28 - (-3.6)}{ -3.28 }| * 100\% = 10 \%$ 
+\end{itemize}
+
+\subsubsection{C = 1 нФ}
+\begin{itemize}
+\item[] а) $t = 0$: $\epsilon = |\frac{9.05 - 9.4}{ 9.05 }| * 100\% = 4 \%$
+
+\item[] б) $t = t_\text{имп} - 0$: $\epsilon = |\frac{3.68 - 3.5}{ 3.68 }| * 100\% = 5 \%$
+
+\item[] в) $t = t_\text{имп} + 0$: $\epsilon = |\frac{-5.37 - (-5)}{ -5.37 }| * 100\% = 7 \%$
+\end{itemize}
+
+\subsubsection{C = 10 нФ}
+\begin{itemize}
+\item[] а) $t = 0$: $\epsilon = \frac{| 9.05 - 9.4 |}{ 9.05 } * 100\% = 4 \%$
+
+\item[] б) $t = t_\text{имп} - 0$: $\epsilon = \frac{| 3.68 - 3.5 |}{ 3.68 } * 100\% = 5 \%$
+
+\item[] в) $t = t_\text{имп} + 0$: $\epsilon = \frac{| -0.86 - (-1.1) |}{ -0.86 } * 100\% = 27 \%$
+\end{itemize}
+
+%\subsection{Интегрируюшая цепь}
+%\begin{itemize}
+%\item[] а) $t = 0$\\
+%$\epsilon = \frac{| X - 9.4 |}{ X } * 100\% = 4 \%$
+
+%\item[] б) $t = t_\text{имп} - 0$\\
+%$\epsilon = \frac{| X - 3.5 |}{ X } * 100\% = 5 \%$
+
+%\item[] в) $t = t_\text{имп} - 0$\\
+%$\epsilon = \frac{| X - (-1.1) |}{ X } * 100\% = 27 \%$
+%\end{itemize}
   
 \section{Выводы}
 Все классно
