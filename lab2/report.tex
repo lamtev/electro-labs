@@ -91,29 +91,21 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 \item C = 0.1 нФ\\
 
 		$\tau = R \cdot C = 10 \cdot 10^3 \cdot 0.1 \cdot 10^{-9} = 10^{-6}$ (c)\\
-		$t_\text{имп} = 10^{-5}$ (c)\\
-
-\begin{itemize}
-\item[] а) $t << t_\text{имп}$\\
-
-		$U_C(0)	= 0$\\
-		$U_C(\infty) = U_\text{имп}$\\
+		$t_\text{имп} = 10^{-5}$ (c)
 		
+\begin{itemize}
+\item[] а) $t \ll t_\text{имп}$\\
+		$U_C(0)	= 0, U_C(\infty) = U_\text{имп}$\\
 		$U_R(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-6}}} = 10 \cdot e^{-\frac{t}{10^{-6}}}$\\
-
-
 		$U_R(\frac{t_\text{имп}}{10}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-6}}{10^{-6}}} = 3.68 (\text{В})$\\
 
 \item[] б) $t = t_\text{имп}$\\
 		$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} = 0 (\text{В})$\\
 	
-\item[] в) $t >> t_\text{имп}$\\
+\item[] в) $t \gg t_\text{имп}$\\
 		
-		$U_C(0)	= U_\text{имп}$\\
-		$U_C(\infty) = 0$\\		
-		
+		$U_C(0)	= U_\text{имп}$, $U_C(\infty) = 0$\\		
 		$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-6}}} = -10 \cdot e^{-\frac{t}{10^{-6}}}$\\
-
 		$U_R(10 \cdot t_\text{имп}) = -10 \cdot e^{-\frac{t}{\tau}} = -10 \cdot e^{-\frac{10^{-4}}{10^{-6}}} = 0 (\text{В})$\\
 
 \end{itemize}
@@ -121,16 +113,13 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 \item C = 1 нФ\\
 
 		$\tau = R \cdot C = 10 \cdot 10^3 \cdot 10^{-9} = 10^{-5}$ (c)\\
-		$t_\text{имп} = 10^{-5}$ (c)\\
+		$t_\text{имп} = 10^{-5}$ (c)
 
 \begin{itemize}
-\item[] а) $t << t_\text{имп}$\\
+\item[] а) $t \ll t_\text{имп}$\\
 
-		$U_C(0)	= 0$\\
-		$U_C(\infty) = U_\text{имп}$\\
-		
+		$U_C(0)	= 0$, $U_C(\infty) = U_\text{имп}$\\
 		$U_R(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-5}}} = 10 \cdot e^{-\frac{t}{10^{-5}}}$\\
-
 		$U_R(\frac{t_\text{имп}}{10}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-6}}{10^{-5}}} = 9.05 (\text{В})$\\
 
 \item[] б) $t = t_\text{имп}$\\
@@ -138,13 +127,10 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 		$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-5}}} = 3.68 (\text{В})$\\
 
 	
-\item[] в) $t >> t_\text{имп}$\\
+\item[] в) $t \gg t_\text{имп}$\\
 
-		$U_C(0)	= U_\text{имп} - U_R(t)$\\
-		$U_C(\infty) = 0$\\
-
+		$U_C(0)	= U_\text{имп} - U_R(t)$, $U_C(\infty) = 0$\\
 		$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 3.68)] \cdot e^{-\frac{t}{10^{-5}}} = -6.32 \cdot e^{-\frac{t}{10^{-5}}}$\\
-
 		$U_R(10 \cdot t_\text{имп}) = -6.32 \cdot e^{-\frac{t}{\tau}} = -6.32 \cdot e^{-\frac{10^{-4}}{10^{-5}}} = 0 (\text{В})$\\
 
 \end{itemize}
@@ -152,29 +138,23 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 \item C = 10 нФ\\
 
 		$\tau = R \cdot C = 10 \cdot 10^3 \cdot 10 \cdot 10^{-9} = 10^{-4}$ (c)\\
-		$t_\text{имп} = 10^{-5}$ (c)\\
+		$t_\text{имп} = 10^{-5}$ (c)
 
 \begin{itemize}
-\item[] а) $t << t_\text{имп}$\\
+\item[] а) $t \ll t_\text{имп}$\\
 
-		$U_C(0)	= U_\text{имп}$\\
-		$U_C(\infty) = 0$\\		
-		
+		$U_C(0)	= U_\text{имп}$, $U_C(\infty) = 0$\\		
 		$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 10 \cdot e^{-\frac{t}{10^{-4}}}$\\
-
 		$U_R(\frac{t_\text{имп}}{10}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-6}}{10^{-4}}} = 9.9 (\text{В})$\\
 
 \item[] б) $t = t_\text{имп}$\\
 
 		$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} = 9.04 (\text{В})$\\
 	
-\item[] в) $t >> t_\text{имп}$\\
+\item[] в) $t \gg t_\text{имп}$\\
 
-		$U_C(0)	= U_\text{имп} - U_R(t)$\\
-		$U_C(\infty) = 0$\\
-
+		$U_C(0)	= U_\text{имп} - U_R(t)$, $U_C(\infty) = 0$\\
 		$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 9.04)] \cdot e^{-\frac{t}{10^{-4}}} = -0.96 \cdot e^{-\frac{t}{10^{-4}}}$\\
-
 		$U_R(10 \cdot t_\text{имп}) = -0.96 \cdot e^{-\frac{t}{\tau}} = -0.96 \cdot e^{-\frac{10^{-4}}{10^{-4}}} = -2.61 (\text{В})$\\
 
 \end{itemize}
@@ -216,7 +196,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 
 \section{Погрешности}
 
-Рассчитаем отклнонение эксперементально полученных данных от теоретических по формуле:
+Рассчитаем отклонение эксперементально полученных данных от теоретических по формуле:
 
 \begin{equation}
 		\epsilon = |\frac{U\text{теор}-U\text{эксп}}{U\text{теор}}|
@@ -227,7 +207,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 \begin{itemize}
 \item[] а) $t = 0$: $\epsilon = |\frac{3.68 - 4.4}{ 3.68 }| * 100\% = 19 \%$
 
-\item[] б) $t = t_\text{имп} - 0$: $\epsilon = |\frac{454 * 10^{-6} - 0}{ 454 * 10^{-6} }| * 100\% = 100 \%$
+\item[] б) $t = t_\text{имп} - 0$: $\epsilon = |\frac{0 - 0}{ 0 }| * 100\% = 0 \%$
 
 \item[] в) $t = t_\text{имп} + 0$: $\epsilon = |\frac{-3.28 - (-3.6)}{ -3.28 }| * 100\% = 10 \%$ 
 \end{itemize}
