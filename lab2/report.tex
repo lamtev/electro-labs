@@ -107,7 +107,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 		$U_C(0)	= U_\text{имп},\ \ U_C(\infty) = 0$\\		
 		$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-6}}} = -10 \cdot e^{-\frac{t}{10^{-6}}}$\\
 		$U_R(0) = -10 \cdot e^{-\frac{0}{10^{-6}}} = -10 \cdot e^0 = -10$\\
-		берем $t$ такое, что $t >> \tau$, т.е $t = 10 \cdot \tau$ \\
+		Берем $t$ такое, что $t \gg \tau$, т.е $t = 10 \cdot \tau$ \\
 		$U_R(10 \cdot \tau) = -10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} = -10 \cdot e^{-10} = 0$ (В)\\
 		
 \end{itemize}
@@ -131,7 +131,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 		$U_C(0)	= U_\text{имп} - U_R(t),\ \ U_C(\infty) = 0$\\
 		$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 3.68)] \cdot e^{-\frac{t}{10^{-5}}} = -6.32 \cdot e^{-\frac{t}{10^{-5}}}$\\
 		$U_R(0) = -6.32 \cdot e^{-\frac{0}{10^{-5}}} = -6.32 \cdot e^0 = -6.32$ (В)\\
-		берем $t$ такое, что $t >> \tau$, т.е $t = 10 \cdot \tau$ \\
+		Берем $t$ такое, что $t \gg \tau$, т.е $t = 10 \cdot \tau$ \\
 		$U_R(10 \cdot \tau)	= -6.32 \cdot e^{-\frac{10^{-4}}{10^{-5}}} = -6.32 \cdot e^{-10} = 0$ (В)\\
 		
 \end{itemize}
@@ -155,7 +155,7 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 		$U_C(0)	= U_\text{имп} - U_R(t),\ \ U_C(\infty) = 0$\\
 		$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 9.04)] \cdot e^{-\frac{t}{10^{-4}}} = -0.96 \cdot e^{-\frac{t}{10^{-4}}}$\\
 		$U_R(t) = -0.96 \cdot e^{-\frac{0}{10^{-4}}} = -0.96 \cdot e^0 = -0.96$ (В)\\
-		берем $t$ такое, что $t \gg \tau$, т.е $t = 10 \cdot \tau$ \\
+		Берем $t$ такое, что $t \gg \tau$, т.е $t = 10 \cdot \tau$ \\
 		$U_R(t) = -0.96 \cdot e^{-\frac{10^{-3}}{10^{-4}}} = -0.96 \cdot e^{-10} = 0$ (В)\\
 		
 \end{itemize}
@@ -169,21 +169,20 @@ U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 		$t_\text{имп} = 10^{-5}$ (c)
 		
 \begin{itemize}
-\item[] а) $t \ll t_\text{имп}$
+\item[] а) этап заряда конденсатора
 
-		$U_C(0)	= 0,\ \ U_C(\infty) = U_\text{имп}$\\
-		$U_R(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-6}}} = 10 \cdot e^{-\frac{t}{10^{-6}}}$\\
-		$U_R(\frac{t_\text{имп}}{10}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-6}}{10^{-6}}} = 3.68 (\text{В})$\\
+		$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\
+		$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} =  -10 \cdot e^{-\frac{t}{10^{-6}}} + 10$\\
+		$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-6}}} + 10 = -10 \cdot e^0 + 10 = 0$ (В)\\
+		$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} + 10 = -10 \cdot e^{-10} + 10 = 10$ (В)\\
 
-\item[] б) $t = t_\text{имп}$
-
-		$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{t}{\tau}} = 10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} = 0 (\text{В})$\\
-	
-\item[] в) $t \gg t_\text{имп}$
+\item[] б) этап разряда конденсатора
 		
-		$U_C(0)	= U_\text{имп},\ \ U_C(\infty) = 0$\\		
-		$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-6}}} = -10 \cdot e^{-\frac{t}{10^{-6}}}$\\
-		$U_R(10 \cdot t_\text{имп}) = -10 \cdot e^{-\frac{t}{\tau}} = -10 \cdot e^{-\frac{10^{-4}}{10^{-6}}} = 0 (\text{В})$\\
+		$\frac{\tau}{t_\text{имп}} = \frac{10^{-6}}{10^{-5}} = 0.1 < 0.33 \Rightarrow U_C(0) = U_\text{имп},\ \ U_C(\infty) = 0$\\
+		$U_C(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} + 0 = 10 \cdot e^{-\frac{t}{10^{-6}}}$\\
+		$U_C(0) = 10 \cdot e^{-\frac{0}{10^{-6}}} = 10 \cdot e^0 = 10$ (В)\\
+		Берем $t$ такое, что $t \gg \tau$, т.е $t = 10 \cdot \tau$ \\
+		$U_C(10 \cdot \tau) = 10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} = 10 \cdot e^{-10} = 0$ (В)\\
 \end{itemize}
 
 \subsubsection{C = 1 нФ}
