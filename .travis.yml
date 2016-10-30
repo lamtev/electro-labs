@@ -14,6 +14,7 @@ matrix:
   include:
     - env: LAB="lab1"
     - env: LAB="lab2"
+    - env: LAB="lab3"
 
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/${LAB} && pdflatex ${LAB}.tex && pdflatex ${LAB}.tex "
