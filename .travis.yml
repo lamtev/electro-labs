@@ -16,14 +16,14 @@ matrix:
     - env: LAB="lab2"
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/${LAB} && pdflatex report.tex && pdflatex report.tex "
-  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/${LAB}/report.pdf
+  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/${LAB} && pdflatex ${LAB}.tex && pdflatex ${LAB}.tex "
+  - sudo chmod 777 ${TRAVIS_BUILD_DIR}/${LAB}/${LAB}.pdf
   
 deploy:
   provider: releases
   api_key: "$GITHUB_DEPLOY_TOKEN"
   file: 
-    - ${TRAVIS_BUILD_DIR}/${LAB}/report.pdf
+    - ${TRAVIS_BUILD_DIR}/${LAB}/${LAB}.tex
   skip_cleanup: true
   on:
     tags: true
