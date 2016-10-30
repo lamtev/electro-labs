@@ -10,32 +10,50 @@
 Рассчитать и исследовать экспериментально различных схем выпрямителей на полупроводниковых диодах и сглаживающих фильтрах.
 
 \section{Чертеж схемы исследуемого устройства}
-
 \begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.35\textwidth}
-\includegraphics[scale=0.85]{diod.png}
+\includegraphics[scale=0.85]{img/diod.png}
 \caption{Однополупериодный \\выпрямитель}\label{figure:2.1:a}
 \end{subfigure}
 \begin{subfigure}[b]{0.35\textwidth}
-\includegraphics[scale=0.5]{4diods.png}
+\includegraphics[scale=0.5]{img/4diods.png}
 \caption{Двухполупериодный \\мостовой выпрямитель}\label{figure:2.1:b}
 \end{subfigure}
 \end{figure}
 
+На рисунке \ref{figure:2.1:a} изображены однополупериодный выпрямитель, на \ref{figure:2.1:b} - двухполупериодный мостовой выпрямитель.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=8cm]{img/vah}
+		\caption{}
+		\label{figure:2.2} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
+
+На рисунке \ref{figure:2.2} изображена цепь для снятия вольт-амперной характеристики выпрямительного диода.
+
 \section{Исходные данные}
 
-$I_\text{н} = 120$ мА
+Подобранные исходные значения приведены в таблице \ref{tabular:11}.
 
-$R_\text{изм} = 15$ Ом
-
-$R_\text{н} = 470$ Ом
-
-$C_\text{ф} = 1500$ мкФ
+\begin{table}[H]
+	\begin{center}
+	\caption{Исходные данные}
+	\def\arraystretch{1.5}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			$I_\text{н}$, мА & $R_\text{изм}$, Ом & $R_\text{н}$, Ом & $C_\text{ф}$, мкФ \\ \hline
+		    120 & 15 & 470 & 1500 \\\hline	
+		\end{tabularx}
+		\label{tabular:11}
+	\end{center}
+\end{table}
 
 \section{Теоретические зависимости}
 
-
+ХЗ
 
 \section{Экспериментально снятые зависимости}
 
@@ -44,10 +62,10 @@ $C_\text{ф} = 1500$ мкФ
 \begin{table}[H]
 	\begin{center}
 	\caption{ВАХ полупроводникового диода}
-	\def\arraystretch{1.2}
+	\def\arraystretch{1.5}
 		\begin{tabular}{|c|c|c|c|c|}
 		\hline 
-		$U_1$, В & $U_2$, В & $U_\text{диода} = U_1 - U_2$, В & $U_\text{изм}$, В & $I_\text{диода}$, мА \\ 
+		\ \ $U_1$, В\ \  & \ \ $U_2$, В\ \  & $\Delta U = U_1 - U_2$, В & \ \ $U_\text{изм}$, В\ \  & \ \ \ $I_\text{д}$, мА\ \ \ \\ 
 		\hline 
 		5.23 & 4.75 & 0.48 & 0.14 & 9.3 \\ 
 		\hline 
@@ -67,7 +85,7 @@ $C_\text{ф} = 1500$ мкФ
 		\hline 
 		5.14 & 4.46 & 0.68 & 2.58 & 169.3 \\ 
 		\hline 
-		5.14 & 4.44 & 0.7 & 2.81 & 189.3 \\ 
+		5.14 & 4.44 & 0.70 & 2.81 & 189.3 \\ 
 		\hline 
 		5.12 & 4.41 & 0.68 & 2.98 & 209.3 \\ 
 		\hline 
@@ -84,53 +102,99 @@ $C_\text{ф} = 1500$ мкФ
 	\end{center}
 \end{table}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/1}
+		\caption{Эксперементальная ВАХ используемого полупроводникового диода}
+		\label{g:1} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
+
 \subsection{Однополупроводникового выпрямитель}
 
 \begin{table}[H]
 	\begin{center}
 	\caption{ВАХ однополупроводникового выпрямителя}
-	\def\arraystretch{1.2}
+	\def\arraystretch{1.5}
 		\begin{tabular}{|c|c|c|c|}
 		\hline 
-		$U_\text{изм}$, В & $I_\text{н}$, А & $U_\text{п}$, В & $U_\text{н}$, В \\ 
-		
-		\hline 
-		0.25 & 0.02	& 9.28 & 0.20 \\ 
-		\hline 
-		0.60 & 0.04	& 9.08 & 0.43 \\ 
-		\hline 
-		0.90 & 0.06	& 9.01 & 0.61 \\ 
-		\hline 
-		1.20 & 0.08	& 8.84 & 0.77 \\ 
-		\hline 
-		1.51 & 0.10	& 8.79 & 0.98 \\ 
-		\hline 
-		1.83 & 0.12	& 8.50 & 1.13 \\ 
-		\hline 
-		2.15 & 0.14	& 8.40 & 1.29 \\ 
-		\hline 
-		2.41 & 0.16	& 8.24 & 1.56 \\ 
-		\hline 
-		2.70 & 0.18	& 8.15 & 1.62 \\ 
-		\hline 
-		3.03 & 0.20	& 8.09 & 1.80 \\ 
-		\hline 
-		3.25 & 0.22	& 7.99 & 1.92 \\ 
-		\hline 
-		3.68 & 0.25	& 7.81 & 2.12 \\ 
-		\hline 
-		4.00 & 0.27	& 7.70 & 2.28 \\ 
-		\hline 
-		4.35 & 0.29	& 7.49 & 2.48 \\ 
-		\hline 
-		6.61 & 0.44	& 6.97 & 3.60 \\ 
-		\hline 
-		6.79 & 0.45 & 6.93 & 3.64 \\ 
-		\hline 
+		\ \ $U_\text{изм}$, В\ \  & \ \ $I_\text{н}$, мА\ \  & \ \ $U_\text{п}$, В\ \  & \ \ $U_\text{н}$, В\ \  \\ \hline
+		0.249 & 16 & 9.280 & 0.200 \\ \hline
+		0.601 & 41 & 9.080 & 0.432 \\ \hline
+		0.899 & 59 & 9.010 & 0.608 \\ \hline
+		1.203 & 80 & 8.840 & 0.768 \\ \hline
+		1.510 & 100 & 8.790 & 0.984 \\ \hline
+		1.832 & 122 & 8.500 & 1.130 \\ \hline
+		2.15 & 143 & 8.400 & 1.290 \\ \hline
+		2.41 & 160 & 8.240 & 1.490 \\ \hline
+		2.70 & 180 & 8.150 & 1.620 \\ \hline
+		3.03 & 202 & 8.090 & 1.800 \\ \hline
+		3.25 & 217 & 7.990 & 1.920 \\ \hline
+		3.68 & 245 & 7.810 & 2.120 \\ \hline
+		4.00 & 266 & 7.700 & 2.280 \\ \hline
+		4.35 & 290 & 7.490 & 2.480 \\ \hline
 		\end{tabular} 
 		\label{tab:5:1}
 	\end{center}
 \end{table}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/2}
+		\caption{Зависимость пульсации напряжения от силы тока нагрузки}
+		\label{g:2} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/3}
+		\caption{Зависимость напряжения нагрузки от силы тока нагрузки}
+		\label{g:3} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
+
+\subsection{Двуполупроводникового выпрямитель}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{ВАХ двуполупроводникового диода}
+	\def\arraystretch{1.5}
+		\begin{tabular}{|c|c|c|c|}
+		\hline 
+		\ \ $U_\text{изм}$, В\ \  & \ \ $I_\text{н}$, мА\ \  & \ \ $U_\text{п}$, В\ \  & \ \ $U_\text{н}$, В\ \  \\ \hline
+		0.251 & 16 & 0.140 & 8.95 \\ \hline
+		0.602 & 39 & 0.236 & 8.92 \\ \hline
+		0.893 & 60 & 0.323 & 8.83 \\ \hline
+		1.205 & 79 & 0.433 & 8.78 \\ \hline
+		1.511 & 104 & 0.520 & 8.57 \\ \hline
+		1.874 & 125 & 0.591 & 8.47 \\ \hline
+		2.23 & 149 & 0.679 & 8.25 \\ \hline
+		2.61 & 174 & 0.780 & 8.23 \\ \hline
+		2.92 & 209 & 0.884 & 8.09 \\ \hline
+		3.46 & 242 & 1.05 & 7.96 \\ \hline
+		4.08 & 273 & 1.15 & 7.79 \\ \hline
+		4.49 & 291 & 1.20 & 7.63 \\ \hline
+		\end{tabular} 
+		\label{tab:5:1}
+	\end{center}
+\end{table}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/4}
+		\caption{Зависимость пульсации напряжения от силы тока нагрузки}
+		\label{g:2} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/5}
+		\caption{Зависимость напряжения нагрузки от силы тока нагрузки}
+		\label{g:3} % название для ссылок внутри кода
+	\end{center}
+\end{figure}
 
 \section{Погрешности}
 
