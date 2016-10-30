@@ -6,25 +6,27 @@ int main()
     double e     = 2.718282;
     double t_imp = 0.000001;
     double U_imp = 10;
-    double T     = 0.000005; // Q = 5
-    double tau   = 10000 * 10e-9;
-    double U_A   = (0 - U_imp) * pow(e, ( -t_imp / tau)) + U_imp;
-    double U_B   = (U_A - 0) * pow(e, -( T - t_imp) / tau) + 0;
-    double U_A_pred = 0;
-    double U_B_pred = 0;
+    double T     = 0.000005; // Q = 10, 5 or 3
+    double tau   = 0.00001;
+    double U_c_t_one   = (0 - U_imp) * pow(e, ( -t_imp / tau)) + U_imp;
+    double U_c_t_two   = (U_c_t_one - 0) * pow(e, (-T) / tau) + 0;
+    double U_c_t_one_pred = 0;
+    double U_c_t_two_pred = 0;
 
-    while (fabs(U_A_pred - U_A) > 10e-9) {
+    std::cout << "U_A = " << U_c_t_one << "  " << "U_B = " << U_c_t_two << std::endl;
 
-       U_A_pred = U_A;
-       U_B_pred = U_B;
+    while (fabs(U_c_t_one_pred - U_c_t_one) > 10e-5) {
 
-       U_B   = (U_A - 0) * pow(e, - (T - t_imp) / tau) + 0;
-       U_A   = (U_B - U_imp) * pow(e, -t_imp / tau) + U_imp;
+        U_c_t_one_pred = U_c_t_one;
+        U_c_t_two_pred = U_c_t_two;
+
+        U_c_t_one   = (U_c_t_two - U_imp) * pow(e, -t_imp / tau) + U_imp;
+        U_c_t_two   = (U_c_t_one - 0) * pow(e, (- T) / tau) + 0;
+
+        std::cout << "U_A = " << U_c_t_one << "  " << "U_B = " << U_c_t_two << std::endl;
 
     }
 
-    std::cout << "U_A = " << U_A << std::endl;
-    std::cout << "U_B = " << U_B << std::endl;
 
     return 0;
 }
