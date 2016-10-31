@@ -24,7 +24,7 @@ deploy:
   provider: releases
   api_key: "$GITHUB_DEPLOY_TOKEN"
   file: 
-    - ${TRAVIS_BUILD_DIR}/${LAB}/${LAB}.tex
+    - ${TRAVIS_BUILD_DIR}/${LAB}/${LAB}.pdf
   skip_cleanup: true
   on:
     tags: true
