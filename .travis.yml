@@ -8,7 +8,7 @@ services:
   - docker
   
 install:
-  - docker pull lamtev/latex
+  - docker pull lamtev/latex:full
 
 matrix:
   include:
@@ -17,7 +17,7 @@ matrix:
     - env: LAB="lab3"
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex /bin/bash -c " cd electroch_labs/${LAB} && pdflatex ${LAB}.tex && pdflatex ${LAB}.tex "
+  - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex:full /bin/bash -c " cd electroch_labs/${LAB} && pdflatex ${LAB}.tex && pdflatex ${LAB}.tex "
   - sudo chmod 777 ${TRAVIS_BUILD_DIR}/${LAB}/${LAB}.pdf
   
 deploy:
