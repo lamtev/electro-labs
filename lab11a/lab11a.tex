@@ -1,0 +1,112 @@
+\include{settings}
+
+\begin{document}	% начало документа
+
+\include{titlepage}
+
+
+\section{Цель работы}
+
+Ознакомиться с принципом действия параметрического стабилизатора напряжения. Настроить и исследовать его. Рассчитать силовые звенья.
+
+\section{Чертеж схемы исследуемого устройства}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\includegraphics[scale=0.35]{img/stabilizator.png}
+\caption{Параметрический стабилизатор\\ постоянного напряжения}\label{figure:2.1:a}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+\includegraphics[scale=0.35]{img/substitution.png}
+\caption{Схема замещения \\стабилизатора}\label{figure:2.1:b}
+\end{subfigure}
+\caption{}\label{figure:2.1}
+\end{figure}
+
+
+\section{Исходные данные}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Исходные данные}
+	\def\arraystretch{1.2}
+		\begin{tabular}{|c|c|}
+		\hline 
+		$U_\text{вх}$ & 15 В \\ 
+		\hline 
+		$U_\text{вых}$ & 9 В \\ 
+		\hline 
+		$I_p$ & 8 мА \\ 
+		\hline 
+		$R_\text{н}$ & 500 Ом \\ 
+		\hline 
+		\end{tabular} 
+		\label{tab:3:1}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Характеристика стабилитрона кс156А}
+	\def\arraystretch{1.2}
+		\begin{tabular}{|c|c|}
+		\hline 
+		$U$ & 5.6 В \\ 
+		\hline 
+		$I_{\text{ст} min}$ & 3 мА \\ 
+		\hline 
+		$I_{\text{ст} max}$ & 50 мА \\ 
+		\hline 
+		\end{tabular} 
+		\label{tab:3:1}
+	\end{center}
+\end{table}
+
+\section{Расчет параметров элементов и характеристик стабилизатора}
+%TODO
+
+$I_\text{вых}$
+
+$U_{\text{вх} min}$
+
+$U_{\text{вх} max}$
+
+$R_\text{бал}$
+
+$R_{\text{н} min}$
+
+$R_{\text{н} max}$ 
+
+
+\section{Теоретические зависимости}
+
+
+\section{Экспериментально снятые зависимости}
+
+
+
+\section{Погрешности}
+
+\subsection{Предельно допустимые погрешности}
+
+\begin{center}
+$\delta R = 0.1 = 10\%$\\
+$\delta C = 0.1 = 10\%$\\
+\end{center}
+
+Дифференцирующая и интегрирующая цепи включают в себя по одному резистору и по одному конденсатору, поэтому предельно допустимая погрешность $U_0$ вычисляется следующим образом:
+
+
+$\delta U_0 = \sqrt{(\delta R)^2 + (\delta C)^2} = \sqrt{0.1^2 + 0.1^2} = \sqrt{0.02} = 0.141 = 14.1 \%$
+
+\subsection{Погрешности результатов эксперемента} %заменить epsilon на delta
+
+  
+\section{Выводы}
+
+Во всех случаях, кроме одного, приведенные погрешности вычисленных значений $U_\text{вых}$ не превышают предельно допустимую погрешность. А в этом отдельном случае превышение объясняется методической ошибкой измерения.
+
+Таким образом, формулы для вычисления теоретических значений $U_\text{вых}$ 4.2 и 4.3 являются верными.
+
+\end{document}
