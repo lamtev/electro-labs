@@ -54,9 +54,9 @@
 		\hline 
 		$U$ & 5.6 В \\ 
 		\hline 
-		$I_{\text{ст} min}$ & 3 мА \\ 
+		$I_{\text{ст}\ min}$ & 3 мА \\ 
 		\hline 
-		$I_{\text{ст} max}$ & 50 мА \\ 
+		$I_{\text{ст}\ max}$ & 50 мА \\ 
 		\hline 
 		\end{tabular} 
 		\label{tab:3:1}
@@ -64,19 +64,22 @@
 \end{table}
 
 \section{Расчет параметров элементов и характеристик стабилизатора}
-%TODO
+%\begin{flalign*}
+$I_\text{вых} = \frac{U_\text{вых}}{R_\text{н}} = \frac{9}{500} = 0.018$ A
+%\end{flalign*}
+$R_\text{бал} = \frac{U_\text{вх} - U_\text{вых}}{I_p + I_\text{вых}} = \frac{15 - 9}{0.008 + 0.018} = 230.769$ Ом
 
-$I_\text{вых}$
+$U_{\text{вх}\ min} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ min} + I_\text{вых}) = 9 + 230.769 \cdot (0.003 + 0.018) = \\[1mm] = 13.846$ В
 
-$U_{\text{вх} min}$
+$U_{\text{вх}\ max} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ max} + I_\text{вых}) = 9 + 230.769 \cdot (0.05 + 0.018) = \\[1mm] = 24.692$ В
 
-$U_{\text{вх} max}$
+$I_{\text{вых}\ min} = 0$
 
-$R_\text{бал}$
+$I_{\text{вых}\ max} = \frac{U_\text{вх} - U_\text{вых} - I_{\text{ст}\ min} \cdot R_\text{бал}}{R_\text{бал}} = \frac{15 - 9 - 0.003 \cdot 230.769}{230.769} = 0.023$ А
 
-$R_{\text{н} min}$
+$R_{\text{н}\ min} = \frac{U_\text{вых}}{I_{\text{вых}\ max}} = \frac{9}{0.023} = 391$ Ом
 
-$R_{\text{н} max}$ 
+$R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{0} = \infty $ Ом 
 
 
 \section{Теоретические зависимости}
