@@ -57,6 +57,7 @@
 		$I_{\text{ст}\ min}$ & 3 мА \\ 
 		\hline 
 		$I_{\text{ст}\ max}$ & 50 мА \\ 
+		$r_{\text{ст}\ max}$ & 46 Ом \\ 
 		\hline 
 		\end{tabular} 
 		\label{tab:3:1}
@@ -84,6 +85,9 @@ $R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{
 
 \section{Теоретические зависимости}
 
+\begin{flalign*}
+K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} = \frac{230.769 \cdot 9}{46 \cdot 15} = 3.01
+\end{flalign*}
 
 \section{Экспериментально снятые зависимости}
 
@@ -186,6 +190,10 @@ $R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{
 		\label{tab:6:2}
 	\end{center}
 \end{table}
+
+\begin{flalign*}
+K_\text{ст} = \frac{\Delta U_\text{вх} \cdot U_\text{вых}}{\Delta U_\text{вых} \cdot U_\text{вх}}
+\end{flalign*}
 
 \section{Погрешности}
 
