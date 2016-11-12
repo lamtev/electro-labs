@@ -42,7 +42,7 @@
 		$R_\text{н}$ & 500 Ом \\ 
 		\hline 
 		\end{tabular} 
-		\label{tab:3:2}
+		\label{tab:3:1}
 	\end{center}
 \end{table}
 
@@ -57,14 +57,18 @@
 		$I_{\text{ст}\ min}$ & 3 мА \\ 
 		\hline 
 		$I_{\text{ст}\ max}$ & 50 мА \\ 
+		\hline 
 		$r_{\text{ст}}$ & 46 Ом \\ 
 		\hline 
 		\end{tabular} 
-		\label{tab:3:1}
+		\label{tab:3:2}
 	\end{center}
 \end{table}
 
-\section{Расчет параметров элементов и характеристик стабилизатора}
+
+\section{Теоретические расчеты и зависимости}
+
+\subsection{Расчет параметров элементов и характеристик стабилизатора}
 %\begin{flalign*}
 $I_\text{вых} = \frac{U_\text{вых}}{R_\text{н}} = \frac{9}{500} = 0.018$ A
 %\end{flalign*}
@@ -82,15 +86,14 @@ $R_{\text{н}\ min} = \frac{U_\text{вых}}{I_{\text{вых}\ max}} = \frac{9}{
 
 $R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{0} = \infty $ Ом 
 
-
-\section{Теоретические расчеты}
+\subsection{Расчет коэффициента стабилизации и выходного сопротивления}
 
 \begin{flalign*}
 K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} = \frac{230.769 \cdot 9}{46 \cdot 15} = 3.01
 \end{flalign*}
 
 \begin{flalign*}
-R_\text{вых} = \frac{r_\text{ст}}{R_\text{бал}} = \frac{46}{230.769} = 0.2
+R_\text{вых} \simeq r_{\text{ст}} = 46 \ \ \text{Ом}
 \end{flalign*}
 
 \section{Экспериментально снятые зависимости}
@@ -110,7 +113,7 @@ R_\text{вых} = \frac{r_\text{ст}}{R_\text{бал}} = \frac{46}{230.769} = 0
 		4.97 & 3.17 \\ 
 		\hline 
 		6.99 & 4.35 \\ 
-		\hline 
+		\hline %началась стабилизация, ура!!! 
 		9.04 & 5.00 \\ 
 		\hline 
 		11.05 & 5.23 \\ 
@@ -133,6 +136,8 @@ R_\text{вых} = \frac{r_\text{ст}}{R_\text{бал}} = \frac{46}{230.769} = 0
 		\label{tab:6:1}
 	\end{center}
 \end{table}
+
+
 
 \begin{table}[H]
 	\begin{center}
@@ -194,14 +199,6 @@ R_\text{вых} = \frac{r_\text{ст}}{R_\text{бал}} = \frac{46}{230.769} = 0
 		\label{tab:6:2}
 	\end{center}
 \end{table}
-
-\begin{flalign*}
-K_\text{ст} = \frac{\Delta U_\text{вх} \cdot U_\text{вых}}{\Delta U_\text{вых} \cdot U_\text{вх}}
-\end{flalign*}
-
-\begin{flalign*}
-K_\text{ст} = \frac{\Delta U_\text{вых}}{\Delta I_\text{вых}}
-\end{flalign*}
 
 \section{Погрешности}
 
