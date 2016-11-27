@@ -58,7 +58,7 @@
 		\hline 
 		$I_{\text{ст}\ max}$ & 50 мА \\ 
 		\hline 
-		$r_{\text{ст}}$ & 46 Ом \\ 
+		$r_{\text{ст}}$ & $\leq$ 46 Ом \\ 
 		\hline 
 		\end{tabular} 
 		\label{tab:3:2}
@@ -71,6 +71,7 @@
 \subsection{Расчет параметров элементов и характеристик стабилизатора}
 %\begin{flalign*}
 $I_\text{вых} = \frac{U_\text{вых}}{R_\text{н}} = \frac{9}{500} = 0.018$ A
+
 %\end{flalign*}
 $R_\text{бал} = \frac{U_\text{вх} - U_\text{вых}}{I_p + I_\text{вых}} = \frac{15 - 9}{0.008 + 0.018} = 230.769$ Ом
 
@@ -97,11 +98,11 @@ R_\text{вых} \simeq r_{\text{ст}}
 \end{equation}
 
 \begin{flalign*}
-K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} = \frac{230.769 \cdot 9}{46 \cdot 15} = 3.01
+K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} \geq \frac{230.769 \cdot 9}{46 \cdot 15} = 3.01
 \end{flalign*}
 
 \begin{flalign*}
-R_\text{вых} \simeq r_{\text{ст}} < 46\ \ \text{Ом}
+R_\text{вых} \simeq r_{\text{ст}} \leq 46\ \ \text{Ом}
 \end{flalign*}
 
 \section{Экспериментально снятые зависимости}
@@ -154,7 +155,7 @@ R_\text{вых} \simeq r_{\text{ст}} < 46\ \ \text{Ом}
 \end{figure}
 
 \begin{flalign*}
-K_\text{ст} = \frac{\Delta U_\text{вх}}{\Delta U_\text{ст}} = \frac{24.60 - 11.05}{5.58 - 5.23} = 38,72
+K_\text{ст} = \frac{\Delta U_\text{пит}}{\Delta U_\text{ст}} = \frac{24.60 - 11.05}{5.58 - 5.23} = 38,72
 \end{flalign*}
 
 \begin{table}[H]
@@ -230,9 +231,9 @@ R_\text{вых} = \frac{\Delta U_\text{ст}}{\Delta I_\text{н}} = \frac{5.47 -
 
 \section{Анализ экспериментальных вычислений}
 
-$R_\text{вых\ \ эксп} = 10.57 $ Ом $< R_\text{вых\ \ теор} < r_\text{ст} < 46$ Ом
+$R_\text{вых\ \ эксп} = 10.57 $ Ом $< R_\text{вых\ \ теор} \simeq r_\text{ст} \leq 46$ Ом
 
-$K_\text{ст} \sim \frac{1}{r_\text{ст}} \Rightarrow K_\text{ст\ \ эксп}$ должно быть $> K_\text{ст\ \ теор} = 3.01$
+$K_\text{ст} \sim \frac{1}{r_\text{ст}} \Rightarrow K_\text{ст\ \ эксп}$ должно быть $\geq K_\text{ст\ \ теор} = 3.01$
 
 $K_\text{ст\ \ эксп} = 38.72 > K_\text{ст\ \ теор} = 3.01$
 
