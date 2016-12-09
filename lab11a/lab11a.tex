@@ -90,7 +90,7 @@ $R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{
 \subsection{Расчет коэффициента стабилизации и выходного сопротивления}
 
 \begin{equation}
-K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}}
+K_\text{ст} = \frac{R_\text{бал}}{r_\text{ст}}
 \end{equation}
 
 \begin{equation}
@@ -98,7 +98,7 @@ R_\text{вых} \simeq r_{\text{ст}}
 \end{equation}
 
 \begin{flalign*}
-K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} \geq \frac{230.769 \cdot 9}{46 \cdot 15} = 3.01
+K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} \geq \frac{230.769}{46} = 5.02
 \end{flalign*}
 
 \begin{flalign*}
@@ -155,7 +155,7 @@ R_\text{вых} \simeq r_{\text{ст}} \leq 46\ \ \text{Ом}
 \end{figure}
 
 \begin{flalign*}
-K_\text{ст} = \frac{\Delta U_\text{пит}}{\Delta U_\text{ст}} = \frac{24.60 - 11.05}{5.58 - 5.23} = 38,72
+K_\text{ст} = \frac{\Delta U_\text{пит}}{\Delta U_\text{ст}} = \frac{24.60 - 9.04}{5.58 - 5.00} = 26.83
 \end{flalign*}
 
 \begin{table}[H]
@@ -225,22 +225,25 @@ K_\text{ст} = \frac{\Delta U_\text{пит}}{\Delta U_\text{ст}} = \frac{24.6
 	\end{center}
 \end{figure}
 
-\begin{flalign*}
-R_\text{вых} = \frac{\Delta U_\text{ст}}{\Delta I_\text{н}} = \frac{5.47 - 5.25}{(23.63 - 2.82) \cdot 10^{-3}} = 10.57 \ \ \text{Ом}
-\end{flalign*}
+\begin{displaymath}
+r_\text{ст} = R_\text{вых} = \frac{\Delta U_\text{ст}}{\Delta I_\text{н}} = \frac{5.47 - 5.30}{| 2.82 - 21.36 | \cdot 10^{-3}} = 9.17 \ \ \text{Ом}
+\end{displaymath}
 
 \section{Анализ экспериментальных вычислений}
 
-$R_\text{вых\ \ эксп} = 10.57 $ Ом $< R_\text{вых\ \ теор} \simeq r_\text{ст} \leq 46$ Ом
+Получив $r_\text{ст}$, вычислим уточненное теоретическое значение $K_\text{ст}$:
 
-$K_\text{ст} \sim \frac{1}{r_\text{ст}} \Rightarrow K_\text{ст\ \ эксп}$ должно быть $\geq K_\text{ст\ \ теор} = 3.01$
+\begin{displaymath}
+K_\text{ст\ \ теор\ \ уточн} = \frac{R_\text{бал}}{r_\text{ст}} = \frac{230.77}{9.17} = 25.16
+\end{displaymath}
 
-$K_\text{ст\ \ эксп} = 38.72 > K_\text{ст\ \ теор} = 3.01$
+\begin{displaymath}
+\delta K_\text{ст} = \frac{ | K_\text{ст\ \ теор\ \ уточн} - K_\text{ст\ \ эксп} | }{K_\text{ст\ \ теор\ \ уточн}} = \frac{ | 25.16 - 26.83 | }{25.16} = 0.066 = 6.6\%
+\end{displaymath}
+
 
 \section{Выводы}
 
-Вычисленное значение $R_\text{вых}$ не превосходит предельно допустимое, и вычисленное значение $K_\text{ст}$ больше, чем минимально допустимое.
-
-Таким образом, формулы для вычисления теоретических значений $K_\text{ст}$ и $R_\text{вых}$ 4.1 и 4.2 являются верными.
+Значение $K_\text{ст}$, вычисленное в ходе эксперимента близко к уточненному теоретическому значению ($\delta = 6.6\%$). Таким образом, теоретические формулы 4.1 и 4.2 справедливы.
 
 \end{document}
