@@ -23,31 +23,27 @@
 	\end{subfigure}
 	\caption{}
 \end{figure}
-На рисунке \ref{figure:2.1:a} изображены однополупериодный выпрямитель, на \ref{figure:2.1:b} - двухполупериодный мостовой выпрямитель.
 
 \begin{figure}[H]
 	\begin{center}
 	\vspace{-0.5cm}
 		\includegraphics[width=6cm]{img/vah}
-		\caption{}
+		\caption{Цепь для снятия вольт-амперной характеристики}
 		\label{figure:2.2} % название для ссылок внутри кода
 	\vspace{-0.5cm}
 	\end{center}
 \end{figure}
-На рисунке \ref{figure:2.2} изображена цепь для снятия вольт-амперной характеристики.
 
 \section{Исходные данные}
-
-Подобранные исходные значения приведены в таблице \ref{tabular:11}.
 
 \begin{table}[H]
 	\begin{center}
 	\caption{Исходные данные}
-	\def\arraystretch{1.5}
-		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+	\def\arraystretch{1.4}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
 			\hline
-			$I_\text{н ном}$, мА & $R_\text{изм}$, Ом & $R_\text{н}$, Ом & $C_\text{ф}$, мкФ \\ \hline
-		    120 & 15 & 470 & 1500\\\hline	
+			$I_\text{н ном}$, мА & $R_\text{изм}$, Ом & $R_\text{н}$, Ом & $C_\text{ф}$, мкФ & Диод\\ \hline
+		    120 & 15 & 470 & 1500 & 2Д212А\\\hline	
 		\end{tabularx}
 		\label{tabular:11}
 	\end{center}
@@ -91,12 +87,10 @@ U_\text{п max} = \frac{I_\text{н} \cdot \Delta t}{C\text{ф}} = \frac{120 \cdo
 
 \subsection{Полупроводниковый диод}
 
-В таблице \ref{tab:5:1} представлена эксперементальная ВАХ используемого диода. График данной ВАХ изображен на рис. \ref{g:1}.
-
 \begin{table}[H]
 	\begin{center}
 	\caption{ВАХ полупроводникового диода}
-	\def\arraystretch{1.5}
+	\def\arraystretch{1.2}
 		\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		\ \ $U_1$, В\ \  & \ \ $U_2$, В\ \  & $\Delta U = U_1 - U_2$, В & \ \ $U_\text{изм}$, В\ \  & \ \ \ $I_\text{д}$, мА\ \ \ \\ 
@@ -138,20 +132,18 @@ U_\text{п max} = \frac{I_\text{н} \cdot \Delta t}{C\text{ф}} = \frac{120 \cdo
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=15cm]{img/1}
+		\includegraphics[width=15cm,height=9cm]{img/1}
 		\caption{Эксперементальная ВАХ полупроводникового диода}
 		\label{g:1} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
-\newpage
-\subsection{Однополупериодный выпрямитель}
 
-В таблице \ref{tab:5:2} представлены полученные экспериментальным путем зависимости пульсации напряжения от силы тока нагрузки и напряжения нагрузки от силы тока нагрузки для однополупериодного выпрямителя. По полученным данным построены графики \ref{g:2} и \ref{g:3} для данных зависимостей.
+\subsection{Однополупериодный выпрямитель}
 
 \begin{table}[H]
 	\begin{center}
 	\caption{ВАХ однополупериодного выпрямителя}
-	\def\arraystretch{1.5}
+	\def\arraystretch{1.25}
 		\begin{tabular}{|c|c|c|c|}
 		\hline 
 		\ \ $U_\text{изм}$, В\ \  & \ \ $I_\text{н}$, мА\ \  & \ \ $U_\text{п}$, В\ \  & \ \ $U_\text{н}$, В\ \  \\ \hline
@@ -176,7 +168,7 @@ U_\text{п max} = \frac{I_\text{н} \cdot \Delta t}{C\text{ф}} = \frac{120 \cdo
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=15cm]{img/2}
+		\includegraphics[width=15cm,height=9cm]{img/2}
 		\caption{Зависимость пульсации напряжения от силы тока нагрузки для однополупериодного выпрямителя}
 		\label{g:2} % название для ссылок внутри кода
 	\end{center}
@@ -184,11 +176,13 @@ U_\text{п max} = \frac{I_\text{н} \cdot \Delta t}{C\text{ф}} = \frac{120 \cdo
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=15cm]{img/3}
+		\includegraphics[width=15cm,height=6.5cm]{img/3}
 		\caption{Зависимость напряжения нагрузки от силы тока нагрузки для однополупериодного выпрямителя}
 		\label{g:3} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
+
+
 
 Вычислим $U_\text{н}$ при $I_\text{н}$ = 120 мА. Для этого построим интерполяционный полином и посчитаем его значение в точке 120.
 
@@ -201,12 +195,10 @@ $U_\text{п max}$ = 1.116 В
 \newpage
 \subsection{Двухполупериодный выпрямитель}
 
-В таблице \ref{tab:5:3} представлены полученные экспериментальным путем зависимости пульсации напряжения от силы тока нагрузки и напряжения нагрузки от силы тока нагрузки для двухполупериодного вьыпрямителя. По полученным данным построены графики \ref{g:4} и \ref{g:5} для данных зависимостей.
-
 \begin{table}[H]
 	\begin{center}
 	\caption{ВАХ двухполупериодного диода}
-	\def\arraystretch{1.5}
+	\def\arraystretch{1.4}
 		\begin{tabular}{|c|c|c|c|}
 		\hline 
 		\ \ $U_\text{изм}$, В\ \  & \ \ $I_\text{н}$, мА\ \  & \ \ $U_\text{п}$, В\ \  & \ \ $U_\text{н}$, В\ \  \\ \hline
@@ -229,7 +221,7 @@ $U_\text{п max}$ = 1.116 В
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=15cm]{img/4}
+		\includegraphics[width=15cm,height=8cm]{img/4}
 		\caption{Зависимость пульсации напряжения от силы тока нагрузки для двухполупериодного вьыпрямителя}
 		\label{g:4} % название для ссылок внутри кода
 	\end{center}
