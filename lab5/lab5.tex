@@ -28,10 +28,11 @@
 	\begin{center}
 	\caption{Исходные данные}
 	\def\arraystretch{1.4}
-		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|X|X|}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|X|X|X|}
 			\hline
 			$E_0$ &
 			$U_\text{кэА}$ &
+			$U_\text{бэ}$ &
 			$R_\text{к}$ &
 			$R_\text{н}$ &
 			$C_{p1}$ &
@@ -40,6 +41,7 @@
 			$C_\text{к}$ &
 			$h_{21}$ \\
 			\hline
+			В &
 			В &
 			В &
 			кОм &
@@ -52,6 +54,7 @@
 			\hline
 			8 &
 			4 &
+			0.2 &
 			3.9 &
 			2 &
 			0.22 &
@@ -71,12 +74,54 @@
 
 \subsection{Амплитудная характеристика усилителя}
 
+В таблице \ref{tabular:2} приведена амплитудная характеристика усилителя\\ $U_\text{вых} = f(e_c)$. При значениях $e_c > e_{max} = 30.1$ можно заметить искажение входного сигнала. По полученным значениям было вычислено значение коэффициента усиления $K = 55.94$.
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
+	\def\arraystretch{1.2}
+		\begin{tabularx}{\textwidth}{|X|X|X|}
+			\hline
+			$e_c$, мВ & $U_\text{вых}$, мВ & $K$ \\\hline			
+			1.43 & 90.1 & 63.01\\\hline	
+			3.09 & 200 & 64.72\\\hline	
+			5.07 & 324 & 63.91\\\hline	
+			7.54 & 476 & 63.13\\\hline	
+			10.7 & 675 & 63.08\\\hline	
+			13.1 & 799 & 60.99\\\hline	
+			15.2 & 913 & 60.07\\\hline	
+			17.7 & 1053 & 59.49\\\hline	
+			20.7 & 1190 & 57.49\\\hline	
+			23.1 & 1310 & 56.71\\\hline	
+			25.3 & 1390 & 54.94\\\hline	
+			27.9 & 1490 & 53.41\\\hline	
+			30.1 & 1580 & 52.49\\\hline\hline	
+			33.1 & 1690 & 51.06\\\hline	
+			35.9 & 1750 & 48.75\\\hline	
+			39.6 & 1830 & 46.21\\\hline	
+			43.1 & 1910 & 44.32\\\hline	
+			45.9 & 1980 & 43.14\\\hline
+		\end{tabularx}
+		\label{tabular:2}
+	\end{center}
+\end{table}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=9cm]{img/1}
+		\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
+		\label{figure:2}
+	\end{center}
+\end{figure}
+
 \subsection{Логарифмическая амплитудно-частотная характеристика усилителя}
+
+В таблице \ref{tabular:3} приведена амплитудно-частотная характеристика усилителя при $e_c = \frac{e_{max}}{2} \approx 20$ мВ.
 
 \begin{table}[H]
 	\begin{center}
 	\caption{ЛАЧХ усилителя}
-	\def\arraystretch{1.5}
+	\def\arraystretch{1.2}
 		\begin{tabularx}{\textwidth}{|X|X|X|X|}
 			\hline
 			$f$, Гц & $U_\text{вых}$, В & $K$ & $20 \cdot lg(K)$, дБ\\\hline
@@ -96,9 +141,17 @@
 			131072 & 587 & 29.35 & 29.3522\\\hline	
 			200000 & 557 & 27.85 & 28.8965\\\hline	
 		\end{tabularx}
-		\label{tabular:2}
+		\label{tabular:3}
 	\end{center}
 \end{table}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=9cm]{img/2}
+		\caption{\textbf{Добавить теорию} ЛАЧХ усилителя}
+		\label{figure:2}
+	\end{center}
+\end{figure}
 
 \section{Уточнение теоретических величин}
 
