@@ -77,10 +77,31 @@ I_\text{э} = \frac{(E_0 - U_\text{кэА})}{\frac{h_{21}}{1+h_{21}}R_\text{к}}
 
 Найдем сопротивление резистора $R_1$:
 \begin{equation}
-R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{12 \cdot (8 - 0.2) \cdot 3900}{4} = 91260 \text{ Ом}.
+R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{12 \cdot (8 - 0.2) \cdot 3900}{4} = 91260 \text{ Ом}
 \end{equation}
 
-Потом еще немножечко рассчитаем.
+Рассчитаем входное сопротивление:
+\begin{equation}
+R_\text{вх} \approx h_\text{11Э} = r_\text{б} + r_\text{э}(h_{21} + 1) = 150 + \frac{0.025}{0.0011} \cdot 13 = 445.45 \text{ Ом}
+\end{equation}
+
+Выходное сопротивление примем:
+\begin{equation}
+R_\text{вых} \approx R_\text{к} = 3.9 \text{ кОм}.
+\end{equation}
+
+Найдем коэффициент усиления по току:
+\begin{equation}
+K_{I0} = h_{21} \cdot \frac{R_1}{R_1 + h_\text{11Э}} \cdot \frac{R_\text{к}}{R_\text{к}+R_\text{н}} 
+= 12 \cdot 0.995 \cdot 0.661 = 7.893
+\end{equation}
+
+Рассчитаем коэффициент усиления по напряжению:
+\begin{equation}
+K_{U0} = -\frac{h_{21} R_\text{к} R_\text{н}}{h_\text{11Э}(R_\text{к} + R_\text{н})} = -\frac{12 \cdot 3900 \cdot 2000}{445.45 \cdot 5900} = -35.61
+\end{equation}
+
+\newpage
 
 \section{Экспериментально снятые зависимости}
 
@@ -107,7 +128,7 @@ R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{1
 			23.1 & 1310 & 56.71\\\hline	
 			25.3 & 1390 & 54.94\\\hline	
 			27.9 & 1490 & 53.41\\\hline	
-			30.1 & 1580 & 52.49\\\hline\hline	
+			30.1 & 1580 & 52.49\\\hline\hline
 			33.1 & 1690 & 51.06\\\hline	
 			35.9 & 1750 & 48.75\\\hline	
 			39.6 & 1830 & 46.21\\\hline	
@@ -120,7 +141,7 @@ R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{1
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=9cm]{img/1}
+		\includegraphics[height=8cm]{img/1}
 		\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
 		\label{figure:2}
 	\end{center}
@@ -137,21 +158,21 @@ R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{1
 		\begin{tabularx}{\textwidth}{|X|X|X|X|}
 			\hline
 			$f$, Гц & $U_\text{вых}$, В & $K$ & $20 \cdot lg(K)$, дБ\\\hline
-			16 & 5.07 & 0.2535 & -11.9204\\\hline	
-			32 & 17.2 & 0.86 & -1.3100\\\hline	
-			64 & 49.7 & 2.485 & 7.9065\\\hline	
-			128 & 119 & 5.95 & 15.4903\\\hline	
-			256 & 238 & 11.9 & 21.5109\\\hline	
-			512 & 415 & 20.75 & 26.3404\\\hline	
-			1024 & 558 & 27.9 & 28.9121\\\hline	
-			2048 & 623 & 31.15 & 29.8692\\\hline	
-			4096 & 639 & 31.95 & 30.0894\\\hline	
-			8192 & 641 & 32.05 & 30.1166\\\hline	
-			16384 & 638 & 31.9 & 30.0758\\\hline	
-			32768 & 625 & 31.25 & 29.8970\\\hline	
-			65536 & 612 & 30.6 & 29.7144\\\hline	
-			131072 & 587 & 29.35 & 29.3522\\\hline	
-			200000 & 557 & 27.85 & 28.8965\\\hline	
+			16 & 5.07 & 0.2535 & -11.9204\\\hline
+			32 & 17.2 & 0.86 & -1.3100\\\hline
+			64 & 49.7 & 2.485 & 7.9065\\\hline
+			128 & 119 & 5.95 & 15.4903\\\hline
+			256 & 238 & 11.9 & 21.5109\\\hline
+			512 & 415 & 20.75 & 26.3404\\\hline
+			1024 & 558 & 27.9 & 28.9121\\\hline
+			2048 & 623 & 31.15 & 29.8692\\\hline
+			4096 & 641 & 32.05 & 30.1166\\\hline
+			8192 & 639 & 31.95 & 30.0894\\\hline
+			16384 & 621 & 31.05 & 29.8412\\\hline
+			32768 & 559 & 27.95 & 28.9276\\\hline
+			65536 & 459 & 22.95 & 27.2157\\\hline
+			131072 & 353 & 17.65 & 24.9349\\\hline
+			200000 & 289 & 14.45 & 23.1974\\\hline
 		\end{tabularx}
 		\label{tabular:3}
 	\end{center}
@@ -159,8 +180,8 @@ R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{1
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=9cm]{img/2}
-		\caption{\textbf{Добавить теорию} ЛАЧХ усилителя}
+		\includegraphics[height=8cm]{img/2}
+		\caption{ЛАЧХ усилителя}
 		\label{figure:2}
 	\end{center}
 \end{figure}
