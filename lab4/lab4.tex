@@ -6,7 +6,7 @@
 
 \section{Цель работы}
 
-Целью данной работы является экспериментальное исследование переходных процессов, происходящих в транзисторном ключе.
+Исследовать экспериментально переходные процессы, происходящие в транзисторном ключе.
 
 \section{Чертеж схемы исследуемого устройства}
 
@@ -37,7 +37,7 @@
 			$E_\text{вх}$ &
 			$t_\text{и}$ &
 			$R_c$ &
-			$I_{к0 max}$ &
+			$I_{\text{к}_0\ \ max}$ &
 			$B$ &
 			$f_\alpha$\\
 			\hline
@@ -69,6 +69,42 @@
 \end{table}
 
 \section{Теоретические расчёты}
+
+\subsection{Расчёт элементов цепи}
+
+\begin{displaymath}
+R_\text{б} \leq \frac{E_0}{I_{\text{к}_0\ \ max}} = \frac{25}{75 \cdot 10^{-6}} = 330\ \ \text{кОм}
+\end{displaymath}
+
+\begin{displaymath}
+R_\text{к} = \frac{E_0}{I_\text{кн}} = \frac{25}{20 \cdot 10^{-3}} = 1.25\ \ \text{кОм}
+\end{displaymath}
+
+\begin{displaymath}
+I_{\text{б}_1} = \frac{S \cdot I_\text{кн}}{B} = \frac{3 \cdot 20 \cdot 10^{-3}}{19} = 3.16\ \ \text{мА}
+\end{displaymath}
+
+\begin{displaymath}
+R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - R_\text{c} = \frac{7}{3.16 \cdot 10^{-3} + \frac{5}{330 \cdot 10^3}} - 1 = 1.2\ \ \text{кОм}
+\end{displaymath}
+
+\begin{displaymath}
+\tau_{\text{б}} = \frac{B}{2 \cdot \pi \cdot f_\alpha} = \frac{19}{2 \cdot \pi \cdot 200 \cdot 10^3} = 1.5 \cdot 10^{-5}
+\end{displaymath}
+
+TODO КОНДЕНСАТОР
+
+\subsection{Расчёт $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$}
+
+\begin{displaymath}
+t_\phi = \tau_{\text{б}} \cdot \ln{\frac{I_{\text{б}_1}}{I_{\text{б}_1} - 0.9 \cdot \frac{I_\text{кн}}{B}}} = 1.42 \cdot 10^{-8}\ \ \text{с}
+\end{displaymath}
+
+$I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5} \ll \frac{I_\text{кн}}{B} = \frac{20}{19} \Rightarrow$
+
+\begin{displaymath}
+t_\text{сп} = 2.3 \cdot \tau_\text{б} = 2.3 \cdot 1.5 \cdot 10^{-5} = 3.45 \cdot 10^{-5}\ \ \text{с}
+\end{displaymath}
 
 \section{Экспериментально снятые зависимости}
 
