@@ -90,9 +90,19 @@ R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - 
 
 \begin{displaymath}
 \tau_{\text{б}} = \frac{B}{2 \cdot \pi \cdot f_\alpha} = \frac{19}{2 \cdot \pi \cdot 200 \cdot 10^3} = 1.5 \cdot 10^{-5}
+\end{displaymath}\\[1cm]
+
+\begin{displaymath}
+I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5}\ \ \text{A}
 \end{displaymath}
 
-TODO КОНДЕНСАТОР
+\begin{displaymath}
+d = \frac{I_{\text{б}_2}}{I_{\text{б}_1}} = \frac{ 1.51 \cdot 10^{-5}}{3.16 \cdot 10^{-3}} = 0.004778481012658228
+\end{displaymath}
+
+\begin{displaymath}
+C = \frac{\tau_{\text{б}}}{R \cdot \Big ( 1 + \frac{dR}{R+R_c} \Big )} = \frac{1.5 \cdot 10^{-5}}{1.2 \cdot 10^3 \cdot \Big ( 1 + \frac{0.00477 \cdot 1.2 \cdot 10^3}{1.2 \cdot 10^3+1000} \Big )} = 1.246750414627008 \cdot 10^{-8}\ \ \text{Ф}
+\end{displaymath}
 
 \subsection{Расчёт $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$}
 
@@ -244,5 +254,9 @@ $ = 5.62 \cdot 10^{-6}$ с
 %TODO график
 
 \section{Выводы}
+
+Полученные экспериментальные зависимости имеют схожий характер изменения с теоретическими. То, что они расположены ниже [на графике], чем теоретические, означает, что реальное значение f транзистора больше, чем указанное в справочнике. 
+
+Таким образом формулы 4.1, 4.2 и 4.3 справедливы.
 
 \end{document}
