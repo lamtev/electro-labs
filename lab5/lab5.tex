@@ -82,7 +82,7 @@ R_1 = \frac{h_{21}(E_0-U_\text{БЭ})R_\text{к}}{E_0-U_\text{кэА}} = \frac{1
 
 Рассчитаем входное сопротивление:
 \begin{equation}
-R_\text{вх} \approx h_\text{11Э} = r_\text{б} + r_\text{э}(h_{21} + 1) = 150 + \frac{0.025}{0.0011} \cdot 13 = 445.45 \text{ Ом}
+R_\text{вх} \approx h_\text{11Э} = r_\text{б} + r_\text{э}(h_{21} + 1) = 200 + \frac{0.025}{0.0011} \cdot 13 = 495.45 \text{ Ом}
 \end{equation}
 
 Выходное сопротивление примем:
@@ -204,25 +204,54 @@ R_\text{вых} = \frac{(U_\text{вых хх} - U_\text{вых Rн}) \cdot R_\te
 \end{equation}
 где $U_\text{вых хх}$ - сопротивление выходного сигнала при отсутствии резистора $R_\text{н}$, $U_\text{вых Rн}$ - сопротивление выходного сигнала при подключенном резисторе $R_\text{н}$.
 
-%\section{Уточнение теоретических величин}
-%
-%На основе проведенного эксперемента были уточнены теоретические значения.
-%
-%Для получения заданного напряжения $U_\text{кэ} = 5$ В был использован резистор с сопротивлением $R_1 = 80$ (?) кОм. Исходя из этих данные можно рассчитать $h_{21}$:
-%\begin{equation}
-%h_{21} = \frac{(E_0 - U_\text{кэА}) \cdot R_1}{R_\text{к}(E_0 - U_\text{бэ})} = \frac{(8 - 4) \cdot ??}{3900 \cdot (8 - 0.2)} = 22.633.
-%\end{equation}
-%
-%Так как $h_{11\text{Э}} \simeq R_{\text{вх}} = 693.74$ то можно получить уточненное значение $K_{U0}$: 
-%
-%\begin{equation*}
-%K_{U0} = \frac{h_{21}R_\text{н}R_\text{к}}{h_\text{11Э}(R_\text{к}+R_\text{н})} = \frac{? %%\cdot 3900 \cdot 2000}{693.74 \cdot 5900} = 50.35.
-%\end{equation*}
-%
-%Таким образом, 
-%\begin{equation*}
-%K_{U0\text{ теор.}} = 40.859 \simeq 41.351 = K_{U0\text{ эксп.}}
-%\end{equation*}
+\section{Уточнение теоретических величин}
+
+На основе проведенного эксперемента были уточнены теоретические значения.
+
+Для получения заданного напряжения $U_\text{кэ} = 4$ В был использован резистор с сопротивлением $R_1 = 80$ (?) кОм. Исходя из этих данные можно рассчитать $h_{21}$:
+\begin{equation}
+h_{21} = \frac{(E_0 - U_\text{кэА}) \cdot R_1}{R_\text{к}(E_0 - U_\text{бэ})} = \frac{(8 - 4) \cdot ??}{3900 \cdot (8 - 0.2)} = 22.633.
+\end{equation}
+
+Так как $h_{11\text{Э}} \simeq R_{\text{вх}} = 693.74$ то можно получить уточненное начение $K_{U0}$: 
+
+\begin{equation*}
+K_{U0} = \frac{h_{21}R_\text{н}R_\text{к}}{h_\text{11Э}(R_\text{к}+R_\text{н})} = \frac{? \cdot 3900 \cdot 2000}{693.74 \cdot 5900} = 50.35.
+\end{equation*}
+
+Таким образом, 
+\begin{equation*}
+K_{U0\text{ теор.}} = 40.859 \simeq 41.351 = K_{U0\text{ эксп.}}
+\end{equation*}
+
+\section{Анализ погрешностей}
+
+\subsection{Расчет теоретических погрешностей}
+
+\begin{equation*}
+\delta R_\text{0вх} = \sqrt{(\delta R_\text{н})^2 + (\delta R_\text{к})^2} = \sqrt{0.01 + 0.01} = 0.14 = 14 \%
+\end{equation*}
+
+\begin{equation*}
+\delta R_\text{0вых} = 10\%
+\end{equation*}
+
+\begin{equation*}
+\delta K_0 = \sqrt{(\delta R_\text{н})^2 + (\delta R_\text{к})^2} = \sqrt{0.01 + 0.01} = 0.14 = 14 \%
+\end{equation*}
+
+\subsection{Расчет практических погрешностей}
+\begin{equation*}
+\delta R_\text{вх} = \frac{|R_\text{вх теор} - R_\text{вх пр}|}{R_\text{вх теор}} = \frac{|445.45 - 693.74|}{445.45} = 0.019 = 1.9 \% < \delta R_\text{0вх}
+\end{equation*}
+
+\begin{equation*}
+\delta R_\text{вых} = \frac{|R_\text{вых теор} - R_\text{вых пр}|}{R_\text{вых теор}} = \frac{|3900 - 3485|}{3900} = 0.106 = 10.6 \% \approx \delta R_\text{0вых}
+\end{equation*}
+
+\begin{equation*}
+\delta K = \frac{|K_\text{теор} - K_\text{пр}|}{K_\text{теор}} = \frac{|41.23 - 41.68|}{41.23} = 0.011 = 1.1 \% < \delta K_0
+\end{equation*}
 
 \section{Выводы}
 
