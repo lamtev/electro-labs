@@ -89,7 +89,7 @@ R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - 
 \end{displaymath}
 
 \begin{displaymath}
-\tau_{\text{б}} = \frac{B}{2 \cdot \pi \cdot f_\alpha} = \frac{19}{2 \cdot \pi \cdot 250 \cdot 10^3} = 1.2 \cdot 10^{-5}
+\tau_{\text{б}} = \frac{B}{2 \cdot \pi \cdot f_\alpha} = \frac{19}{2 \cdot \pi \cdot 250 \cdot 10^3} = 1.21 \cdot 10^{-5}
 \end{displaymath}\\[1cm]
 
 \begin{displaymath}
@@ -97,11 +97,11 @@ I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10
 \end{displaymath}
 
 \begin{displaymath}
-d = \frac{I_{\text{б}_2}}{I_{\text{б}_1}} = \frac{ 1.51 \cdot 10^{-5}}{3.16 \cdot 10^{-3}} = 0.004778481012658228
+d = \frac{I_{\text{б}_2}}{I_{\text{б}_1}} = \frac{ 1.51 \cdot 10^{-5}}{3.16 \cdot 10^{-3}} = 4.78 \cdot 10^{-3}
 \end{displaymath}
 
 \begin{displaymath}
-C = \frac{\tau_{\text{б}}}{R \cdot \Big ( 1 + \frac{dR}{R+R_c} \Big )} = \frac{1.5 \cdot 10^{-5}}{1.2 \cdot 10^3 \cdot \Big ( 1 + \frac{0.00477 \cdot 1.2 \cdot 10^3}{1.2 \cdot 10^3+1000} \Big )} = 1.246750414627008 \cdot 10^{-8}\ \ \text{Ф}
+C = \frac{\tau_{\text{б}}}{R \cdot \Big ( 1 + \frac{dR}{R+R_c} \Big )} = \frac{1.21 \cdot 10^{-5}}{1.2 \cdot 10^3 \cdot \Big ( 1 + \frac{4.78 \cdot 10^{-3} \cdot 1.2 \cdot 10^3}{1.2 \cdot 10^3+1000} \Big )} = 10 \text{нФ}
 \end{displaymath}
 
 \subsection{Расчёт $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$}
@@ -111,13 +111,13 @@ C = \frac{\tau_{\text{б}}}{R \cdot \Big ( 1 + \frac{dR}{R+R_c} \Big )} = \frac{
 t_\phi = \tau_{\text{б}} \cdot \ln{\frac{I_{\text{б}_1}}{I_{\text{б}_1} - 0.9 \cdot \frac{I_\text{кн}}{B}}}
 \end{equation}
 
-$I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5} \ll \frac{I_\text{кн}}{B} = \frac{20}{19} \Rightarrow$
+$I_{\text{б}_2} = 1.51 \cdot 10^{-5} \ll \frac{I_\text{кн}}{B} = \frac{20}{19} \Rightarrow$
 \begin{equation}
 \label{t_sp}
 t_\text{сп} = 2.3 \cdot \tau_\text{б}
 \end{equation}
 
-$3 \cdot \tau_\text{н} \simeq 3 \cdot \tau_{\text{б}} = 45 \cdot 10^{-6}\ \ \text{с} > t_\text{и} = 10 \cdot 10^{-6}\ \ \text{c} \Rightarrow$
+$3 \cdot \tau_\text{н} \simeq 3 \cdot \tau_{\text{б}} = 3.63 \cdot 10^{-5}\ \ \text{с} > t_\text{и} = 10^{-5}\ \ \text{c} \Rightarrow$
 \begin{equation}
 \label{t_rass}
 t_\text{расс} = \tau_{\text{б}} \cdot ln{\frac{I_{\text{б}_1} \cdot \Big [ 1 - e^{\frac{-t_\text{и}}{\tau_\text{н}}} \Big ] + I_{\text{б}_2}}{\frac{I_\text{кн}}{B} + I_{\text{б}_2}}}
@@ -125,15 +125,15 @@ t_\text{расс} = \tau_{\text{б}} \cdot ln{\frac{I_{\text{б}_1} \cdot \Big [
 
 По формулам \ref{t_f}, \ref{t_sp} и \ref{t_rass} найдем $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$ соответственно:
 
-\begin{equation*}
-t_\phi = 1.5 \cdot 10^{-5} \cdot \ln{\frac{3.16 \cdot 10^{-3}}{3.16 \cdot 10^{-3} - 0.9 \cdot \frac{20 \cdot 10^{-3}}{19}}} = 5.34 \cdot 10^{-6} \text{ с}
-\end{equation*}
-\begin{equation*}
-t_\text{сп} = 2.3 \cdot 1.5 \cdot 10^{-5} = 3.45 \cdot 10^{-5} \text{ с}
-\end{equation*}
-\begin{equation*}
-t_\text{расс} = 1.5 \cdot 10^{-5} \cdot ln{\frac{3.16 \cdot 10^{-3} \cdot \Big [ 1 - e^{\frac{-10^{-5}}{1.5 \cdot 10^{-5}}} \Big ] + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 5.62 \cdot 10^{-6} \text{ с}
-\end{equation*}
+\begin{displaymath}
+t_\phi = 1.21 \cdot 10^{-5} \cdot \ln{\frac{3.16 \cdot 10^{-3}}{3.16 \cdot 10^{-3} - 0.9 \cdot \frac{20 \cdot 10^{-3}}{19}}} = 4.31 \cdot 10^{-6} \text{ с}
+\end{displaymath}
+\begin{displaymath}
+t_\text{сп} = 2.3 \cdot 1.21 \cdot 10^{-5} = 2.78 \cdot 10^{-5} \text{ с}
+\end{displaymath}
+\begin{displaymath}
+t_\text{расс} = 1.21 \cdot 10^{-5} \cdot ln{\frac{3.16 \cdot 10^{-3} \cdot \Big [ 1 - e^{\frac{-10^{-5}}{1.21 \cdot 10^{-5}}} \Big ] + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 6.27 \cdot 10^{-6} \text{ с}
+\end{displaymath}
 
 
 \section{Экспериментально снятые зависимости}
