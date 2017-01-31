@@ -1,8 +1,60 @@
-\include{settings}
+\documentclass[a4paper,14pt]{extarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{here}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+\counterwithin{table}{section}
+\newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
+\graphicspath{{pics/}} % Путь до папки с картинками
 
 \begin{document}
 
-\include{titlepage}
+\begin{titlepage}
+\begin{center}
+	\textbf{Санкт-Петербургский Политехнический Университет \\Петра Великого}\\[0.3cm]
+	\small Институт компьютерных наук и технологий \\[0.3cm]
+	\small Кафедра компьютерных систем и программных технологий\\[4cm]
+	
+	\textbf{ОТЧЕТ}\\ \textbf{о лабораторной работе}\\[0.5cm]
+	\textbf{<<Исследование транизисторных ключей>>}\\[0.1cm]
+	\textbf{Электротехника и Электроника}\\[10.5cm]
+\end{center}
+
+\begin{flushright}
+	\begin{minipage}{0.60\textwidth}
+		\begin{flushleft}
+			\small \textbf{Работу выполнили студенты}\\[3mm]
+			\small группа 23501/4 \hspace*{17mm} Дьячков В.В.\\[3mm]
+			\small группа 23501/4 \hspace*{17mm} Ламтев А.Ю.\\[5mm]
+			
+			\small \textbf{Преподаватель}\\[5mm]
+		 	\small \sign[3.5cm] \hspace*{8mm} к.т.н., доц. Кочетков Ю.Д.\\[0.5cm]
+		\end{flushleft}
+	\end{minipage}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+	\small Санкт-Петербург\\
+	\small \the\year
+\end{center}
+\end{titlepage}
 
 \section{Цель работы}
 
@@ -11,337 +63,544 @@
 \section{Чертеж схемы исследуемого устройства}
 
 \begin{figure}[H]
-	\begin{center}
+\begin{center}
 	\vspace{-0.5cm}
-		\includegraphics[width=7cm]{img/scheme}
-		\caption{Схема транзисторного ключа с общим эмиттером}
-		\label{figure:1}
+	\includegraphics[width=7cm]{scheme}
+	\caption{Схема транзисторного ключа с общим эмиттером}
 	\vspace{-0.5cm}
-	\end{center}
+\end{center}
 \end{figure}
 
 \section{Исходные данные}
 
-Транзистор МП25. Германиевый транзистор с $p-n-p$ переходом.
+Транзистор \verb+МП25+. Германиевый транзистор с $p-n-p$ переходом.
 
 \begin{table}[H]
-	\begin{center}
+\begin{center}
 	\caption{Исходные данные}
-	\def\arraystretch{1.4}
-		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|X|X|X|}
-			\hline
-			$E_0$ &
-			$E_\text{см}$ &
-			$I_\text{кн}$ &
-			$S$ &
-			$E_\text{вх}$ &
-			$t_\text{и}$ &
-			$R_c$ &
-			$I_{\text{к}_0\ max}$ &
-			$B$ &
-			$f_\alpha$\\
-			\hline
-			В &
-			В &
-			мА &
-			 &
-			В &
-			мкс &
-			кОм &
-			мкА &
-			 &
-			кГц\\
-			\hline
-			25 &
-			5 &
-			20 &
-			3 &
-			7 &
-			10 &
-			1 &
-			75 &
-			19 &
-			250 \\
-		    \hline	
-		\end{tabularx}
-		\label{tabular:1}
-	\end{center}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{12pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$E_0$ &
+		$E_\text{см}$ &
+		$I_\text{кн}$ &
+		$S$ &
+		$E_\text{вх}$ &
+		$t_\text{и}$ &
+		$R_c$ &
+		$I_{\text{к}_0\ max}$ &
+		$B$ &
+		$f_\alpha$ \\
+		\hline
+		В &
+		В &
+		мА &
+		 &
+		В &
+		мкс &
+		кОм &
+		мкА &
+		 &
+		кГц \\
+		\hline
+		25 &
+		5 &
+		20 &
+		3 &
+		7 &
+		10 &
+		1 &
+		75 &
+		19 &
+		250 \\
+	    \hline	
+	\end{tabular}
+\end{center}
 \end{table}
 
 \section{Теоретические расчёты}
 
 \subsection{Расчёт элементов цепи}
 
-\begin{displaymath}
-R_\text{б} \leq \frac{E_0}{I_{\text{к}_0\ \ max}} = \frac{25}{75 \cdot 10^{-6}} = 330\ \ \text{кОм}
-\end{displaymath}
+\[
+R_\text{б} \leq \frac{E_0}{I_{\text{к}_0\ max}} = \frac{25}{75 \cdot 10^{-6}} = 330 \text{ кОм}
+\]
 
-\begin{displaymath}
-R_\text{к} = \frac{E_0}{I_\text{кн}} = \frac{25}{20 \cdot 10^{-3}} = 1.25\ \ \text{кОм}
-\end{displaymath}
+\[
+R_\text{к} = \frac{E_0}{I_\text{кн}} = \frac{25}{20 \cdot 10^{-3}} = 1.25 \text{ кОм}
+\]
 
-\begin{displaymath}
-I_{\text{б}_1} = \frac{S \cdot I_\text{кн}}{B} = \frac{3 \cdot 20 \cdot 10^{-3}}{19} = 3.16\ \ \text{мА}
-\end{displaymath}
+\[
+I_{\text{б}_1} = \frac{S \cdot I_\text{кн}}{B} = \frac{3 \cdot 20 \cdot 10^{-3}}{19} = 3.16 \text{ мА}
+\]
 
-\begin{displaymath}
-R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - R_\text{c} = \frac{7}{3.16 \cdot 10^{-3} + \frac{5}{330 \cdot 10^3}} - 1 = 1.2\ \ \text{кОм}
-\end{displaymath}
+\[
+R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - R_\text{c} = \frac{7}{3.16 \cdot 10^{-3} + \frac{5}{330 \cdot 10^3}} - 1 = 1.2 \text{ кОм}
+\]
 
-\begin{displaymath}
+\[
 \tau_{\text{б}} = \frac{B}{2 \cdot \pi \cdot f_\alpha} = \frac{19}{2 \cdot \pi \cdot 250 \cdot 10^3} = 1.21 \cdot 10^{-5}
-\end{displaymath}
+\]
 
-\begin{displaymath}
-I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5}\ \ \text{A}
-\end{displaymath}
+\[
+I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5} \text{ A}
+\]
 
-\begin{displaymath}
+\[
 d = \frac{I_{\text{б}_2}}{I_{\text{б}_1}} = \frac{ 1.51 \cdot 10^{-5}}{3.16 \cdot 10^{-3}} = 4.78 \cdot 10^{-3}
-\end{displaymath}
+\]
 
-\begin{displaymath}
-C = \frac{\tau_{\text{б}}}{R \cdot \Big ( 1 + \frac{dR}{R+R_c} \Big )} = \frac{1.21 \cdot 10^{-5}}{1.2 \cdot 10^3 \cdot \Big ( 1 + \frac{4.78 \cdot 10^{-3} \cdot 1.2 \cdot 10^3}{1.2 \cdot 10^3+1000} \Big )} = 10 \text{ нФ}
-\end{displaymath}
+\[
+C = \frac{\tau_{\text{б}}}{R \cdot \left( 1 + \frac{dR}{R+R_c} \right)} = \frac{1.21 \cdot 10^{-5}}{1.2 \cdot 10^3 \cdot \left( 1 + \frac{4.78 \cdot 10^{-3} \cdot 1.2 \cdot 10^3}{1.2 \cdot 10^3+1000} \right)} = 10 \text{ нФ}
+\]
 
-\subsection{Расчёт $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$}
+\subsection{Расчет $t_\text{ф}$, $t_\text{сп}$, $t_\text{расс}$}
 
-\begin{equation}
-\label{t_f}
+\begin{equation}\label{eq:t_f}
 t_\phi = \tau_{\text{б}} \cdot \ln{\frac{I_{\text{б}_1}}{I_{\text{б}_1} - 0.9 \cdot \frac{I_\text{кн}}{B}}}
 \end{equation}
 
 $I_{\text{б}_2} = 1.51 \cdot 10^{-5} \ll \frac{I_\text{кн}}{B} = \frac{20 \cdot 10^{-3}}{19} \Rightarrow$
-\begin{equation}
-\label{t_sp}
+\begin{equation}\label{eq:t_sp}
 t_\text{сп} = 2.3 \cdot \tau_\text{б}
 \end{equation}
 
-$3 \cdot \tau_\text{н} \simeq 3 \cdot \tau_{\text{б}} = 3.63 \cdot 10^{-5}\ \ \text{с} > t_\text{и} = 10^{-5}\ \ \text{c} \Rightarrow$
-\begin{equation}
-\label{t_rass}
-t_\text{расс} = \tau_{\text{б}} \cdot ln{\frac{I_{\text{б}_1} \cdot \Big [ 1 - e^{\frac{-t_\text{и}}{\tau_\text{н}}} \Big ] + I_{\text{б}_2}}{\frac{I_\text{кн}}{B} + I_{\text{б}_2}}}
+$3 \cdot \tau_\text{н} \approx 3 \cdot \tau_{\text{б}} = 3.63 \cdot 10^{-5} \text{ с} > t_\text{и} = 10^{-5} \text{ c} \Rightarrow$
+
+\begin{equation}\label{eq:t_rass}
+t_\text{расс} = \tau_{\text{б}} \cdot \ln{\frac{I_{\text{б}_1} \cdot \left( 1 - e^{\frac{-t_\text{и}}{\tau_\text{н}}} \right) + I_{\text{б}_2}}{\frac{I_\text{кн}}{B} + I_{\text{б}_2}}}
 \end{equation}
 
-По формулам \ref{t_f}, \ref{t_sp} и \ref{t_rass} найдем $t_\text{ф}$, $t_\text{сп}$ и $t_\text{расс}$ соответственно:
+По формулам \ref{eq:t_f}, \ref{eq:t_sp} и \ref{eq:t_rass} найдем $t_\text{ф}$, $t_\text{сп}$ и $t_\text{расс}$ соответственно:
 
-\begin{displaymath}
+\[
 t_\phi = 1.21 \cdot 10^{-5} \cdot \ln{\frac{3.16 \cdot 10^{-3}}{3.16 \cdot 10^{-3} - 0.9 \cdot \frac{20 \cdot 10^{-3}}{19}}} = 4.31 \cdot 10^{-6} \text{ с}
-\end{displaymath}
-\begin{displaymath}
+\]
+\[
 t_\text{сп} = 2.3 \cdot 1.21 \cdot 10^{-5} = 2.78 \cdot 10^{-5} \text{ с}
-\end{displaymath}
-\begin{displaymath}
-t_\text{расс} = 1.21 \cdot 10^{-5} \cdot ln{\frac{3.16 \cdot 10^{-3} \cdot \Big [ 1 - e^{\frac{-10^{-5}}{1.21 \cdot 10^{-5}}} \Big ] + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 6.27 \cdot 10^{-6} \text{ с}
-\end{displaymath}
+\]
+\[
+t_\text{расс} = 1.21 \cdot 10^{-5} \cdot \ln{\frac{3.16 \cdot 10^{-3} \cdot \left( 1 - e^{\frac{-10^{-5}}{1.21 \cdot 10^{-5}}} \right) + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 6.27 \cdot 10^{-6} \text{ с}
+\]
 
 \section{Экспериментально снятые зависимости}
 
-На рисунке \ref{fig:time} построены временные диаграммы $U_\text{вх}$, $U_\text{кэ}$ и $U_\text{бэ}$.
+\subsection{Временные диаграммы $U_\text{вх}$, $U_\text{кэ}$ и $U_\text{бэ}$}
 
+На рисунке \ref{fig:time} построены временные диаграммы $U_\text{вх}$, $U_\text{кэ}$ и $U_\text{бэ}$.
+	
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=15cm]{img/time}
-		\caption{Временные диаграммы: а) $U_\text{вх}$, б) $U_\text{кэ}$, в) $U_\text{бэ}$.}
-		\label{fig:time}
-	\end{center}
+\begin{center}
+	\includegraphics[width=0.9\textwidth]{time}
+	\caption{Временные диаграммы: а) $U_\text{вх}$, б) $U_\text{кэ}$, в) $U_\text{бэ}$.}
+	\label{fig:time}
+\end{center}
 \end{figure}
+
+\newpage
+
+\subsection{Зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $t_\text{и}$}
 
 В таблице \ref{tab:timp} и на рисунке \ref{fig:timp} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $t_\text{и}$ ($t_\phi$ и $t_\text{сп}$ не зависят от $t_\text{и}$).
 
 \begin{table}[H]
-	\begin{center}
+\begin{center}
 	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $t_\text{и}$}
-		\begin{tabular}{|c|c|c|c|}
-		\hline 
-		$t_\text{и}$, мкс & $t_\phi$, мкс & $t_\text{сп}$, мкс & $t_\text{расс}$, мкс \\ 
-		\hline 
-		10 & 3.2 & 25 & 2.6 \\ 
-		\hline 
-		3 & 2.9 & 25 & 0.2 \\ 
-		\hline 
-		4 & 3 & 21 & 1.3 \\ 
-		\hline 
-		6 & 3.1 & 23 & 2.1 \\ 
-		\hline 
-		8 & 3.2 & 25 & 3 \\ 
-		\hline 
-		15 & 3.3 & 26 & 2.7 \\ 
-		\hline 
-		20 & 3.3 & 26 & 2.9 \\ 
-		\hline 
-		25 & 3.3 & 27 & 3 \\ 
-		\hline 
-		\end{tabular} 
-		\label{tab:timp}
-		
-	\end{center}
+	\label{tab:timp}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{17pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={t_i,t_f,t_sp,t_rass},
+	    column type/.add={|c|}{},
+	    columns/t_i/.style={fixed, column name={$t_\text{и}$, мкс}},
+	    columns/t_f/.style={fixed, precision=1, zerofill, column name={$t_\phi$, мкс}},
+	    columns/t_sp/.style={fixed, column name={$t_\text{сп}$, мкс}},
+	    columns/t_rass/.style={fixed, precision=1, zerofill, column name={$t_\text{расс}$, мкс}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/t_i.csv}
+\end{center}
 \end{table}
-\vspace{-1.5cm}
+
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=13cm]{img/trass_timp}
-		\caption{Зависимость $t_\text{расс}$ от $t_\text{имп}$}
-		\label{fig:timp}
-	\end{center}
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.35\textheight,
+			width=0.75\textwidth,
+			legend pos=north west,
+			xlabel={$t_\text{и}$, мкс},
+			ylabel={$t_\text{расс}$, мкс},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin = 2,
+			xmax = 26,
+			ymin = -6,
+			ymax = 12,
+			grid=major
+		]
+		\addplot table[x=t_i,y=t_rass,col sep=comma]{data/t_i.csv};
+		\addplot table[x=t_i,y=t_rass,col sep=comma]{data/t_i_theory.csv};
+		\legend{Эксп., Teор.}
+		\end{axis}
+	\end{tikzpicture}
+	\captionsetup{justification=centering,margin=1cm}
+	\caption{Зависимость $t_\text{расс}$ от $t_\text{и}$}\label{fig:timp}
+\end{center}
 \end{figure}
 
-В таблице \ref{tab:ib1} и на рисунке \ref{fig:ib1} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_1}$ ($t_\text{сп}$ не зависит от $I_{\text{б}_1}$).
+\subsection{Зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_1}$}
+
+В таблице \ref{tab:i_b1} и на рисунке \ref{fig:i_b1} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_1}$ ($t_\text{сп}$ не зависит от $I_{\text{б}_1}$).
 
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{б}_1}$}
-		\begin{tabular}{|c|c|c|c|c|}
-		\hline 
-		$R$, Ом & $I_{\text{б}_1}$, А & $t_\phi$, мкс & $t_\text{сп}$, мкс & $t_\text{расс}$, мкс \\ 
-		\hline 
-		680	& 0.004151515 &	1.9 & 20 & 3.8 \\
-		\hline
-		1000 & 0.003484848 & 3 & 23 & 2.8 \\
-		\hline
-		1300 &	0,003028327 & 3.2 &	25 & 2.6 \\ 
-		\hline
-		1630 & 0.002646445 & 4.4 & 26 &	1.5 \\
-		\hline
-		2000 &	0.002318182 & 5.5 &	26 & 1.1 \\
-		\hline
-		2330 & 0.002086951 & 6.2 & 26 & 0.3 \\
-		\hline
-		\end{tabular} 
-		\label{tab:ib1}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{б}_1}$}\label{tab:i_b1}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{17pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={r,i_b1,t_f,t_sp,t_rass},
+	    column type/.add={|c|}{},
+	    columns/r/.style={fixed, column name={$R$, Ом}},
+	    columns/i_b1/.style={sci, column name={$I_{\text{б}_1}$, А}},
+	    columns/t_f/.style={fixed, precision=1, zerofill, column name={$t_\phi$, мкс}},
+	    columns/t_sp/.style={fixed, column name={$t_\text{сп}$, мкс}},
+	    columns/t_rass/.style={fixed, precision=1, zerofill, column name={$t_\text{расс}$, мкс}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline,after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/i_b1.csv}
+\end{center}
 \end{table}
-\vspace{-1.5cm}
+
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7.5cm]{img/tf_ib1}
-		\includegraphics[width=7.5cm]{img/trass_ib1}
-		\caption{Зависимость $t_\phi$, $t_\text{расс}$ от $I_{\text{б}_1}$}
-		\label{fig:ib1} % название для ссылок внутри кода
-	\end{center}
+\begin{center}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north east,
+				xlabel={$I_{\text{б}_1}$, А},
+				ylabel={$t_\phi$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_b1,y=t_f,col sep=comma]{data/i_b1.csv};
+			\addplot table[x=i_b1,y=t_f,col sep=comma]{data/i_b1_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\phi$ от $I_{\text{б}_1}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$I_{\text{б}_1}$, А},
+				ylabel={$t_\text{расс}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_b1,y=t_rass,col sep=comma]{data/i_b1.csv};
+			\addplot table[x=i_b1,y=t_rass,col sep=comma]{data/i_b1_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{расс}$ от $I_{\text{б}_1}$}
+	\end{subfigure}
+	\caption{}\label{fig:i_b1}
+\end{center}
 \end{figure}
 
-В таблице \ref{tab:ib2} и на рисунке \ref{fig:ib2} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_2}$ ($t_\phi$ не зависит от $I_{\text{б}_2}$).
+\newpage
+
+\subsection{Зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_2}$}
+
+В таблице \ref{tab:i_b2} и на рисунке \ref{fig:i_b2} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{б}_2}$ ($t_\phi$ не зависит от $I_{\text{б}_2}$).
 
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{б}_2}$}
-		\begin{tabular}{|c|c|c|c|c|}
-		\hline 
-		$R_\text{б}$, Ом & $I_{\text{б}_2}$, А & $t_\phi$, мкс & $t_\text{сп}$, мкс & $t_\text{расс}$, мкс \\ 
-		\hline 
-		120000 & 4.16667E-05 & 3.5 & 22 & 1.7 \\
-		\hline
-		188000 & 2.65957E-05 & 3.4 & 23 & 2.4 \\
-		\hline
-		240000 & 2.08333E-05 & 3.2 & 25	& 2.6 \\
-		\hline
-		308000 & 1.62338E-05 & 3.2 & 26 & 2.6 \\
-		\hline
-		360000 & 1.38889E-05 & 3.5 & 25 & 2.4 \\
-		\hline
-		428000 & 1.16822E-05 & 3.3 & 26 & 2.3 \\
-		\hline
-		\end{tabular} 
-		\label{tab:ib2}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{б}_2}$}\label{tab:i_b2}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{17pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={r_b,i_b2,t_f,t_sp,t_rass},
+	    column type/.add={|c|}{},
+	    columns/r_b/.style={fixed, column name={$R_\text{б}$, Ом}},
+	    columns/i_b2/.style={sci, column name={$I_{\text{б}_2}$, А}},
+	    columns/t_f/.style={fixed, precision=1, zerofill, column name={$t_\phi$, мкс}},
+	    columns/t_sp/.style={fixed, column name={$t_\text{сп}$, мкс}},
+	    columns/t_rass/.style={fixed, precision=1, zerofill, column name={$t_\text{расс}$, мкс}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline,after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/i_b2.csv}
+\end{center}
 \end{table}
-\vspace{-1.5cm}
+
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7.5cm]{img/tsp_ib2}
-		\includegraphics[width=7.5cm]{img/trass_ib2}
-		\caption{Зависимость $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{б}_2}$}
-		\label{fig:ib2} % название для ссылок внутри кода
-	\end{center}
+\begin{center}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north east,
+				xlabel={$I_{\text{б}_2}$, А},
+				ylabel={$t_\text{сп}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_b2,y=t_sp,col sep=comma]{data/i_b2.csv};
+			\addplot table[x=i_b2,y=t_sp,col sep=comma]{data/i_b2_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{сп}$ от $I_{\text{б}_2}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$I_{\text{б}_2}$, А},
+				ylabel={$t_\text{расс}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				ymax=9.5,
+				grid=major
+			]
+			\addplot table[x=i_b2,y=t_rass,col sep=comma]{data/i_b2.csv};
+			\addplot table[x=i_b2,y=t_rass,col sep=comma]{data/i_b2_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{расс}$ от $I_{\text{б}_2}$}
+	\end{subfigure}
+	\caption{}\label{fig:i_b2}
+\end{center}
 \end{figure}
 
-В таблице \ref{tab:ikn} и на рисунке \ref{fig:ikn} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{кн}}$ ($t_\phi$ не зависит от $I_{\text{кн}}$).
+\newpage
+
+\subsection{Зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{кн}}$}
+
+В таблице \ref{tab:i_kn} и на рисунке \ref{fig:i_kn} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $I_{\text{кн}}$ ($t_\phi$ не зависит от $I_{\text{кн}}$).
 
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{кн}}$}
-		\begin{tabular}{|c|c|c|c|c|}
-		\hline 
-		$R_\text{к}$, Ом & $I_{\text{кн}}$, А & $t_\phi$, мкс & $t_\text{сп}$, мкс & $t_\text{расс}$, мкс \\ 
-		\hline 
-		680 & 0.036764706 & 10 & 29 & 0 \\
-		\hline
-		1000 & 0.025 & 3.9 & 26 & 2 \\
-		\hline
-		1160 & 0.021551724 & 3.2 & 25 & 2.6 \\
-		\hline
-		1330 & 0.018796992 & 2.9 & 24 & 3.6 \\
-		\hline
-		1680 & 0.014880952 & 2.4 & 25 & 4.2 \\
-		\hline
-		2000 & 0.0125 & 1.6 & 23 & 4.6 \\
-		\hline
-		\end{tabular} 
-		\label{tab:ikn}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{кн}}$}\label{tab:i_kn}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{17pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={r_k,i_kn,t_f,t_sp,t_rass},
+	    column type/.add={|c|}{},
+	    columns/r_k/.style={fixed, column name={$R_\text{к}$, Ом}},
+	    columns/i_kn/.style={sci, column name={$I_\text{кн}$, А}},
+	    columns/t_f/.style={fixed, precision=1, zerofill, column name={$t_\phi$, мкс}},
+	    columns/t_sp/.style={fixed, column name={$t_\text{сп}$, мкс}},
+	    columns/t_rass/.style={fixed, precision=1, zerofill, column name={$t_\text{расс}$, мкс}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline,after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/i_kn.csv}
+\end{center}
 \end{table}
-\vspace{-1.5cm}
+
+\vspace{-1cm}
+
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7.5cm]{img/tf_ikn}
-		\includegraphics[width=7.5cm]{img/tsp_ikn}
-		\includegraphics[width=7.5cm]{img/trass_ikn}
-		\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $I_{\text{кн}}$}
-		\label{fig:ikn}
-	\end{center}
+\begin{center}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$I_\text{кн}$, А},
+				ylabel={$t_\phi$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_kn,y=t_f,col sep=comma]{data/i_kn.csv};
+			\addplot table[x=i_kn,y=t_f,col sep=comma]{data/i_kn_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\phi$ от $I_\text{кн}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=south east,
+				xlabel={$I_\text{кн}$, А},
+				ylabel={$t_\text{сп}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_kn,y=t_sp,col sep=comma]{data/i_kn.csv};
+			\addplot table[x=i_kn,y=t_sp,col sep=comma]{data/i_kn_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{сп}$ от $I_\text{кн}$}
+	\end{subfigure}\\[0.5cm]
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north east,
+				xlabel={$I_\text{кн}$, А},
+				ylabel={$t_\text{расс}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=i_kn,y=t_rass,col sep=comma]{data/i_kn.csv};
+			\addplot table[x=i_kn,y=t_rass,col sep=comma]{data/i_kn_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{расс}$ от $I_\text{кн}$}
+	\end{subfigure}
+	\caption{}\label{fig:i_kn}
+\end{center}
 \end{figure}
 
-Зашунтировав резистор $R$ конденсатором $C = 10$ нФ, рассчитаем теоретические значения $t_\text{ф}$, $t_\text{сп}$ и $t_\text{расс}$. Для этого в формулы \ref{t_f}, \ref{t_sp} и \ref{t_rass} подставим значение $\tau_\text{б} = \frac{CRR_c}{R+R_c}$:
-\begin{equation*}
+\subsection{Зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от $C$}
+
+Зашунтировав резистор $R$ конденсатором $C = 10$ нФ, рассчитаем теоретические значения $t_\text{ф}$, $t_\text{сп}$ и $t_\text{расс}$. Для этого в формулы \ref{eq:t_f}, \ref{eq:t_sp} и \ref{eq:t_rass} подставим значение $\tau_\text{б} = \frac{CRR_c}{R+R_c}$:
+\[
 \tau_\text{б} = \frac{10 \cdot 10^{-9} \cdot 1200 \cdot 1000}{1200 + 1000} = 5.45 \cdot 10^{-6}
-\end{equation*}
-\begin{equation*}
+\]
+\[
 t_\phi = 5.45 \cdot 10^{-6} \cdot \ln{\frac{3.16 \cdot 10^{-3}}{3.16 \cdot 10^{-3} - 0.9 \cdot \frac{20 \cdot 10^{-3}}{19}}} = 1.94 \cdot 10^{-6} \text{ с}
-\end{equation*}
-\begin{equation*}
+\]
+\[
 t_\text{сп} = 2.3 \cdot 1.21 \cdot 5.45 \cdot 10^{-6} = 6.59 \cdot 10^{-6} \text{ с}
-\end{equation*}
-\begin{equation*}
-t_\text{расс} = 5.45 \cdot 10^{-6} \cdot ln{\frac{3.16 \cdot 10^{-3} \cdot \Big [ 1 - e^{\frac{-10^{-5}}{1.21 \cdot 10^{-5}}} \Big ] + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 2.82 \cdot 10^{-6} \text{ с}
-\end{equation*}
+\]
+\[
+t_\text{расс} = 5.45 \cdot 10^{-6} \cdot \ln{\frac{3.16 \cdot 10^{-3} \cdot \left( 1 - e^{\frac{-10^{-5}}{1.21 \cdot 10^{-5}}} \right) + 1.51 \cdot 10^{-5}}{\frac{20 \cdot 10^{-3}}{19} + 1.51 \cdot 10^{-5}}} = 2.82 \cdot 10^{-6} \text{ с}
+\]
 
 В таблице \ref{tab:c} и на рисунке \ref{fig:c} изображена зависимость $t_\phi$, $t_\text{сп}$ и $t_\text{расс}$ от форсирующей емкости $C$.
 
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $C$}
-		\begin{tabular}{|c|c|c|c|c|}
-		\hline 
-		$C$, Ф & $\tau_{\text{б}}$ & $t_\phi$, мкс & $t_\text{сп}$, мкс & $t_\text{расс}$, мкс \\ 
-		\hline 
-		6.8E-10 & 3.70909E-07 & 0.03 & 0.33 & 0.1 \\
-		\hline
-		1.5E-9 & 8.18182E-07 & 0.025 & 0.28 & 0.08 \\
-		\hline
-		3E-9 & 1.63636E-06 & 0.01 & 0.22 & 0.02 \\
-		\hline		
-		5.1E-9 & 2.78182E-06 & 0.005 & 0.02 & 0.01 \\
-		\hline
-		\end{tabular} 
-		\label{tab:c}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $C$}\label{tab:c}
+	\def\arraystretch{1.3}
+	\def\tabcolsep{17pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={c,tau_b,t_f,t_sp,t_rass},
+	    column type/.add={|c|}{},
+	    columns/c/.style={sci, column name={$C$, Ф}},
+	    columns/tau_b/.style={sci, column name={$\tau_{\text{б}}$}},
+	    columns/t_f/.style={fixed, precision=3, zerofill, column name={$t_\phi$, мкс}},
+	    columns/t_sp/.style={fixed, column name={$t_\text{сп}$, мкс}},
+	    columns/t_rass/.style={fixed, precision=2, zerofill, column name={$t_\text{расс}$, мкс}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline,after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/c.csv}
+\end{center}
 \end{table}
-\vspace{-1.5cm}
+
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7.5cm]{img/tf_c}
-		\includegraphics[width=7.5cm]{img/tsp_c}
-		\includegraphics[width=7.5cm]{img/trass_c}
-		\caption{Зависимость $t_\phi$, $t_\text{сп}$, $t_\text{расс}$ от $C$}
-		\label{fig:c}
-	\end{center}
+\begin{center}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$C$, Ф},
+				ylabel={$t_\phi$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=c,y=t_f,col sep=comma]{data/c.csv};
+			\addplot table[x=c,y=t_f,col sep=comma]{data/c_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\phi$ от $C$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$C$, Ф},
+				ylabel={$t_\text{сп}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=c,y=t_sp,col sep=comma]{data/c.csv};
+			\addplot table[x=c,y=t_sp,col sep=comma]{data/c_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{сп}$ от $C$}
+	\end{subfigure}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\ContinuedFloat
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture} [every plot/.append style={thick}]
+			\begin{axis}[
+				height=0.23\textheight,
+				width=0.95\textwidth,
+				legend pos=north west,
+				xlabel={$C$, Ф},
+				ylabel={$t_\text{расс}$, мкс},
+				xlabel near ticks,
+				ylabel near ticks,
+				grid=major
+			]
+			\addplot table[x=c,y=t_rass,col sep=comma]{data/c.csv};
+			\addplot table[x=c,y=t_rass,col sep=comma]{data/c_theory.csv};
+			\legend{Эксп., Teор.}
+			\end{axis}
+		\end{tikzpicture}
+		\captionsetup{justification=centering,margin=1cm}
+		\caption{Зависимость $t_\text{расс}$ от $C$}
+	\end{subfigure}
+	\caption{}\label{fig:c}
+\end{center}
 \end{figure}
 
 \section{Выводы}
 
-Полученные экспериментальные зависимости имеют схожий характер изменения с теоретическими. То, что они расположены ниже [на графике], чем теоретические, означает, что реальное значение f транзистора больше, чем указанное в справочнике. 
+Полученные экспериментальные зависимости имеют схожий характер изменения с теоретическими. То, что они расположены ниже [на графике], чем теоретические, означает, что реальное значение $f$ транзистора больше, чем указанное в справочнике. 
 
-Таким образом формулы \ref{t_f}, \ref{t_sp} и \ref{t_rass} справедливы.
+Таким образом, формулы \ref{eq:t_f}, \ref{eq:t_sp} и \ref{eq:t_rass} являются верными.
 
 \end{document}

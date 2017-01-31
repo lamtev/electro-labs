@@ -8,10 +8,10 @@ phi = 0.025875  # const
 path = '../data/'  # path to data files
 
 
-def fun(x):  # Ebers-moll equation
+def fun(x):  # Ebers-Moll equation
     i_0, m = x
-    u1, i1 = 0.53, 0.029  # Point 1
-    u2, i2 = 0.73, 0.269  # Point 2
+    u1, i1 = 0.53, 0.029  # point 1
+    u2, i2 = 0.73, 0.269  # point 2
     return i_0 * (exp(u1 / (m * phi)) - 1) - i1, \
            i_0 * (exp(u2 / (m * phi)) - 1) - i2
 
@@ -21,11 +21,11 @@ print(i_0, m)
 
 
 def em_i(u):
-    return i_0 * (exp(u / (m * 0.025875)) - 1)
+    return i_0 * (exp(u / (m * phi)) - 1)
 
 
 def em_u(i):
-    return log((i / i_0 + 1), exp(1)) * (m * 0.025875)
+    return log((i / i_0 + 1), exp(1)) * (m * phi)
 
 
 f = open(path + 'vac_theory.csv', 'w')

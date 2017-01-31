@@ -31,7 +31,7 @@
 	\small Кафедра компьютерных систем и программных технологий\\[4cm]
 	
 	\textbf{ОТЧЕТ}\\ \textbf{о лабораторной работе}\\[0.5cm]
-	\textbf{Исследование частотных характеристик пассивных RC-цепей}\\[0.1cm]
+	\textbf{<<Исследование частотных характеристик пассивных RC-цепей>>}\\[0.1cm]
 	\textbf{Электротехника и Электроника}\\[10.5cm]
 \end{center}
 
@@ -90,9 +90,9 @@
 	\def\tabcolsep{50pt}
 	\begin{tabular}{|c|c|}
 		\hline
-		$R$, кОм & $C$, нФ\\
+		$R$, кОм & $C$, нФ \\
 		\hline
-		15 & 5\\
+		15 & 5 \\
 		\hline	
 	\end{tabular}
 \end{center}
@@ -102,34 +102,35 @@
 
 Частота перегиба расcчитывается следующим образом:
 \begin{equation}
-	\omega_0 = \frac{1}{RC} = \frac{1}{15 \cdot 10^3 \cdot 5 \cdot 10^{-9}} \approx 1.334 \cdot 10^4 \hspace*{2mm}
+\omega_0 = \frac{1}{RC} = \frac{1}{15 \cdot 10^3 \cdot 5 \cdot 10^{-9}} \approx 1.334 \cdot 10^4 \hspace*{2mm}
 \end{equation}
 
 Рассчитаем $f_0$: 
 \begin{equation}
-	f_0 = \frac{\omega_0}{2 \pi} = \frac{1.34}{2\cdot1.341} \approx 2122.065 (\text{Гц})
+f_0 = \frac{\omega_0}{2 \pi} = \frac{1.34}{2\cdot1.341} \approx 2122.065 (\text{Гц})
 \end{equation}
 
 Теоретическая ЛАЧХ для дифференцирующей RC-цепи имеет вид:
 \begin{equation}\label{eq:l_diff}
-	L_u^1(\omega) = 20\lg \omega RC - 10\lg (1+(\omega RC)^2),
+L_u^1(\omega) = 20\lg \omega RC - 10\lg (1+(\omega RC)^2),
 \end{equation}
 
 Теоретическая ЛАЧХ для интегрирующей RC-цепи имеет вид:
 \begin{equation}\label{eq:l_int}
-	L_u^2(\omega) = -10\lg (1+(\omega RC)^2),
+L_u^2(\omega) = -10\lg (1+(\omega RC)^2),
 \end{equation}
 
 Теоретическая ЛАЧХ для дифференцирующей и интегрирующей RC-цепи имеет вид:
 \begin{equation}\label{eq:l_diff_int}
-	L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
+L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \end{equation}
 
 При помощи формул \ref{eq:l_diff}, \ref{eq:l_int} и \ref{eq:l_diff_int} была составлена таблица \ref{tab:bode}.
 
 \begin{table}[H]
 \begin{center}
-	\caption{Значения для построения теоретических ЛАЧХ}\label{tab:bode}
+	\caption{Значения для построения теоретических ЛАЧХ}
+	\label{tab:bode}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{17pt}
 	\pgfplotstabletypeset[col sep=comma,
@@ -141,8 +142,8 @@
 	    columns/int/.style={fixed, precision=3, zerofill, column name={$L_u^2$, дБ}},
 	    columns/diff-int/.style={fixed, precision=3, zerofill, column name={$L_u^3$, дБ}},
 	    every nth row={1}{before row=\hline},
-	    every head row/.style = {before row=\hline, after row=\hline},
-	    every last row/.style = {after row=\hline}
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
 	   ]{data/bode.csv}
 \end{center}
 \end{table}
@@ -155,7 +156,8 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{ЛАЧХ дифференциующей RC-цепи}\label{tab:diff}
+	\caption{ЛАЧХ дифференциующей RC-цепи}
+	\label{tab:diff}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
@@ -167,15 +169,16 @@
 	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
 	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
 	    every nth row={1}{before row=\hline},
-	    every head row/.style = {before row=\hline, after row=\hline},
-	    every last row/.style = {after row=\hline}
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
 	   ]{data/diff.csv}
 \end{center}
 \end{table}
 
 \begin{table}[H]
 \begin{center}
-	\caption{ЛАЧХ интегрирующей RC-цепи}\label{tab:int}
+	\caption{ЛАЧХ интегрирующей RC-цепи}
+	\label{tab:int}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
@@ -187,15 +190,16 @@
 	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
 	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
 	    every nth row={1}{before row=\hline},
-	    every head row/.style = {before row=\hline, after row=\hline},
-	    every last row/.style = {after row=\hline}
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
 	   ]{data/int.csv}
 \end{center}
 \end{table}
 
 \begin{table}[H]
 \begin{center}
-	\caption{ЛАЧХ дифференцирующе-интегрирующей RC-цепи}\label{tab:diff-int}
+	\caption{ЛАЧХ дифференцирующе-интегрирующей RC-цепи}
+	\label{tab:diff-int}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
@@ -207,8 +211,8 @@
 	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
 	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
 	    every nth row={1}{before row=\hline},
-	    every head row/.style = {before row=\hline, after row=\hline},
-	    every last row/.style = {after row=\hline}
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
 	   ]{data/diff-int.csv}
 \end{center}
 \end{table}
@@ -238,15 +242,16 @@
 			xtick pos=right,
 			grid=major
 		]
-		\addplot table [x=f, y=diff, col sep=comma] {data/bode.csv};
-		\addplot table [x=f, y=lg_k, col sep=comma] {data/diff.csv};
+		\addplot table[x=f, y=diff, col sep=comma]{data/bode.csv};
+		\addplot table[x=f, y=lg_k, col sep=comma]{data/diff.csv};
 		\addplot +[mark=none, dashed, black, samples=2] coordinates {(2048,0) (200000,0)};
 		\addplot +[mark=none, dashed, black, domain=32:2048] {-(log2(x)*(-6)+66.3)};
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=2cm}
-	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей RC-цепи}\label{fig:diff}
+	\captionsetup{justification=centering,margin=1cm}
+	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей RC-цепи}
+	\label{fig:diff}
 \end{center}
 \end{figure}
 
@@ -268,15 +273,16 @@
 			xtick pos=right,
 			grid=major
 		]
-		\addplot table [x=f, y=int, col sep=comma] {data/bode.csv};
-		\addplot table [x=f, y=lg_k, col sep=comma] {data/int.csv};
+		\addplot table[x=f, y=int, col sep=comma]{data/bode.csv};
+		\addplot table[x=f, y=lg_k, col sep=comma]{data/int.csv};
 		\addplot +[mark=none, dashed, black, samples=2] coordinates {(32,0) (2048,0)};
 		\addplot +[mark=none, dashed, black, domain=2048:200000] {log2(x)*(-6)+66.3};
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=2cm}
-	\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей RC-цепи}\label{fig:int}
+	\captionsetup{justification=centering,margin=1cm}
+	\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей RC-цепи}
+	\label{fig:int}
 \end{center}
 \end{figure}
 
@@ -299,15 +305,16 @@
 			xtick pos=right,
 			grid=major
 		]
-		\addplot table [x=f, y=diff-int, col sep=comma] {data/bode.csv};
-		\addplot table [x=f, y=lg_k, col sep=comma] {data/diff-int.csv};
+		\addplot table[x=f, y=diff-int, col sep=comma]{data/bode.csv};
+		\addplot table[x=f, y=lg_k, col sep=comma]{data/diff-int.csv};
 		\addplot +[mark=none, dashed, black, domain=2048:200000] {log2(x)*(-6)+66.3};
 		\addplot +[mark=none, dashed, black, domain=32:2048] {-(log2(x)*(-6)+66.3)};
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=2cm}
-	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующе-интегрирующей RC-цепи}\label{fig:diff-int}
+	\captionsetup{justification=centering,margin=1cm}
+	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующе-интегрирующей RC-цепи}
+	\label{fig:diff-int}
 \end{center}
 \end{figure}
 
@@ -316,8 +323,8 @@
 \subsection{Предельно допустимые погрешности}
 
 \begin{center}
-$\delta R = 0.1 = 10\%$\\
-$\delta C = 0.1 = 10\%$\\
+	$\delta R = 0.1 = 10\%$ \\
+	$\delta C = 0.1 = 10\%$ \\
 \end{center}
 
 \subsubsection{Дифференцирующей и интегрирующей цепей}

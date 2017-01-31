@@ -116,25 +116,25 @@
 \subsubsection{Входное напряжение}
 
 \begin{equation}
-	U_\text{вх}(t) = 
-	\begin{cases}
-		0 & \text{если } t < 0\\
-		U_\text{имп} & \text{если } 0 \leq t \leq t_\text{имп}\\
-		0 & \text{если } t \geq t_\text{имп}
-	\end{cases}
+U_\text{вх}(t) = 
+\begin{cases}
+	0 & \text{если } t < 0\\
+	U_\text{имп} & \text{если } 0 \leq t \leq t_\text{имп}\\
+	0 & \text{если } t \geq t_\text{имп}
+\end{cases}
 \end{equation}
 
 \subsubsection{Выходное напряжение}
 
 \begin{enumerate}
-	\item Для дифференцирующей цепи:
+\item Для дифференцирующей цепи:
 	\begin{equation}\label{eq:u_r}
-		U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}}
+	U_R(t) = [U_C(\infty) - U_C(0)] \cdot e^{-\frac{t}{\tau}}
 	\end{equation}
-	
-	\item Для интегрирующей цепи:
+
+\item Для интегрирующей цепи:
 	\begin{equation}\label{eq:u_c}
-		U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
+	U_C(t) = [U_C(0) - U_C(\infty)] \cdot e^{-\frac{t}{\tau}} + U_C(\infty)
 	\end{equation}
 \end{enumerate}
 
@@ -147,14 +147,14 @@ $\tau = R \cdot C = 10 \cdot 10^3 \cdot 0.1 \cdot 10^{-9} = 10^{-6} \text{ с}$
 $t_\text{имп} = 10^{-5} \text{ с}$
 		
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0)	= 0,\ \ U_C(\infty) = U_\text{имп}$\\
 	$U_R(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-6}}} = 10 \cdot e^{-\frac{t}{10^{-6}}}$\\
 	$U_R(0) = 10 \cdot e^{-\frac{0}{10^{-6}}} = 10 \cdot e^0 = 10 \text{ В}$\\
 	$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} = 10 \cdot e^{-10} = 0 \text{ В}$
 
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 		
 	$U_C(0)	= U_\text{имп},\ \ U_C(\infty) = 0$\\		
 	$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [0 - 10] \cdot e^{-\frac{t}{10^{-6}}} = -10 \cdot e^{-\frac{t}{10^{-6}}}$\\
@@ -170,14 +170,14 @@ $\tau = R \cdot C = 10 \cdot 10^3 \cdot 10^{-9} = 10^{-5} \text{ с}$
 $t_\text{имп} = 10^{-5} \text{ с}$
 
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0)	= 0,\ \ U_C(\infty) = U_\text{имп}$\\
 	$U_R(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-5}}} = 10 \cdot e^{-\frac{t}{10^{-5}}}$\\
 	$U_R(0) = 10 \cdot e^{-\frac{0}{10^{-5}}} = 10 \cdot e^0 = 10 \text{ В}$\\
 	$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{10^{-5}}{10^{-5}}} = 10 \cdot e^{-1} = 3.679 \text{ В}$
 
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 
 	$U_C(0)	= U_\text{имп} - U_R(t),\ \ U_C(\infty) = 0$\\
 	$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 3.679)] \cdot e^{-\frac{t}{10^{-5}}} = -6.32 \cdot e^{-\frac{t}{10^{-5}}}$\\
@@ -193,14 +193,14 @@ $\tau = R \cdot C = 10 \cdot 10^3 \cdot 10 \cdot 10^{-9} = 10^{-4} \text{ с}$
 $t_\text{имп} = 10^{-5} \text{ с}$
 
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0)	= U_\text{имп},\ \ U_C(\infty) = 0$\\		
 	$U_R(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} = [10 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 10 \cdot e^{-\frac{t}{10^{-4}}}$\\
 	$U_R(0) = 10 \cdot e^{-\frac{0}{10^{-4}}} = 10 \cdot e^0 = 10 \text{ В}$\\
 	$U_R(t_\text{имп}) = 10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} = 10 \cdot e^{-0.1} = 9.048 \text{ В}$
 
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 	
 	$U_C(0)	= U_\text{имп} - U_R(t),\ \ U_C(\infty) = 0$\\
 	$U_R(t) = [0 - (U_\text{имп} - U_R(t))] \cdot e^{-\frac{t}{\tau}} = [0 - (10 - 9.048)] \cdot e^{-\frac{t}{10^{-4}}} = -0.952 \cdot e^{-\frac{t}{10^{-4}}}$\\
@@ -224,14 +224,14 @@ $Q = 10$
 $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 10^{-5} \text{ с}$
 		
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\
 	$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} = -10 \cdot e^{-\frac{t}{10^{-6}}} + 10$\\
 	$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-6}}} + 10 = -10 \cdot e^0 + 10 = 0 \text{ В}$\\
 	$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-6}}} + 10 = -10 \cdot e^{-10} + 10 = 10 \text{ В}$
 
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 	
 	$\frac{\tau}{t_\text{имп}} = \frac{10^{-6}}{10^{-5}} = 0.1 < 0.33 \Rightarrow U_C(0) = U_\text{имп},\ \ U_C(\infty) = 0$\\
 	$U_C(t) = [U_\text{имп} - 0] \cdot e^{-\frac{t}{\tau}} + 0 = 10 \cdot e^{-\frac{t}{10^{-6}}}$\\
@@ -250,16 +250,16 @@ $Q = 10$
 $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 10^{-5} \text{ с}$
 
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\
 	$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} = -10 \cdot e^{-\frac{t}{10^{-5}}} + 10$\\
 	$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-5}}} + 10 = -10 \cdot e^0 + 10 = 0 \text{ В}$\\
 	$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-5}}} + 10 = -10 \cdot e^{-1} + 10 = 6.321 \text{ В}$
 
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 
-		$\frac{\tau}{t_\text{имп}} = \frac{10^{-5}}{10^{-5}} = 1 > 0.33 \Rightarrow U_C(0) = U_C(t_\text{имп}),\ \ U_C(\infty) = 0$\\
+	$\frac{\tau}{t_\text{имп}} = \frac{10^{-5}}{10^{-5}} = 1 > 0.33 \Rightarrow U_C(0) = U_C(t_\text{имп}),\ \ U_C(\infty) = 0$\\
 	$U_C(t) = [U_C(t_\text{имп}) - 0] \cdot e^{-\frac{t}{\tau}} + 0 =  [6.321 - 0] \cdot e^{-\frac{t}{10^{-5}}} = 6.321 \cdot e^{-\frac{t}{10^{-5}}}$\\
 	$U_C(0) = 6.321 \cdot e^{-\frac{0}{10^{-5}}} = 6.321 \cdot e^0 = 6.321 \text{ В}$\\
 	$U_C(t_\text{п}) = 6.321 \cdot e^{-\frac{9 \cdot 10^{-5}}{10^{-5}}} = 6.321 \cdot e^{-9} = 0 \text{ В}$
@@ -276,14 +276,14 @@ $Q = 10$
 $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 10^{-5} \text{ с}$
 
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\	
 	$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} = [0 - 10] \cdot e^{-\frac{t}{10^{-4}}} + 10 = -10 \cdot e^{-\frac{t}{10^{-4}}} + 10$\\
 	$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-4}}} + 10 = 0 \text{ В}$\\
 	$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} + 10 = -10 \cdot e^{-0.1} + 10 = 0.952 \text{ В}$
 	
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 
 	$\frac{\tau}{t_\text{имп}} = \frac{10^{-4}}{10^{-5}} = 10 > 0.33 \Rightarrow U_C(0) = U_C(t_\text{имп}),\ \ U_C(\infty) = 0$\\
 	$U_C(t) = [U_C(t_\text{имп}) - 0] \cdot e^{-\frac{t}{\tau}} + 0 =  [0.952 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 0.952 \cdot e^{-\frac{t}{10^{-4}}}$\\
@@ -295,13 +295,13 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=2cm}
+	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{25pt}
 	\begin{tabular}{|c|c||c|c|}
 		\hline 
-		$U_C(0)$, В & $U_C(t_\text{имп})$, В & $U_C(0)$, В & $U_C(t_\text{имп})$, \\ 
+		$U_C(0)$, В & $U_C(t_\text{имп})$, В & $U_C(0)$, В & $U_C(t_\text{имп})$, В \\ 
 		\hline 
 		0.387 & 0.952 & 0.610 & 1.502 \\
 		\hline 
@@ -316,6 +316,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 
 	\end{tabular}
 \end{center}
 \end{table}
+
 Результаты двух последних вычислений совпадают, следовательно процесс установился. Получаем:
 	
 $U_C(0) = 0.612 \text{ В}$
@@ -333,14 +334,14 @@ $Q = 5$
 $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (5 - 1) \cdot 10^{-5} = 4 \cdot 10^{-5} \text{ с}$
 			
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\	
 	$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} = [0 - 10] \cdot e^{-\frac{t}{10^{-4}}} + 10 = -10 \cdot e^{-\frac{t}{10^{-4}}} + 10$\\
 	$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-4}}} + 10 = 0 \text{ В}$\\
 	$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} + 10 = -10 \cdot e^{-0.1} + 10 = 0.952 \text{ В}$
 	
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 
 	$\frac{\tau}{t_\text{имп}} = \frac{10^{-4}}{10^{-5}} = 10 > 0.33 \Rightarrow U_C(0) = U_C(t_\text{имп}),\ \ U_C(\infty) = 0$\\
 	$U_C(t) = [U_C(t_\text{имп}) - 0] \cdot e^{-\frac{t}{\tau}} + 0 =  [0.952 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 0.952 \cdot e^{-\frac{t}{10^{-4}}}$\\
@@ -352,7 +353,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (5 - 1) \cdot 10^{-5} = 4 \cdot 1
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=2cm}
+	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
@@ -398,14 +399,14 @@ $Q = 3$
 $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (3 - 1) \cdot 10^{-5} = 2 \cdot 10^{-5} \text{ с}$	
 		
 \begin{itemize}
-	\item[] а) этап заряда конденсатора
+\item[] а) этап заряда конденсатора
 
 	$U_C(0) = 0,\ \ U_C(\infty) = U_\text{имп}$\\	
 	$U_C(t) = [0 - U_\text{имп}] \cdot e^{-\frac{t}{\tau}} + U_\text{имп} = [0 - 10] \cdot e^{-\frac{t}{10^{-4}}} + 10 = -10 \cdot e^{-\frac{t}{10^{-4}}} + 10$\\
 	$U_C(0) = -10 \cdot e^{-\frac{0}{10^{-4}}} + 10 = 0 \text{ В}$\\
 	$U_C(t_\text{имп}) = -10 \cdot e^{-\frac{10^{-5}}{10^{-4}}} + 10 = -10 \cdot e^{-0.1} + 10 = 0.952 \text{ В}$
 	
-	\item[] б) этап разряда конденсатора
+\item[] б) этап разряда конденсатора
 
 	$\frac{\tau}{t_\text{имп}} = \frac{10^{-4}}{10^{-5}} = 10 > 0.33 \Rightarrow U_C(0) = U_C(t_\text{имп}),\ \ U_C(\infty) = 0$\\
 	$U_C(t) = [U_C(t_\text{имп}) - 0] \cdot e^{-\frac{t}{\tau}} + 0 =  [0.952 - 0] \cdot e^{-\frac{t}{10^{-4}}} = 0.952 \cdot e^{-\frac{t}{10^{-4}}}$\\
@@ -417,7 +418,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (3 - 1) \cdot 10^{-5} = 2 \cdot 1
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=2cm}
+	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
 	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
@@ -470,7 +471,7 @@ $U_C(t_\text{имп}) = 3.671 \text{ В}$
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=0.85\textwidth]{diff_with_theory}
+	\includegraphics[width=0.89\textwidth]{diff_with_theory}
 	\captionsetup{justification=centering}
 	\caption{Временная диаграмма экспериментальных и теоретических входного и выходного импульса для дифференцирующей цепи при $R = 10$ кОм и: б) $C = 0.1$ нФ; в) $C = 1$ нФ; г) $C = 10$ нФ.} 
 	\label{fig:diff}
@@ -515,8 +516,8 @@ $U_C(t_\text{имп}) = 3.671 \text{ В}$
 \subsection{Предельно допустимые погрешности}
 
 \begin{center}
-$\delta R = 0.1 = 10\%$\\
-$\delta C = 0.1 = 10\%$\\
+	$\delta R = 0.1 = 10\%$\\
+	$\delta C = 0.1 = 10\%$\\
 \end{center}
 
 Дифференцирующая и интегрирующая цепи включают в себя по одному резистору и по одному конденсатору, поэтому предельно допустимая погрешность $U_0$ вычисляется следующим образом:
@@ -536,15 +537,15 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 0.1 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(0) - U_{R_\text{эксп}}(0)}{U_{R_\text{теор}}(0)} \right| = \left| \frac{10 - 4.4}{10} \right| = 0.56 = 56\% > \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}-0$
+\item[] б) $t = t_\text{имп}-0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}-0) - U_{R_\text{эксп}}(t_\text{имп}-0)}{U_{R_\text{теор}}(t_\text{имп}-0)} \right| = \left| \frac{0 - 0}{0} \right| = 0 = 0\% < \delta U_0 = 14.1\%$
 
-	\item[] в)  $t = t_\text{имп}+0$
+\item[] в)  $t = t_\text{имп}+0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}+0) - U_{R_\text{эксп}}(t_\text{имп}+0)}{U_{R_\text{теор}}(t_\text{имп}+0)} \right| = \left| \frac{-10 - (-4.4)}{-10} \right| = 0.64 = 64\% > \delta U_0 = 14.1\%$
 \end{itemize}
@@ -552,15 +553,15 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 1 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а)  $t = 0$
+\item[] а)  $t = 0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(0) - U_{R_\text{эксп}}(0)}{U_{R_\text{теор}}(0)} \right| = \left| \frac{10 - 9.4}{10} \right| = 0.06 = 6\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}-0$
+\item[] б) $t = t_\text{имп}-0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}-0) - U_{R_\text{эксп}(t_\text{имп}}-0)}{U_{R_\text{теор}}(t_\text{имп}-0)} \right| = \left| \frac{3.679 - 3.5}{3.679} \right| = 0.049 = 4.9\% < \delta U_0 = 14.1\%$
 
-	\item[] в) $t = t_\text{имп}+0$
+\item[] в) $t = t_\text{имп}+0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}+0) - U_{R_\text{эксп}}(t_\text{имп}+0)}{U_{R_\text{теор}}(t_\text{имп}+0)} \right| = \left| \frac{-6.321 - (-5)}{-6.321} \right| = 0.209 = 20.9\% \approx \delta U_0 = 14.1\%$
 \end{itemize}
@@ -568,15 +569,15 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 10 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(0) - U_{R_\text{эксп}}(0)}{U_{R_\text{теор}(0)}} \right| = \left| \frac{10 - 9.9}{10} \right| = 0.01 = 1\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}-0$
+\item[] б) $t = t_\text{имп}-0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}-0) - U_{R_\text{эксп}}(t_\text{имп}-0)}{U_{R_\text{теор}}(t_\text{имп}-0)} \right| = \left| \frac{9.048 - 9}{9.048} \right| = 0.005 = 0.5\% < \delta U_0 = 14.1\%$
 
-	\item[] в) $t = t_\text{имп}+0$
+\item[] в) $t = t_\text{имп}+0$
 
 	$\delta U = \left| \frac{U_{R_\text{теор}}(t_\text{имп}+0) - U_{R_\text{эксп}}(t_\text{имп}+0)}{U_{R_\text{теор}}(t_\text{имп}+0)} \right| = \left| \frac{-0.952 - (-1.1)}{-0.952} \right| = 0.155 = 15.5\% \approx \delta U_0 = 14.1\%$
 \end{itemize}
@@ -586,11 +587,11 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 0.1 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(0) - U_{C_\text{эксп}}(0)}{U_{C_\text{теор}(0)}} \right| = \left| \frac{0 - 0}{0} \right| = 0 = 0\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}$
+\item[] б) $t = t_\text{имп}$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(t_\text{имп}) - U_{C_\text{эксп}}(t_\text{имп})}{U_{C_\text{теор}}(t_\text{имп})} \right| = \left| \frac{10 - 9.8}{10} \right| = 0.02 = 2\% < \delta U_0 = 14.1\%$
 \end{itemize}
@@ -598,11 +599,11 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 1 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(0) - U_{C_\text{эксп}}(0)}{U_{C_\text{теор}(0)}} \right| = \left| \frac{0 - 0}{0} \right| = 0 = 0\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}$
+\item[] б) $t = t_\text{имп}$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(t_\text{имп}) - U_{C_\text{эксп}}(t_\text{имп})}{U_{C_\text{теор}}(t_\text{имп})} \right| = \left| \frac{6.321 - 6}{6.321} \right| = 0.051 = 5.1\% < \delta U_0 = 14.1\%$
 \end{itemize}
@@ -610,11 +611,11 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 10 нФ, Q = 10}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(0) - U_{C_\text{эксп}}(0)}{U_{C_\text{теор}(0)}} \right| = \left| \frac{0.612 - 0.7}{0.612} \right| = 0.144 = 14.4\% \approx \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}$
+\item[] б) $t = t_\text{имп}$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(t_\text{имп}) - U_{C_\text{эксп}}(t_\text{имп})}{U_{C_\text{теор}}(t_\text{имп})} \right| = \left| \frac{1.505 - 1.7}{1.505} \right| = 0.13 = 13\% < \delta U_0 = 14.1\%$
 \end{itemize}
@@ -622,11 +623,11 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 10 нФ, Q = 5}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(0) - U_{C_\text{эксп}}(0)}{U_{C_\text{теор}(0)}} \right| = \left| \frac{1.621 - 1.7}{1.621} \right| = 0.049 = 4.9\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}$
+\item[] б) $t = t_\text{имп}$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(t_\text{имп}) - U_{C_\text{эксп}}(t_\text{имп})}{U_{C_\text{теор}}(t_\text{имп})} \right| = \left| \frac{2.418 - 2.6}{2.418} \right| = 0.075 = 7.5\% < \delta U_0 = 14.1\%$
 \end{itemize}
@@ -634,11 +635,11 @@ $\delta C = 0.1 = 10\%$\\
 \subsubsection{C = 10 нФ, Q = 3}
 
 \begin{itemize}
-	\item[] а) $t = 0$
+\item[] а) $t = 0$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(0) - U_{C_\text{эксп}}(0)}{U_{C_\text{теор}(0)}} \right| = \left| \frac{3.006 - 2.7}{3.006} \right| = 0.102 = 10.2\% < \delta U_0 = 14.1\%$
 
-	\item[] б) $t = t_\text{имп}$
+\item[] б) $t = t_\text{имп}$
 
 	$\delta U = \left| \frac{U_{C_\text{теор}}(t_\text{имп}) - U_{C_\text{эксп}}(t_\text{имп})}{U_{C_\text{теор}}(t_\text{имп})} \right| = \left| \frac{3.671 - 3.5}{3.671} \right| = 0.046 = 4.6\% < \delta U_0 = 14.1\%$
 \end{itemize}
