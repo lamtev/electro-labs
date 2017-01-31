@@ -21,6 +21,8 @@
 \counterwithin{table}{section}
 \newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
 \graphicspath{{pics/}} % Путь до папки с картинками
+\captionsetup{justification=centering,margin=1cm}
+\def\arraystretch{1.3}
 
 \begin{document}
 
@@ -90,7 +92,6 @@
 \begin{table}[H]
 \begin{center}
 	\caption{Исходные данные}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
@@ -161,7 +162,6 @@ $I_0 = 7.99710 \cdot 10^{-5}$ А, $m =  3.47400$.
 \begin{center}
 	\caption{ВАХ полупроводникового диода}
 	\label{tab:vac}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{17pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={u1,u2,u,u_izm,i},
@@ -200,7 +200,6 @@ $I_0 = 7.99710 \cdot 10^{-5}$ А, $m =  3.47400$.
 		\legend{Эксп. ВАХ, Teор. ВАХ}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Экспериментальная ВАХ полупроводникового диода}
 	\label{fig:vac}
 \end{center}
@@ -216,7 +215,6 @@ $I_0 = 7.99710 \cdot 10^{-5}$ А, $m =  3.47400$.
 \begin{center}
 	\caption{ВАХ однополупериодного выпрямителя}
 	\label{tab:half_wave}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{35pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={u_i,i,u_p,u_n},
@@ -265,7 +263,6 @@ U_\text{п max} = 1.116 \text{ В}
 		\legend{Эксп. ВАХ, Teор. ВАХ}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Зависимость пульсации напряжения от тока нагрузки для однополупериодного выпрямителя}
 	\label{fig:half_wave_p}
 \end{center}
@@ -297,7 +294,6 @@ U_\text{п max} = 1.116 \text{ В}
 		\legend{Эксп. ВАХ, Teор. ВАХ}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Зависимость напряжения нагрузки от тока нагрузки для однополупериодного выпрямителя}
 	\label{fig:half_wave_n}
 \end{center}
@@ -311,7 +307,6 @@ U_\text{п max} = 1.116 \text{ В}
 \begin{center}
 	\caption{ВАХ двухполупериодного выпрямителя}
 	\label{tab:full_wave}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{35pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={u_i,i,u_p,u_n},
@@ -360,7 +355,6 @@ U_\text{п max} = 0.574 \text{ В}
 		\legend{Эксп. ВАХ, Teор. ВАХ}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Зависимость пульсации напряжения от тока нагрузки для двухполупериодного выпрямителя}
 	\label{fig:full_wave_p}
 \end{center}
@@ -392,7 +386,6 @@ U_\text{п max} = 0.574 \text{ В}
 		\legend{Эксп. ВАХ, Teор. ВАХ}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Зависимость напряжения нагрузки от тока нагрузки для двухполупериодного выпрямителя}
 	\label{fig:full_wave_n}
 \end{center}

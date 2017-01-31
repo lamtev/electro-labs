@@ -21,6 +21,8 @@
 \counterwithin{table}{section}
 \newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
 \graphicspath{{pics/}} % Путь до папки с картинками
+\captionsetup{justification=centering,margin=1cm}
+\def\arraystretch{1.3}
 
 \begin{document}
 
@@ -295,9 +297,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (10 - 1) \cdot 10^{-5} = 9 \cdot 
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{25pt}
 	\begin{tabular}{|c|c||c|c|}
 		\hline 
@@ -353,9 +353,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (5 - 1) \cdot 10^{-5} = 4 \cdot 1
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\begin{tabular}{|c|c||c|c|}
 		\hline 
@@ -418,9 +416,7 @@ $t_\text{п} = (Q - 1) \cdot t_\text{имп} = (3 - 1) \cdot 10^{-5} = 2 \cdot 1
 
 \begin{table}[H]
 \begin{center}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Значения напряжения при времени, равном $0$ и $t_\text{имп}$, полученные по итерационной формуле}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\begin{tabular}{|c|c||c|c|}
 		\hline 
@@ -472,8 +468,8 @@ $U_C(t_\text{имп}) = 3.671 \text{ В}$
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[width=0.89\textwidth]{diff_with_theory}
-	\captionsetup{justification=centering}
-	\caption{Временная диаграмма экспериментальных и теоретических входного и выходного импульса для дифференцирующей цепи при $R = 10$ кОм и: б) $C = 0.1$ нФ; в) $C = 1$ нФ; г) $C = 10$ нФ.} 
+	\captionsetup{margin=0cm}
+	\caption{Временная диаграмма экспериментальных и теоретических входного и выходного импульса для дифференцирующей цепи при $R = 10$~кОм и: б) $C = 0.1$ нФ; в) $C = 1$ нФ; г) $C = 10$ нФ.} 
 	\label{fig:diff}
 \end{center}
 \end{figure}

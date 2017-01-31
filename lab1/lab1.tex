@@ -21,6 +21,8 @@
 \counterwithin{table}{section}
 \newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
 \graphicspath{{pics/}} % Путь до папки с картинками
+\captionsetup{justification=centering,margin=1cm}
+\def\arraystretch{1.3}
 
 \begin{document}
 
@@ -86,7 +88,6 @@
 \begin{table}[H]
 \begin{center}
 	\caption{Исходные данные}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{50pt}
 	\begin{tabular}{|c|c|}
 		\hline
@@ -131,7 +132,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \begin{center}
 	\caption{Значения для построения теоретических ЛАЧХ}
 	\label{tab:bode}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{17pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={f,w,diff,int,diff-int},
@@ -158,7 +158,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \begin{center}
 	\caption{ЛАЧХ дифференциующей RC-цепи}
 	\label{tab:diff}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={f,u_in,u_out,k,lg_k},
@@ -179,7 +178,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \begin{center}
 	\caption{ЛАЧХ интегрирующей RC-цепи}
 	\label{tab:int}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={f,u_in,u_out,k,lg_k},
@@ -200,7 +198,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \begin{center}
 	\caption{ЛАЧХ дифференцирующе-интегрирующей RC-цепи}
 	\label{tab:diff-int}
-	\def\arraystretch{1.3}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={f,u_in,u_out,k,lg_k},
@@ -238,7 +235,9 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 			ymin=-40,
 			xmode=log,
 			log basis x=2,
-			xtick={0, 32, 128, 512, 2048, 8192, 32768, 131072},
+			xtick={8, 32, 128, 512, 2048, 8192, 32768, 131072, 524288},
+			xmin=8,
+			xmax=524288,
 			xtick pos=right,
 			grid=major
 		]
@@ -249,7 +248,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующей RC-цепи}
 	\label{fig:diff}
 \end{center}
@@ -280,7 +278,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Теоретическая и экспериментальная ЛАЧХ интегрирующей RC-цепи}
 	\label{fig:int}
 \end{center}
@@ -312,7 +309,6 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 		\legend{Teор. ЛАЧХ, Эксп. ЛАЧХ, Аппроксимация}
 		\end{axis}
 	\end{tikzpicture}
-	\captionsetup{justification=centering,margin=1cm}
 	\caption{Теоретическая и экспериментальная ЛАЧХ дифференцирующе-интегрирующей RC-цепи}
 	\label{fig:diff-int}
 \end{center}
