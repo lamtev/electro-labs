@@ -1,9 +1,8 @@
 \include{settings}
 
-\begin{document}	% начало документа
+\begin{document}
 
 \include{titlepage}
-
 
 \section{Цель работы}
 
@@ -11,27 +10,29 @@
 
 \section{Чертеж схемы исследуемого устройства}
 
-\begin{figure}[h]
-\centering
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[scale=0.35]{img/stabilizator.png}
-\caption{Параметрический стабилизатор\\ постоянного напряжения}\label{figure:2.1:a}
-\end{subfigure}
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[scale=0.35]{img/substitution.png}
-\caption{Схема замещения \\стабилизатора}\label{figure:2.1:b}
-\end{subfigure}
-\caption{}\label{figure:2.1}
+\begin{figure}[H]
+\begin{center}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[scale=0.35]{stabilizer}
+		\caption{Параметрический стабилизатор\\ постоянного напряжения}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[scale=0.35]{substitution}
+		\caption{Схема замещения \\стабилизатора}
+	\end{subfigure}
+	\caption{}
+\end{center}
 \end{figure}
 
+\vspace{-0.5cm}
 
 \section{Исходные данные}
 
 \begin{table}[H]
-	\begin{center}
+\begin{center}
 	\caption{Исходные данные}
-	\def\arraystretch{1.2}
-		\begin{tabular}{|c|c|}
+	\def\tabcolsep{36pt}
+	\begin{tabular}{|c|c|}
 		\hline 
 		$U_\text{вх}$ & 15 В \\ 
 		\hline 
@@ -41,16 +42,17 @@
 		\hline 
 		$R_\text{н}$ & 500 Ом \\ 
 		\hline 
-		\end{tabular} 
-		\label{tab:3:1}
-	\end{center}
+	\end{tabular} 
+\end{center}
 \end{table}
 
+\vspace{-0.5cm}
+
 \begin{table}[H]
-	\begin{center}
-	\caption{Характеристика стабилитрона кс156А}
-	\def\arraystretch{1.2}
-		\begin{tabular}{|c|c|}
+\begin{center}
+	\caption{Характеристика стабилитрона \texttt{КС156А}}
+	\def\tabcolsep{30pt}
+	\begin{tabular}{|c|c|}
 		\hline 
 		$U$ & 5.6 В \\ 
 		\hline 
@@ -60,190 +62,215 @@
 		\hline 
 		$r_{\text{ст}}$ & $\leq$ 46 Ом \\ 
 		\hline 
-		\end{tabular} 
-		\label{tab:3:2}
-	\end{center}
+	\end{tabular} 
+\end{center}
 \end{table}
-
 
 \section{Теоретические расчеты и зависимости}
 
-\subsection{Расчет параметров элементов и характеристик стабилизатора}
-%\begin{flalign*}
-$I_\text{вых} = \frac{U_\text{вых}}{R_\text{н}} = \frac{9}{500} = 0.018$ A
+\subsection{Расчет параметров элементов и характеристик\\ стабилизатора}
 
-%\end{flalign*}
-$R_\text{бал} = \frac{U_\text{вх} - U_\text{вых}}{I_p + I_\text{вых}} = \frac{15 - 9}{0.008 + 0.018} = 230.769$ Ом
+\[
+I_\text{вых} = \frac{U_\text{вых}}{R_\text{н}} = \frac{9}{500} = 0.018 \text{ A}
+\]
 
-$U_{\text{вх}\ min} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ min} + I_\text{вых}) = 9 + 230.769 \cdot (0.003 + 0.018) = \\[1mm] = 13.846$ В
+\[
+R_\text{бал} = \frac{U_\text{вх} - U_\text{вых}}{I_p + I_\text{вых}} = \frac{15 - 9}{0.008 + 0.018} = 230.769 \text{ Ом}
+\]
 
-$U_{\text{вх}\ max} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ max} + I_\text{вых}) = 9 + 230.769 \cdot (0.05 + 0.018) = \\[1mm] = 24.692$ В
+\[
+U_{\text{вх}\ min} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ min} + I_\text{вых}) = 9 + 230.769 \cdot (0.003 + 0.018) = 13.846 \text{ В}
+\]
+\[
+U_{\text{вх}\ max} = U_\text{вых} + R_\text{бал} \cdot (I_{\text{ст}\ max} + I_\text{вых}) = 9 + 230.769 \cdot (0.05 + 0.018) = 24.692 \text{ В}
+\]
 
-$I_{\text{вых}\ min} = 0$
+\[
+I_{\text{вых}\ min} = 0
+\]
+\[
+I_{\text{вых}\ max} = \frac{U_\text{вх} - U_\text{вых} - I_{\text{ст}\ min} \cdot R_\text{бал}}{R_\text{бал}} = \frac{15 - 9 - 0.003 \cdot 230.769}{230.769} = 0.023 \text{ А}
+\]
 
-$I_{\text{вых}\ max} = \frac{U_\text{вх} - U_\text{вых} - I_{\text{ст}\ min} \cdot R_\text{бал}}{R_\text{бал}} = \frac{15 - 9 - 0.003 \cdot 230.769}{230.769} = 0.023$ А
+\[
+R_{\text{н}\ min} = \frac{U_\text{вых}}{I_{\text{вых}\ max}} = \frac{9}{0.023} = 391 \text{ Ом}
+\]
+\[
+R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{0} = \infty \text{ Ом}
+\] 
 
-$R_{\text{н}\ min} = \frac{U_\text{вых}}{I_{\text{вых}\ max}} = \frac{9}{0.023} = 391$ Ом
+\subsection{Расчет коэффициента стабилизации и выходного\\ сопротивления}
 
-$R_{\text{н}\ max} = \frac{U_\text{вых}}{I_{\text{вых}\ min}} = \frac{9}{0} = \infty $ Ом 
+Коэффициент стабилизации можно определить теоретически, исходя из параметров схемы:
 
-\subsection{Расчет коэффициента стабилизации и выходного сопротивления}
-
-\begin{equation}
+\begin{equation}\label{eq:k_st}
 K_\text{ст} = \frac{R_\text{бал}}{r_\text{ст}}
 \end{equation}
-
-\begin{equation}
-R_\text{вых} \simeq r_{\text{ст}}
-\end{equation}
-
-\begin{flalign*}
+\[
 K_\text{ст} = \frac{R_\text{бал} \cdot U_\text{вых}}{r_\text{ст} \cdot U_\text{вх}} \geq \frac{230.769}{46} = 5.02
-\end{flalign*}
+\]
 
-\begin{flalign*}
-R_\text{вых} \simeq r_{\text{ст}} \leq 46\ \ \text{Ом}
-\end{flalign*}
+\vspace{0.5cm}
+
+Выходное сопротивление прибризительно равно дифференциальному сопротивлению стабилизатора:
+
+\begin{equation}\label{eq:r_out}
+R_\text{вых} \approx r_{\text{ст}}
+\end{equation}
+\[
+R_\text{вых} \approx r_{\text{ст}} \leq 46 \text{ Ом}
+\]
 
 \section{Экспериментально снятые зависимости}
 
+\subsection{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+
+В таблице \ref{tab:u_in} и на рисунке \ref{fig:u_in} приведена зависимость $U_\text{вых}$ от $U_\text{вх}$.
+
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $U_\text{вых} = f(U_\text{вх})$}
-	\def\arraystretch{1.2}
-		\begin{tabular}{|c|c|}
-		\hline 
-		$U_\text{вх}$, В & $U_\text{вых}$, В \\ 
-		\hline 
-		1.091 & 0.696 \\ 
-		\hline 
-		2.98 & 1.90 \\ 
-		\hline 
-		4.97 & 3.17 \\ 
-		\hline 
-		6.99 & 4.35 \\ 
-		\hline %началась стабилизация, ура!!! 
-		9.04 & 5.00 \\ 
-		\hline 
-		11.05 & 5.23 \\ 
-		\hline 
-		13.03 & 5.33 \\ 
-		\hline 
-		15.00 & 5.40 \\ 
-		\hline 
-		16.96 & 5.45 \\ 
-		\hline 
-		19.02 & 5.50 \\ 
-		\hline 
-		21.00 & 5.53 \\ 
-		\hline 
-		23.00 & 5.56 \\ 
-		\hline 
-		24.6 & 5.58 \\ 
-		\hline 
-		\end{tabular} 
-		\label{tab:5:1}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{tab:u_in}
+	\def\tabcolsep{40pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={u_in,u_out},
+	    column type/.add={|c|}{},
+	    columns/u_in/.style={fixed, precision=2, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/u_in.csv}
+\end{center}
 \end{table}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=14cm]{img/1}
-		\caption{Зависимость $U_\text{вых} = f(U_\text{вх})$}
-		\label{graphic:5:1} % название для ссылок внутри кода
-	\end{center}
-\end{figure}
+На основе полученных данных был расчитан коэффициент стабилизации:
 
-\begin{flalign*}
+\[
 K_\text{ст} = \frac{\Delta U_\text{пит}}{\Delta U_\text{ст}} = \frac{24.60 - 9.04}{5.58 - 5.00} = 26.83
-\end{flalign*}
+\]
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin=0,
+			xmax=28,
+			ymin=0,
+			ymax=6,
+			xtick={0,4,...,28},
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/u_in.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:u_in}
+\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+
+В таблице \ref{tab:r_n} и на рисунке \ref{fig:r_n} приведена зависимость $U_\text{вых}$ от $R_\text{н}$. На рисунке \ref{fig:i_n} приведена зависимость $U_\text{вых}$ от $I_\text{н}$.
 
 \begin{table}[H]
-	\begin{center}
-	\caption{Зависимость $U_\text{вых} = f(R_\text{н})$}
-	\def\arraystretch{1.2}
-		\begin{tabular}{|c|c|c|}
-		\hline 
-		$R_\text{н}$, Ом & $U_\text{вых}$, В & $I_\text{н}$, мА\\ 
-		\hline
-		10 & 0.54 & 59.60 \\ 
-		\hline 
-		20 & 1.12 & 55.85 \\ 
-		\hline 
-		43 & 2.11 & 49.07 \\ 
-		\hline 
-		63.00 & 2.81 & 44.60 \\ 
-		\hline 
-		82.00 & 3.37 & 41.10 \\ 
-		\hline 
-		121.00 & 4.33 & 35.79 \\ 
-		\hline 
-		159.11 & 4.82 & 30.29 \\ 
-		\hline 
-		222.18 & 5.25 & 23.63 \\ 
-		\hline 
-		248.12 & 5.30 & 21.36 \\ 
-		\hline 
-		283.26 & 5.32 & 18.78 \\ 
-		\hline 
-		330.00 & 5.35 & 16.21 \\  
-		\hline 
-		404.76 & 5.38 & 13.29 \\ 
-		\hline 
-		507.46 & 5.40 & 10.64 \\ 
-		\hline 
-		609.04 & 5.41 & 8.88 \\ 
-		\hline 
-		795.92 & 5.44 & 6.83 \\ 
-		\hline   
-		970.59 & 5.45 & 5.62 \\ 
-		\hline 
-		1322.03 & 5.46 & 4.13 \\ 
-		\hline 
-		1885.71 & 5.46 & 2.90 \\ 
-		\hline
-		1942.86 & 5.47 & 2.82 \\ 
-		\hline 
-		\end{tabular} 
-		\label{tab:5:2}
-	\end{center}
+\begin{center}
+	\caption{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+	\label{tab:r_n}
+	\def\tabcolsep{35pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={r_n,u_out,i_n},
+	    column type/.add={|c|}{},
+	    columns/r_n/.style={fixed, precision=2, zerofill, column name={$R_\text{н}$, Ом}},
+	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/i_n/.style={fixed, precision=2, zerofill, column name={$I_\text{н}$, мА}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/r_n.csv}
+\end{center}
 \end{table}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=14cm]{img/2}
-		\caption{График зависимости $U_\text{вых} = f(R_\text{н})$}
-		\label{graphic:5:2} % название для ссылок внутри кода
-	\end{center}
-\end{figure}
+Рассчитано уточненное значение $r_\text{ст}$:
+
+\[
+r_\text{ст} = R_\text{вых} = \frac{\Delta U_\text{ст}}{\Delta I_\text{н}} = \frac{5.47 - 5.30}{\left| 2.82 - 21.36 \right| \cdot 10^{-3}} = 9.17 \text{ Ом}
+\]
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=14cm]{img/3}
-		\caption{График зависимости $U_\text{вых} = f(I_\text{н})$}
-		\label{graphic:5:3} % название для ссылок внутри кода
-	\end{center}
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$R_\text{н}$, Ом},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin=0,
+			xmax=2000,
+			ymin=0,
+			ymax=6,
+			xtick={0,250,...,2000},
+			grid=major
+		]
+		\addplot table[x=r_n,y=u_out,col sep=comma]{data/r_n.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+	\label{fig:r_n}
+\end{center}
 \end{figure}
 
-\begin{displaymath}
-r_\text{ст} = R_\text{вых} = \frac{\Delta U_\text{ст}}{\Delta I_\text{н}} = \frac{5.47 - 5.30}{| 2.82 - 21.36 | \cdot 10^{-3}} = 9.17 \ \ \text{Ом}
-\end{displaymath}
+\vspace{-1cm}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$I_\text{н}$, мА},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin=0,
+			xmax=60,
+			ymin=0,
+			ymax=6,
+			xtick={0,10,...,60},
+			grid=major
+		]
+		\addplot table[x=i_n,y=u_out,col sep=comma]{data/r_n.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $I_\text{н}$}
+	\label{fig:i_n}
+\end{center}
+\end{figure}
 
 \section{Анализ экспериментальных вычислений}
 
 Получив $r_\text{ст}$, вычислим уточненное теоретическое значение $K_\text{ст}$:
 
-\begin{displaymath}
-K_\text{ст\ \ теор\ \ уточн} = \frac{R_\text{бал}}{r_\text{ст}} = \frac{230.77}{9.17} = 25.16
-\end{displaymath}
+\[
+K_\text{ст\ теор\ уточн} = \frac{R_\text{бал}}{r_\text{ст}} = \frac{230.77}{9.17} = 25.16
+\]
 
-\begin{displaymath}
-\delta K_\text{ст} = \frac{ | K_\text{ст\ \ теор\ \ уточн} - K_\text{ст\ \ эксп} | }{K_\text{ст\ \ теор\ \ уточн}} = \frac{ | 25.16 - 26.83 | }{25.16} = 0.066 = 6.6\%
-\end{displaymath}
-
+\[
+\delta K_\text{ст} = \frac{\left| K_\text{ст\ теор\ уточн} - K_\text{ст\ эксп} \right|}{K_\text{ст\ теор\ уточн}} = \frac{\left| 25.16 - 26.83 \right|}{25.16} = 0.066 = 6.6~\%
+\]
 
 \section{Выводы}
 
-Значение $K_\text{ст}$, вычисленное в ходе эксперимента близко к уточненному теоретическому значению ($\delta = 6.6\%$). Таким образом, теоретические формулы 4.1 и 4.2 справедливы.
+Значение $K_\text{ст}$, вычисленное в ходе эксперимента, близко к уточненному теоретическому значению ($\delta = 6.6~\%$). Таким образом, теоретические формулы \ref{eq:k_st} и \ref{eq:r_out}  являются верными.
 
 \end{document}

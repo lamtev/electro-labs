@@ -1,62 +1,8 @@
-\documentclass[a4paper,14pt]{extarticle}
-
-\usepackage[utf8x]{inputenc}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[russian]{babel}
-\usepackage{hyperref}
-\usepackage{indentfirst}
-\usepackage{here}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{chngcntr}
-\usepackage{amsmath}
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
-
-\counterwithin{figure}{section}
-\counterwithin{equation}{section}
-\counterwithin{table}{section}
-\newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
-\graphicspath{{pics/}} % Путь до папки с картинками
-\captionsetup{justification=centering,margin=1cm}
-\def\arraystretch{1.3}
+\include{settings}
 
 \begin{document}
 
-\begin{titlepage}
-\begin{center}
-	\textbf{Санкт-Петербургский Политехнический Университет \\Петра Великого}\\[0.3cm]
-	\small Институт компьютерных наук и технологий \\[0.3cm]
-	\small Кафедра компьютерных систем и программных технологий\\[4cm]
-	
-	\textbf{ОТЧЕТ}\\ \textbf{о лабораторной работе}\\[0.5cm]
-	\textbf{<<Исследование частотных характеристик пассивных RC-цепей>>}\\[0.1cm]
-	\textbf{Электротехника и Электроника}\\[10.5cm]
-\end{center}
-
-\begin{flushright}
-	\begin{minipage}{0.60\textwidth}
-		\begin{flushleft}
-			\small \textbf{Работу выполнили студенты}\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Дьячков В.В.\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Ламтев А.Ю.\\[5mm]
-			
-			\small \textbf{Преподаватель}\\[5mm]
-		 	\small \sign[3.5cm] \hspace*{8mm} к.т.н., доц. Кочетков Ю.Д.\\[0.5cm]
-		\end{flushleft}
-	\end{minipage}
-\end{flushright}
-
-\vfill
-
-\begin{center}
-	\small Санкт-Петербург\\
-	\small \the\year
-\end{center}
-\end{titlepage}
+\include{titlepage}
 
 \section{Цель работы}
 
@@ -319,22 +265,22 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 \subsection{Предельно допустимые погрешности}
 
 \begin{center}
-	$\delta R = 0.1 = 10\%$ \\
-	$\delta C = 0.1 = 10\%$ \\
+	$\delta R = 0.1 = 10~\%$ \\
+	$\delta C = 0.1 = 10~\%$ \\
 \end{center}
 
 \subsubsection{Дифференцирующей и интегрирующей цепей}
 
 Дифференцирующая и интегрирующая цепи включают в себя по одному резистору и по одному конденсатору, поэтому предельно допустимая относительная погрешность частоты перегиба вычисляется следующим образом:
 \[
-\delta f_0 = \sqrt{(\delta R)^2 + (\delta C)^2} = \sqrt{0.1^2 + 0.1^2} = \sqrt{0.02} = 0.141 = 14.1 \%
+\delta f_0 = \sqrt{(\delta R)^2 + (\delta C)^2} = \sqrt{0.1^2 + 0.1^2} = \sqrt{0.02} = 0.141 = 14.1~\%
 \]
 
 \subsubsection{Дифференцирующе-интегрирующей цепи}
 
 Дифференцирующе-интегрирующая цепь содержит два резистора и два конденсатора, поэтому предельно допустимая относительная погрешность частоты перегиба вычисляется по формуле:
 \[
-\delta f_0 = \sqrt{2 \cdot ((\delta R)^2 + (\delta C)^2)} = \sqrt{2 \cdot (0.1^2 + 0.1^2)} = \sqrt{0.04} = 0.2 = 20 \%
+\delta f_0 = \sqrt{2 \cdot ((\delta R)^2 + (\delta C)^2)} = \sqrt{2 \cdot (0.1^2 + 0.1^2)} = \sqrt{0.04} = 0.2 = 20~\%
 \]
 
 \subsection{Расчет значения $f$}
@@ -345,51 +291,51 @@ L_u^3(\omega) = 20\lg \omega RC - 10\lg (1+7(\omega RC)^2 + (\omega RC)^4).
 
 Для дифференцирующей RC-цепи интерполирующий полином имеет вид:
 \[
-Q_2(x) = (-9.474 \cdot 10^{-7})x^2 + (6.81 \cdot 10^{-3})x - 13.393
+Q_2(x) = (-9.474 \cdot 10^{-7}) \cdot x^2 + (6.81 \cdot 10^{-3}) \cdot x - 13.393
 \]
 
 Искомая частота равна f, такому, что $Q_2(f) = -3$:
 \[
-(-9.474 \cdot 10^{-7})f^2 + (6.81 \cdot 10^{-3})f -13.393 = -3 \Rightarrow f = 2197.92 \text{ Гц}
+(-9.474 \cdot 10^{-7}) \cdot f^2 + (6.81 \cdot 10^{-3}) \cdot f -13.393 = -3 \Rightarrow f = 2197.92 \text{ Гц}
 \]
 
 Для полученного значения $f = 2197.92$ Гц рассчитаем погрешность:
 \[
-\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2197.92|}{2122.065} = 3.57 \% < \delta f_0 = 14.1\%
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2197.92|}{2122.065} = 3.57~\% < \delta f_0 = 14.1~\%
 \]
 
 \subsubsection{Для интегрирующей RC-цепи}
 
 Для интергрирующей RC-цепи интерполирующий полином представим в виде:
 \[
-Q_2(x) = (1.303 \cdot 10^{-8})x^2 - (2.013 \cdot 10^{-3})x + 0.744
+Q_2(x) = (1.303 \cdot 10^{-8}) \cdot x^2 - (2.013 \cdot 10^{-3}) \cdot x + 0.744
 \]
 
 Искомая частота равна такому $f$, что $Q_2(f) = -3$:
 \[
-(1.303 \cdot 10^{-8})f^2 - (2.013 \cdot 10^{-3})f + 0.744 = -3 \Rightarrow f = 1882.39 \text{ Гц}
+(1.303 \cdot 10^{-8}) \cdot f^2 - (2.013 \cdot 10^{-3}) \cdot f + 0.744 = -3 \Rightarrow f = 1882.39 \text{ Гц}
 \]
 
 Для полученного значения $f = 1882.39$ Гц рассчитаем погрешность:
 \[
-\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 1882.39|}{2122.065} = 11.3 \% < \delta f_0 = 14.1\%
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 1882.39|}{2122.065} = 11.3~\% < \delta f_0 = 14.1~\%
 \]
 
 \subsubsection{Дифференцирующе-интегрирующая цепь}
 
 Интерполяционный полином дифференцирующе-интегрирующей RC-цепи имеет вид:\\
 \[
-Q_2(x) = (-4.242 \cdot 10^{-7})x^2 + (2.186 \cdot 10^{-3})x - 12.667
+Q_2(x) = (-4.242 \cdot 10^{-7}) \cdot x^2 + (2.186 \cdot 10^{-3}) \cdot x - 12.667
 \]
 
 Значение частоты перегиба - это то значение x, при котором 1-ая производная полинома обращается в 0:
 \[
-\frac{d}{dx} (Q_2(x))\Big|_{x=f} = 2 \cdot (-4.242 \cdot 10^{-7})f + (2.186 \cdot 10^{-3}) = 0 \Rightarrow f = 2576.62 (\text{Гц})
+\frac{d}{dx} (Q_2(x))\Big|_{x=f} = 2 \cdot (-4.242 \cdot 10^{-7}) \cdot f + (2.186 \cdot 10^{-3}) = 0 \Rightarrow f = 2576.62 \text{ Гц}
 \]
 
 Для полученного значения $f = 2576.62$ Гц рассчитаем погрешность:
 \[
-\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2576.62|}{2122.065} \approx 20 \% \leq \delta f_0 = 20\%
+\delta f = \frac{|f_0 - f|}{f_0} = \frac{|2122.065 - 2576.62|}{2122.065} \approx 20~\% \leq \delta f_0 = 20~\%
 \]
   
 \section{Выводы}

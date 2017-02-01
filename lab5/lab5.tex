@@ -1,62 +1,8 @@
-\documentclass[a4paper,14pt]{extarticle}
-
-\usepackage[utf8x]{inputenc}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[russian]{babel}
-\usepackage{hyperref}
-\usepackage{indentfirst}
-\usepackage{here}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{chngcntr}
-\usepackage{amsmath}
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
-
-\counterwithin{figure}{section}
-\counterwithin{equation}{section}
-\counterwithin{table}{section}
-\newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
-\graphicspath{{pics/}} % Путь до папки с картинками
-\captionsetup{justification=centering,margin=1cm}
-\def\arraystretch{1.3}
+\include{settings}
 
 \begin{document}
 
-\begin{titlepage}
-\begin{center}
-	\textbf{Санкт-Петербургский Политехнический Университет \\Петра Великого}\\[0.3cm]
-	\small Институт компьютерных наук и технологий \\[0.3cm]
-	\small Кафедра компьютерных систем и программных технологий\\[4cm]
-	
-	\textbf{ОТЧЕТ}\\ \textbf{о лабораторной работе}\\[0.5cm]
-	\textbf{<<Исследование однокаскадных транзисторных усилителей>>}\\[0.1cm]
-	\textbf{Электротехника и Электроника}\\[10.5cm]
-\end{center}
-
-\begin{flushright}
-	\begin{minipage}{0.60\textwidth}
-		\begin{flushleft}
-			\small \textbf{Работу выполнили студенты}\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Дьячков В.В.\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Ламтев А.Ю.\\[5mm]
-			
-			\small \textbf{Преподаватель}\\[5mm]
-		 	\small \sign[3.5cm] \hspace*{8mm} к.т.н., доц. Кочетков Ю.Д.\\[0.5cm]
-		\end{flushleft}
-	\end{minipage}
-\end{flushright}
-
-\vfill
-
-\begin{center}
-	\small Санкт-Петербург\\
-	\small \the\year
-\end{center}
-\end{titlepage}
+\include{titlepage}
 
 \section{Цель работы}
 
@@ -145,7 +91,7 @@ R_\text{вых} \approx R_\text{к} = 3.9 \text{ кОм}.
 
 Найдем коэффициент усиления по току:
 \begin{multline}
-K_{I0} = - h_{21} \cdot \frac{R_1}{R_1 + h_\text{11Э}} \cdot \frac{R_\text{к}}{R_\text{к} + R_\text{н}} =\\= - 12 \cdot \frac{91260}{91260 + 345.45} \cdot \frac{3900}{3900 + 2000} = - 7.90
+K_{I0} = -h_{21} \cdot \frac{R_1}{R_1 + h_\text{11Э}} \cdot \frac{R_\text{к}}{R_\text{к} + R_\text{н}} =\\= - 12 \cdot \frac{91260}{91260 + 345.45} \cdot \frac{3900}{3900 + 2000} = - 7.90
 \end{multline}
 
 Рассчитаем коэффициент усиления по напряжению:
@@ -279,7 +225,7 @@ R_\text{вых} = \frac{(U_\text{вых хх} - U_\text{вых Rн}) \cdot R_\te
 
 \section{Уточнение теоретических величин}
 
-При установлении на схеме сопротивления резистора $R_1 = 91.26$ кОм, которое было посчитано с использованием заданного значения $h_{21} = 12$, значение $U_\text{кэА} = 4.12$ В, что имеет отклонение не выше $\pm 10 \%$ от заданного \linebreak $U_\text{кэА} = 4$ В. Поэтому $h_{21}$ не нуждается в уточнении.
+При установлении на схеме сопротивления резистора $R_1 = 91.26$ кОм, которое было посчитано с использованием заданного значения $h_{21} = 12$, значение $U_\text{кэА} = 4.12$ В, что имеет отклонение не выше $\pm 10~\%$ от заданного \linebreak $U_\text{кэА} = 4$ В. Поэтому $h_{21}$ не нуждается в уточнении.
 
 Получив экспериментальное значение $R_\text{вх} = 293.2$ Ом и с учётом того, что $h_{11\text{Э}} \approx R_\text{вх}$, вычислим уточнённое значение $K_{U0}$: 
 
@@ -294,6 +240,6 @@ K_{U0\text{ теор.}} = 54.1 \approx 55.94 = K_{U0\text{ эксп.}}
 
 \section{Выводы}
 
-Вычесленные уточнённые теоретические и полученные экспериментальные значения близки. А значит, формулы \ref{eq:r_in} -- \ref{eq:k_u0} могут быть использованы.
+Вычесленные уточнённые теоретические и полученные экспериментальные значения близки. Следовательно, формулы \ref{eq:r_in} -- \ref{eq:k_u0} могут быть использованы при расчетах.
 
 \end{document}

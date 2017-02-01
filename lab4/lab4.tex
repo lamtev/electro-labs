@@ -1,62 +1,8 @@
-\documentclass[a4paper,14pt]{extarticle}
-
-\usepackage[utf8x]{inputenc}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[russian]{babel}
-\usepackage{hyperref}
-\usepackage{indentfirst}
-\usepackage{here}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{chngcntr}
-\usepackage{amsmath}
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
-
-\counterwithin{figure}{section}
-\counterwithin{equation}{section}
-\counterwithin{table}{section}
-\newcommand{\sign}[1][5cm]{\makebox[#1]{\hrulefill}} % Поля подписи и даты
-\graphicspath{{pics/}} % Путь до папки с картинками
-\captionsetup{justification=centering,margin=1cm}
-\def\arraystretch{1.3}
+\include{settings}
 
 \begin{document}
 
-\begin{titlepage}
-\begin{center}
-	\textbf{Санкт-Петербургский Политехнический Университет \\Петра Великого}\\[0.3cm]
-	\small Институт компьютерных наук и технологий \\[0.3cm]
-	\small Кафедра компьютерных систем и программных технологий\\[4cm]
-	
-	\textbf{ОТЧЕТ}\\ \textbf{о лабораторной работе}\\[0.5cm]
-	\textbf{<<Исследование транизисторных ключей>>}\\[0.1cm]
-	\textbf{Электротехника и Электроника}\\[10.5cm]
-\end{center}
-
-\begin{flushright}
-	\begin{minipage}{0.60\textwidth}
-		\begin{flushleft}
-			\small \textbf{Работу выполнили студенты}\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Дьячков В.В.\\[3mm]
-			\small группа 23501/4 \hspace*{17mm} Ламтев А.Ю.\\[5mm]
-			
-			\small \textbf{Преподаватель}\\[5mm]
-		 	\small \sign[3.5cm] \hspace*{8mm} к.т.н., доц. Кочетков Ю.Д.\\[0.5cm]
-		\end{flushleft}
-	\end{minipage}
-\end{flushright}
-
-\vfill
-
-\begin{center}
-	\small Санкт-Петербург\\
-	\small \the\year
-\end{center}
-\end{titlepage}
+\include{titlepage}
 
 \section{Цель работы}
 
@@ -145,7 +91,7 @@ R = \frac{E_\text{вх}}{I_{\text{б}_1} + \frac{E_\text{см}}{R_\text{б}}} - 
 \]
 
 \[
-I_{\text{б}_2} \simeq \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5} \text{ A}
+I_{\text{б}_2} \approx \frac{E_\text{см}}{R_\text{б}} = \frac{5}{330 \cdot 10^3} = 1.51 \cdot 10^{-5} \text{ A}
 \]
 
 \[
