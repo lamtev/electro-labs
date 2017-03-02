@@ -57,6 +57,8 @@
 
 \section{Экспериментально снятые зависимости}
 
+\subsection{Постоянный ток}
+
 В таблице \ref{tab:k_dc} и на рисунке \ref{tab:k_dc} приведена амплитудная характеристика усилителя $U_\text{вых} = f(e_c)$.
 
 \begin{table}[H]
@@ -65,7 +67,7 @@
 	\label{tab:k_dc}
 	\def\tabcolsep{40pt}
 	\def\arraystretch{1.2}
-	\fontsize{13}{13}\selectfont
+	\fontsize{13}{14}\selectfont
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={e_c,u_out,k},
 	    column type/.add={|c|}{},
@@ -99,6 +101,56 @@
 		\addplot table[x=e_c,y=u_out,col sep=comma]{data/k_dc.csv};
 %		\addplot table[x=e_c,y=u_out,col sep=comma]{data/ampl_theory.csv};
 		\legend{Эксп., Teор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
+	\label{fig:ampl}
+\end{center}
+\end{figure}
+
+\subsection{Перменный ток}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
+	\label{tab:k_dc}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={e_c,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/e_c/.style={fixed, precision=3, zerofill, column name={$e_c$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/k_ac.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			legend pos=north west,
+			xlabel={$e_c$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin = 0,
+			xmax = 14,
+			ymin = 0,
+			ymax = 12,
+			grid=major
+		]
+		\addplot table[x=e_c,y=u_out,col sep=comma]{data/k_ac.csv};
+%		\addplot table[x=e_c,y=u_out,col sep=comma]{data/ampl_theory.csv};
+		\addplot +[mark=none, dashed, black, samples=2] coordinates {(9.8,0) (9.8,12)};
+		\legend{Эксп., , Teор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$}
