@@ -18,6 +18,7 @@ matrix:
     - env: LAB="lab11a"
     - env: LAB="lab5"
     - env: LAB="lab4"
+    - env: LAB="lab6"
 
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/electroch_labs lamtev/latex:full /bin/bash -c " cd electroch_labs/${LAB} && pdflatex ${LAB}.tex && pdflatex ${LAB}.tex "
