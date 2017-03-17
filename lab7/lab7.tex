@@ -63,7 +63,99 @@
 
 \subsection{Выпрямитель}
 
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
+	\label{tab:k_dc}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+	\fontsize{13}{14}\selectfont
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={u_in,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/scheme1.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			legend pos=north west,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin = -0.2,
+			xmax = 1.6,
+			ymin = -2,
+			ymax = 16,
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme1.csv};
+		\legend{Эксп.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:ampl}
+\end{center}
+\end{figure}
+
 \subsection{Двухсторонний усилитель-ограничитель}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
+	\label{tab:k_dc}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+	\fontsize{13}{14}\selectfont
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={u_in,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/scheme2.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			legend pos=north east,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			xmin = -8,
+			xmax = 14,
+			ymin = -15,
+			ymax = 15,
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme2.csv};
+		\legend{Эксп.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:ampl}
+\end{center}
+\end{figure}
 
 \section{Погрешности}
 
