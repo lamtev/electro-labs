@@ -67,15 +67,16 @@
 \begin{center}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
 	\label{tab:k_dc}
-	\def\tabcolsep{40pt}
+	\def\tabcolsep{30pt}
 	\def\arraystretch{1.2}
 	\fontsize{13}{14}\selectfont
 	\pgfplotstabletypeset[col sep=comma,
-	    columns={u_in,u_out,k},
+	    columns={u_in,u_out,k,u_out_t},
 	    column type/.add={|c|}{},
 	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
 	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
-	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},
+	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},,
+	    columns/u_out_t/.style={fixed, precision=3, zerofill, column name={$U_\text{вых теор}$, В}},
 	    every nth row={1}{before row=\hline},
 	    every head row/.style={before row=\hline, after row=\hline},
 	    every last row/.style={after row=\hline}
@@ -89,19 +90,20 @@
 		\begin{axis}[
 			height=0.4\textheight,
 			width=0.9\textwidth,
-			legend pos=north west,
+			legend pos = north east,
 			xlabel={$U_\text{вх}$, В},
 			ylabel={$U_\text{вых}$, В},
-			xlabel near ticks,
-			ylabel near ticks,
-			xmin = -0.2,
-			xmax = 1.6,
-			ymin = -2,
-			ymax = 16,
+			axis x line = middle,
+			axis y line = middle,
+			xmin = 0,
+			xmax = 1.8,
+			ymin = 0,
+			ymax = 18,
 			grid=major
 		]
-		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme1.csv};
-		\legend{Эксп.}
+		\addplot [mark=square*, blue] table[x=u_in,y=u_out,col sep=comma]{data/scheme1.csv};
+		\addplot [mark=*, dashed, red] table[x=u_in,y=u_out_t,col sep=comma]{data/scheme1.csv};
+		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
@@ -115,15 +117,17 @@
 \begin{center}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
 	\label{tab:k_dc}
-	\def\tabcolsep{40pt}
+	\def\tabcolsep{20pt}
 	\def\arraystretch{1.2}
 	\fontsize{13}{14}\selectfont
 	\pgfplotstabletypeset[col sep=comma,
-	    columns={u_in,u_out,k},
+	    columns={u_in,u_out,k,u_out_t,k_t},
 	    column type/.add={|c|}{},
 	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
 	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
 	    columns/k/.style={fixed, precision=2, zerofill, column name={$K$}},
+	    columns/u_out_t/.style={fixed, precision=3, zerofill, column name={$U_\text{вых теор}$, В}},
+	    columns/k_t/.style={fixed, precision=0, zerofill, column name={$K_\text{теор}$}},
 	    every nth row={1}{before row=\hline},
 	    every head row/.style={before row=\hline, after row=\hline},
 	    every last row/.style={after row=\hline}
@@ -140,8 +144,8 @@
 			legend pos=north east,
 			xlabel={$U_\text{вх}$, В},
 			ylabel={$U_\text{вых}$, В},
-			xlabel near ticks,
-			ylabel near ticks,
+			axis x line = middle,
+			axis y line = middle,
 			xmin = -8,
 			xmax = 14,
 			ymin = -15,
@@ -149,7 +153,37 @@
 			grid=major
 		]
 		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme2.csv};
-		\legend{Эксп.}
+		\addplot table[x=u_in,y=u_out_t,col sep=comma]{data/scheme2.csv};
+		\legend{Эксп., Теор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:ampl}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.7\textwidth,
+			legend pos=south west,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			axis x line = middle,
+			axis y line = middle,
+			xmin = -0.5,
+			xmax = 0.5,
+			ymin = -4,
+			ymax = 4,
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme2.csv};
+		\addplot table[x=u_in,y=u_out_t,col sep=comma]{data/scheme2.csv};
+		\draw[black,very thick,dashed] (axis cs:0,2.3) -- (axis cs:-0.22,2.3) -- (axis cs:-0.22,0);
+		\draw[black,very thick,dashed] (axis cs:0,-2.2) -- (axis cs:0.22,-2.2) -- (axis cs:0.22,0);
+		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
