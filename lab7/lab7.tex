@@ -95,12 +95,13 @@
 
 \subsection{Выпрямитель}
 
+В таблице \ref{tab:rectifier} и на рисунке \ref{plot:rectifier} изображена амлитудная характеристика выпрямителя.
+
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
-	\label{tab:k_dc}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ выпрямителя}
+	\label{tab:rectifier}
 	\def\tabcolsep{30pt}
-	\def\arraystretch{1.2}
 	\fontsize{13}{14}\selectfont
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={u_in,u_out,k,u_out_t},
@@ -115,6 +116,8 @@
 	   ]{data/scheme1.csv}
 \end{center}
 \end{table}
+
+Вычислим значения $K_{1 \text{ эксп}}$ как среднее арифметическое экспериментально полученных значений:
 
 \begin{displaymath}
 	K_{1\text{ эксп}} = \frac{\sum_{i=1}^{17} K_i}{17} = \frac{177.07}{17} = 10.42
@@ -143,18 +146,22 @@
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
-	\label{fig:ampl}
+	\label{plot:rectifier}
 \end{center}
 \end{figure}
 
+\newpage
+
 \subsection{Двухсторонний усилитель-ограничитель}
+
+В таблице \ref{tab:limiter} приведена амлитудная характеристика двухстороннего усилителя-ограничителя.
 
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$}
-	\label{tab:k_dc}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя}
+	\label{tab:limiter}
 	\def\tabcolsep{20pt}
-	\def\arraystretch{1.2}
+	\def\arraystretch{1.23}
 	\fontsize{13}{14}\selectfont
 	\pgfplotstabletypeset[col sep=comma,
 	    columns={u_in,u_out,k,u_out_t,k_t},
@@ -171,24 +178,31 @@
 \end{center}
 \end{table}
 
+Вычислим значения $K_{1 \text{ эксп}}$, $K_{2 \text{ эксп}}$ и $K_{3 \text{ эксп}}$ как среднее арифметическое экспериментально полученных значений:
+
 \begin{displaymath}
-	K_{1 \text{ эксп}} = \frac{\sum_{i=1}^{6}}{6} = \frac{58.12}{9.68} = 9.69
+	K_{1 \text{ эксп}} = \frac{\sum_{i=1}^{6}K_i}{6} = \frac{58.12}{9.68} = 9.69
 \end{displaymath}
 
 \begin{displaymath}
-	K_{2 \text{ эксп}} = \frac{\sum_{i=1}^{9}}{9} = \frac{8.26}{9} = 0.92
+	K_{2 \text{ эксп}} = \frac{\sum_{i=1}^{9}K_i}{9} = \frac{8.26}{9} = 0.92
 \end{displaymath}
 
 \begin{displaymath}
-	K_{3 \text{ эксп}} = \frac{\sum_{i=1}^{10}}{10} = \frac{19.48}{10} = 1.95
+	K_{3 \text{ эксп}} = \frac{\sum_{i=1}^{10}K_i}{10} = \frac{19.48}{10} = 1.95
 \end{displaymath}
+
+На рисунке \ref{fig:oscillogram} изображена осциллограмма двухстороннего усилителя-ограничителя.
 
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[scale=0.52]{curve}
-	\caption{Осциллограмма ограничителя}
+	\caption{Осциллограмма двухстороннего усилителя-ограничителя}
+	\label{fig:oscillogram}
 \end{center}
 \end{figure}
+
+На рисунке \ref{plot:limiter} изображен общий вид зависимости напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя. На рисунке \ref{plot:limiter_detail} изображена та же зависимость в области $U_\text{вых} \le U_\text{огр}$.
 
 \begin{figure}[H]
 \begin{center}
@@ -213,7 +227,7 @@
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Общий вид зависимости напряжения $U_\text{вых}$ от $U_\text{вх}$}
-	\label{fig:ampl}
+	\label{plot:limiter}
 \end{center}
 \end{figure}
 
@@ -243,8 +257,8 @@
 		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ в области срабатывания ограничителя}
-	\label{fig:ampl}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ в области $U_\text{вых} \le U_\text{огр}$}
+	\label{plot:limiter_detail}
 \end{center}
 \end{figure}
 
