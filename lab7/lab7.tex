@@ -233,6 +233,12 @@
 \begin{center}
 	\begin{tikzpicture} [every plot/.append style={thick}]
 		\begin{axis}[
+			x tick label style={
+				/pgf/number format/.cd,
+				fixed,
+				precision=2,
+				/tikz/.cd
+			},
 			height=0.45\textheight,
 			width=0.95\textwidth,
 			legend pos = north east,
@@ -240,8 +246,8 @@
 			ylabel={$U_\text{вых}$, В},
 			axis x line = middle,
 			axis y line = middle,
-			xmin = -0.3,
-			xmax = 0.3,
+			xmin = -0.25,
+			xmax = 0.25,
 			ymin = -2.5,
 			ymax = 2.5,
 			grid=major
