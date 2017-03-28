@@ -197,7 +197,7 @@
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[scale=0.52]{curve}
-	\caption{Осциллограмма двухстороннего усилителя-ограничителя}
+	\caption{Осциллограмма двухстороннего усилителя-ограничителя, при этом одно вертикальное деление равняется 1 Вольту}
 	\label{fig:oscillogram}
 \end{center}
 \end{figure}
@@ -246,13 +246,13 @@
 			axis y line = middle,
 			xmin = -0.5,
 			xmax = 0.5,
-			ymin = -4,
-			ymax = 4,
+			ymin = -3,
+			ymax = 3,
 			grid=major
 		]
 		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme2.csv};
 		\addplot table[x=u_in,y=u_out_t,col sep=comma]{data/scheme2.csv};
-		\draw[black,very thick,dashed] (axis cs:0,2.3) -- (axis cs:-0.22,2.3) -- (axis cs:-0.22,0);
+		\draw[black,very thick,dashed] (axis cs:0,2.3) -- (axis cs:-0.23,2.3) -- (axis cs:-0.23,0);
 		\draw[black,very thick,dashed] (axis cs:0,-2.2) -- (axis cs:0.22,-2.2) -- (axis cs:0.22,0);
 		\legend{Эксп., Теор.}
 		\end{axis}
@@ -298,6 +298,7 @@
 \section{Выводы}
 
 Приведённые погрешности полученных в ходе эксперимента значений $K_1$, $K_2$ и $K_3$ не превышают превышают предельно допустимые погрешности.
+
 Таким образом, формулы \ref{eq:4:1} -- \ref{eq:4:5} являются верными.
 
 \end{document}
