@@ -95,8 +95,6 @@
 
 \subsection{Выпрямитель}
 
-В таблице \ref{tab:rectifier} и на рисунке \ref{plot:rectifier} изображена амлитудная характеристика выпрямителя.
-
 \begin{table}[H]
 \begin{center}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ выпрямителя}
@@ -154,8 +152,6 @@
 
 \subsection{Двухсторонний усилитель-ограничитель}
 
-В таблице \ref{tab:limiter} приведена амлитудная характеристика двухстороннего усилителя-ограничителя.
-
 \begin{table}[H]
 \begin{center}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя}
@@ -197,12 +193,12 @@
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[scale=0.52]{curve}
-	\caption{Осциллограмма двухстороннего усилителя-ограничителя, при этом одно вертикальное деление равняется 1 Вольту}
+	\caption{Осциллограмма двухстороннего усилителя-ограничителя, при этом \textbf{одно вертикальное деление равняется 1 Вольту}}
 	\label{fig:oscillogram}
 \end{center}
 \end{figure}
 
-На рисунке \ref{plot:limiter} изображен общий вид зависимости напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя. На рисунке \ref{plot:limiter_detail} изображена та же зависимость в области $U_\text{вых} \le U_\text{огр}$.
+На рисунке \ref{plot:limiter} изображен общий вид зависимости напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя. На рисунке \ref{plot:limiter_detail} изображена та же зависимость в области $|U_\text{вых}| \le U_\text{огр}$.
 
 \begin{figure}[H]
 \begin{center}
@@ -244,10 +240,10 @@
 			ylabel={$U_\text{вых}$, В},
 			axis x line = middle,
 			axis y line = middle,
-			xmin = -0.5,
-			xmax = 0.5,
-			ymin = -3,
-			ymax = 3,
+			xmin = -0.3,
+			xmax = 0.3,
+			ymin = -2.5,
+			ymax = 2.5,
 			grid=major
 		]
 		\addplot table[x=u_in,y=u_out,col sep=comma]{data/scheme2.csv};
@@ -257,7 +253,7 @@
 		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ в области $U_\text{вых} \le U_\text{огр}$}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ в области $|U_\text{вых}| \le U_\text{огр}$}
 	\label{plot:limiter_detail}
 \end{center}
 \end{figure}
@@ -271,28 +267,33 @@
 \end{displaymath}
 
 \begin{displaymath}
-	\delta K_1 = \left| \frac{K_{1 \text{ теор.}} - K_{1 \text{ эксп.}}}{K_{1 \text{ теор.}}} \right| = \left| \frac{10 - 10.42}{10} \right| = 0.042 = 4.2 \%
+	\delta K_1 = \left| \frac{K_{1 \text{ теор.}} - K_{1 \text{ эксп.}}}{K_{1 \text{ теор.}}} \right| = \left| \frac{10 - 10.42}{10} \right| = 0.042 = 4.2 \% < \delta_{max} K_1 = 14.1 \%
 \end{displaymath}
 
 \subsection{Двухсторонний усилитель-ограничитель}
 
 \begin{displaymath}
-	\delta_{max} K_{1-3} = \sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta R_4)^2 + (\delta R_5)^2 + (\delta R_6)^2} = 
-\end{displaymath}
-\begin{displaymath}
-	= \sqrt{0.1^2 + 0.1^2 + 0.1^2 + 0.1^2 + 0.1^2 + 0.1^2} = 0.245 = 24.5 \%
+	\delta_{max} K_1 = \sqrt{(\delta R_1)^2 + (\delta R_2)^2} = \sqrt{0.1^2 + 0.1^2} = 0.141 = 14.1 \%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta K_1 = \left| \frac{K_{1 \text{ теор.}} - K_{1 \text{ эксп.}}}{K_{1 \text{ теор.}}} \right| = \left| \frac{10 - 9.69}{10} \right| = 0.031 = 3.1 \%
+	\delta_{max} K_{2} = \sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta R_6)^2} = \sqrt{4 \cdot 0.1^2} = 0.2 = 20 \%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta K_2 = \left| \frac{K_{2 \text{ теор.}} - K_{2 \text{ эксп.}}}{K_{2 \text{ теор.}}} \right| = \left| \frac{1 - 0.92}{1} \right| = 0.08 = 8 \%
+	\delta_{max} K_{3} = \sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_4)^2 + (\delta R_5)^2} = \sqrt{4 \cdot 0.1^2} = 0.2 = 20 \%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta K_3 = \left| \frac{K_{3 \text{ теор.}} - K_{3 \text{ эксп.}}}{K_{3 \text{ теор.}}} \right| = \left| \frac{2 - 1.95}{2} \right| = 0.025 = 2.5 \%
+	\delta K_1 = \left| \frac{K_{1 \text{ теор.}} - K_{1 \text{ эксп.}}}{K_{1 \text{ теор.}}} \right| = \left| \frac{10 - 9.69}{10} \right| = 0.031 = 3.1 \% < \delta_{max} K_{1} = 14.1 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta K_2 = \left| \frac{K_{2 \text{ теор.}} - K_{2 \text{ эксп.}}}{K_{2 \text{ теор.}}} \right| = \left| \frac{1 - 0.92}{1} \right| = 0.08 = 8 \% < \delta_{max} K_{2} = 20 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta K_3 = \left| \frac{K_{3 \text{ теор.}} - K_{3 \text{ эксп.}}}{K_{3 \text{ теор.}}} \right| = \left| \frac{2 - 1.95}{2} \right| = 0.025 = 2.5 \% < \delta_{max} K_{3} = 20 \%
 \end{displaymath}
 
 \section{Выводы}
