@@ -1,0 +1,80 @@
+\include{settings}
+
+\begin{document}
+
+\include{titlepage}
+
+\section{Цель работы}
+
+Приобретение навыков настройки и исследования импульсных генераторов (автоколебательных и ждущих), определения областей применения различных интегральных микросхем в генераторах.
+
+\section{Чертеж схемы исследуемого устройства}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[scale=0.3]{scheme1}
+		\caption{Симметричный мультивибратор}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[scale=0.3]{scheme2}
+		\caption{Несимметричный мультивибратор}
+	\end{subfigure}
+	~
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[scale=0.3]{scheme3}
+		\caption{Ждущий генератор}
+	\end{subfigure}
+	\caption{}
+\end{center}
+\end{figure}
+
+
+\section{Исходные данные}
+
+Операционный усилитель \verb+К140УД6+.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Исходные данные}
+	\def\tabcolsep{10pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		$t_{\text{и1}}$, мкс &
+		$t_{\text{и2}}$, мкс &
+		$K_{\text{Д}}$ &
+		$C$, нФ &
+		$R_{\text{Д}}$, кОм &
+		$C_{\text{Д}}$, пФ &
+		$E_{01}$, В &
+		$E_{02}$, В \\
+		\hline
+		20 &
+		40 &
+		1 &
+		3 &
+		10 &
+		1500 &
+		15 &
+		-15 \\
+	    \hline	
+	\end{tabular}
+\end{center}
+\end{table}
+
+\section{Теоретические расчёты}
+
+\subsection{Расчет параметров элементов}
+
+\section{Экспериментально снятые зависимости}
+
+\section{Погрешности}
+
+\section{Выводы}
+
+Приведённые погрешности полученных в ходе эксперимента значений $K_1$, $K_2$ и $K_3$ не превышают превышают предельно допустимые погрешности.
+
+Таким образом, формулы \ref{eq:4:1} -- \ref{eq:4:5} являются верными.
+
+\end{document}
