@@ -137,6 +137,58 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 
 \section{Экспериментально снятые зависимости}
 
+\subsection{Зависимость $t_\text{имп}$ от $C$.}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $U_\text{вх}$ двухстороннего усилителя-ограничителя}
+	\label{tab:limiter}
+	\def\tabcolsep{20pt}
+	\def\arraystretch{1.23}
+	\fontsize{13}{14}\selectfont
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={c,t},
+	    column type/.add={|c|}{},
+	    columns/c/.style={fixed, column name={$t_\text{имп}$, мкс}},
+	    columns/t/.style={fixed, column name={$C$, нФ}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/c.csv}
+\end{center}
+\end{table}
+
+\vspace{-1cm}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			x tick label style={
+				/pgf/number format/.cd,
+				fixed,
+				precision=2,
+				/tikz/.cd
+			},
+			height=0.3\textheight,
+			width=0.75\textwidth,
+			legend pos = north east,
+			xlabel={$C$, нФ},
+			ylabel={$t_\text{имп}$, мкс},
+			axis x line = middle,
+			axis y line = middle,
+			xmax = 550,
+			ymax = 1400,
+			grid=major
+		]
+		\addplot table[x=c,y=t,col sep=comma]{data/c.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость времени импульса $t_\text{имп}$ от емкости конденсатора $C$.}
+	\label{plot:limiter_detail}
+\end{center}
+\end{figure}
+
 \section{Погрешности}
 
 \section{Выводы}
