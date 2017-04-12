@@ -65,7 +65,75 @@
 
 \section{Теоретические расчёты}
 
-\subsection{Расчет параметров элементов}
+\subsection{Расчёт параметров элементов}
+
+$K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тогда $R_2 = 20$ кОм
+
+\begin{displaymath}
+	R_3 = \frac{t_{\text{и1}}}{C \cdot ln(1 + \frac{2R_1}{R_2})} = \frac{20 \cdot 10^{-6}}{3 \cdot 10^9 \cdot ln(1 + 2)} = 6 \text{ кОм}
+\end{displaymath}
+
+\begin{displaymath}
+	R_4 = \frac{t_{\text{и2}}}{C \cdot ln(1 + \frac{2R_1}{R_2})} = \frac{40 \cdot 10^{-6}}{3 \cdot 10^9 \cdot ln(1 + 2)} = 12 \text{ кОм}
+\end{displaymath} 
+
+\subsection{Расчёт $t_\text{и}$ симметричного мультивибратора}
+
+\begin{equation}
+	t_{\text{и1}} = R_3 C ln\left(1 + \frac{\left(1 - \frac{U_\text{вых}^{-}}{U_\text{вых}^{+}}\right) R_1}{R_2}\right) 
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{и1}} = 6 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + \frac{\left(1 - \frac{-15}{0.7 \cdot 15}\right)\cdot 20 \cdot 10^3}{20 \cdot 10^3}\right) = 22.2 \text{ мкс}
+\end{displaymath}
+
+\begin{equation}
+	t_{\text{и2}} = R_3 C ln\left(1 + \frac{\left(1 - \frac{U_\text{вых}^{+}}{U_\text{вых}^{-}}\right) R_1}{R_2}\right) 
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{и2}} = 6 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + \frac{\left(1 - \frac{0.7 \cdot 15}{-15}\right)\cdot 20 \cdot 10^3}{20 \cdot 10^3}\right) = 17.9 \text{ мкс}
+\end{displaymath}
+
+\begin{displaymath}
+	t_{\text{и}} = \frac{t_{\text{и1}} + t_{\text{и2}}}{2} = \frac{22.2 + 17.9}{2} = 20.1 \text{ мкс}
+\end{displaymath}
+
+\subsection{Расчёт $t_\text{и}$ несимметричного мультивибратора}
+
+\begin{equation}
+	t_{\text{и1}} = R_3 C ln\left(1 + 2 \cdot \frac{R_1}{R_2}\right) 
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{и1}} = 6 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + 2 \cdot \frac{20 \cdot 10^3}{20 \cdot 10^3} \right) = 19.8 \text{ мкс}
+\end{displaymath}
+
+\begin{equation}
+	t_{\text{и2}} = R_4 C ln\left(1 + 2 \cdot \frac{R_1}{R_2}\right) 
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{и2}} = 12 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + 2 \cdot \frac{20 \cdot 10^3}{20 \cdot 10^3} \right) = 39.6 \text{ мкс}
+\end{displaymath}
+
+\subsection{Расчёт $t_\text{и}$ ждущего генератора}
+
+\begin{equation}
+	t_{\text{и}} = R_3 C ln\left(1 + \frac{R_1}{R_2}\right) 
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{и}} = 6 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + \frac{20 \cdot 10^3}{20 \cdot 10^3}\right) = 12.5 \text{ мкс} 
+\end{displaymath}
+
+\begin{equation}
+	t_{\text{в}} = R_3 C ln\left(1 + \frac{\frac{R_1}{R_2}}{1 + \frac{R_1}{R_2}}\right)
+\end{equation}
+
+\begin{displaymath}
+	t_{\text{в}} = 6 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + \frac{\frac{20 \cdot 10^3}{20 \cdot 10^3}}{1 + \frac{20 \cdot 10^3}{20 \cdot 10^3}}\right) = 7.30 \text{ мкс}
+\end{displaymath}
 
 \section{Экспериментально снятые зависимости}
 
