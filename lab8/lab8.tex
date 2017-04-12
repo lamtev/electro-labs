@@ -77,9 +77,10 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 	R_4 = \frac{t_{\text{и2}}}{C \cdot ln(1 + \frac{2R_1}{R_2})} = \frac{40 \cdot 10^{-6}}{3 \cdot 10^9 \cdot ln(1 + 2)} = 12 \text{ кОм}
 \end{displaymath} 
 
-\subsection{Расчёт $t_\text{и}$ симметричного мультивибратора}
+\subsection{Расчёт $t_\text{имп}$ симметричного мультивибратора}
 
 \begin{equation}
+	\label{eq:4:1}
 	t_{\text{и1}} = R_3 C ln\left(1 + \frac{\left(1 - \frac{U_\text{вых}^{-}}{U_\text{вых}^{+}}\right) R_1}{R_2}\right) 
 \end{equation}
 
@@ -88,6 +89,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 \end{displaymath}
 
 \begin{equation}
+	\label{eq:4:2}
 	t_{\text{и2}} = R_3 C ln\left(1 + \frac{\left(1 - \frac{U_\text{вых}^{+}}{U_\text{вых}^{-}}\right) R_1}{R_2}\right) 
 \end{equation}
 
@@ -99,9 +101,10 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 	t_{\text{и}} = \frac{t_{\text{и1}} + t_{\text{и2}}}{2} = \frac{22.2 + 17.9}{2} = 20.1 \text{ мкс}
 \end{displaymath}
 
-\subsection{Расчёт $t_\text{и}$ несимметричного мультивибратора}
+\subsection{Расчёт $t_\text{имп}$ несимметричного мультивибратора}
 
 \begin{equation}
+	\label{eq:4:3}
 	t_{\text{и1}} = R_3 C ln\left(1 + 2 \cdot \frac{R_1}{R_2}\right) 
 \end{equation}
 
@@ -110,6 +113,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 \end{displaymath}
 
 \begin{equation}
+	\label{eq:4:4}
 	t_{\text{и2}} = R_4 C ln\left(1 + 2 \cdot \frac{R_1}{R_2}\right) 
 \end{equation}
 
@@ -117,9 +121,10 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 	t_{\text{и2}} = 12 \cdot 10^3 \cdot 3 \cdot 10^{-9} \cdot ln\left(1 + 2 \cdot \frac{20 \cdot 10^3}{20 \cdot 10^3} \right) = 39.6 \text{ мкс}
 \end{displaymath}
 
-\subsection{Расчёт $t_\text{и}$ ждущего генератора}
+\subsection{Расчёт $t_\text{имп}$ ждущего генератора}
 
 \begin{equation}
+	\label{eq:4:5}
 	t_{\text{и}} = R_3 C ln\left(1 + \frac{R_1}{R_2}\right) 
 \end{equation}
 
@@ -128,6 +133,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 \end{displaymath}
 
 \begin{equation}
+	\label{eq:4:6}
 	t_{\text{в}} = R_3 C ln\left(1 + \frac{\frac{R_1}{R_2}}{1 + \frac{R_1}{R_2}}\right)
 \end{equation}
 
@@ -191,10 +197,42 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 
 \section{Погрешности}
 
+\subsection{Предельно допустимая погрешность}
+
+\begin{displaymath}
+	\delta_{max} t_{\text{и}} = \delta_{max} t_{\text{в}} =\sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta C)^2} = \sqrt{4 \cdot 0.1^2} = 0.2 = 20 \%
+\end{displaymath}
+
+\subsection{Симметричный мультивибратор}
+
+\begin{displaymath}
+	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{20.1 - 22}{20.1} \right| = 0.0945 = 9.45 \% < \delta_{max} t_{\text{и}} = 20 \%
+\end{displaymath}
+
+\subsection{Несимметричный мультивибратор}
+
+\begin{displaymath}
+	\delta t_{\text{и1}} = \left| \frac{t_{\text{и1 теор}} - t_{\text{и1 эксп}}}{t_{\text{и1 теор}}} \right| = \left| \frac{19.8 - 23.5}{19.8} \right| = 0.187 = 18.7 \% < \delta_{max} t_{\text{и}} = 20 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta t_{\text{и2}} = \left| \frac{t_{\text{и2 теор}} - t_{\text{и2 эксп}}}{t_{\text{и2 теор}}} \right| = \left| \frac{39.6 - 38.8}{39.6} \right| = 0.0202 = 2.02 \% < \delta_{max} t_{\text{и}} = 20 \%
+\end{displaymath}
+
+\subsection{Ждущий генератор}
+
+\begin{displaymath}
+	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{12.5 - 10.21}{12.5} \right| = 0.184 = 18.4 \% < \delta_{max} t_{\text{и}} = 20 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta t_{\text{в}} = \left| \frac{t_{\text{в теор}} - t_{\text{в эксп}}}{t_{\text{в теор}}} \right| = \left| \frac{7.30 - 6.7}{7.30} \right| = 0.0821 = 8.21 \% < \delta_{max} t_{\text{в}} = 20 \%
+\end{displaymath}
+
 \section{Выводы}
 
-Приведённые погрешности полученных в ходе эксперимента значений $K_1$, $K_2$ и $K_3$ не превышают превышают предельно допустимые погрешности.
+Приведённые погрешности полученных в ходе эксперимента значений $t_{\text{и}}$, $t_{\text{и1}}$, $t_{\text{и2}}$ и $t_{\text{в}}$ не превышают превышают предельно допустимые погрешности.
 
-Таким образом, формулы \ref{eq:4:1} -- \ref{eq:4:5} являются верными.
+Таким образом, формулы \ref{eq:4:1} -- \ref{eq:4:6} являются верными.
 
 \end{document}
