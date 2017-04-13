@@ -14,7 +14,7 @@ Cравнение теоретических и экспериментальны
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=0.4\textwidth]{second_power}
+	\includegraphics[width=0.4\textwidth]{scheme}
 	\caption{Схема активного RC-фильтра 2 порядка}
 \end{center}
 \end{figure}
@@ -44,6 +44,156 @@ Cравнение теоретических и экспериментальны
 \end{table}
 
 \section{Теоретические расчёты}
+
+\subsection{First}
+
+\begin{table}[H]
+\begin{center}
+	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
+	\label{tab:diff-int}
+	\def\tabcolsep{20pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={f,u_in,u_out,k,lg_k},
+	    column type/.add={|c|}{},
+	    columns/f/.style={fixed, column name={$f$, Гц}},
+	    columns/u_in/.style={fixed, precision=3	, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
+	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/first.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.45\textheight,
+			width=0.95\textwidth,
+			legend pos = north east,
+			xlabel={$f$, Гц},
+			ylabel={$\lg k$},
+			axis x line = middle,
+			axis y line = left,
+			xmode=log,
+			log basis x=2,
+			xmin = 2^4,
+			xmax = 2^14,
+			ymin = -15,
+			ymax = 35,
+			grid=major
+		]
+		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/first.csv};
+		\legend{Эксп., Теор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
+	\label{plot:rectifier}
+\end{center}
+\end{figure}
+
+\subsection{Second}
+
+\begin{table}[H]
+\begin{center}
+	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
+	\label{tab:diff-int}
+	\def\tabcolsep{20pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={f,u_in,u_out,k,lg_k},
+	    column type/.add={|c|}{},
+	    columns/f/.style={fixed, column name={$f$, Гц}},
+	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
+	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/second.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.45\textheight,
+			width=0.95\textwidth,
+			legend pos = north east,
+			xlabel={$f$, Гц},
+			ylabel={$\lg k$},
+			axis x line = middle,
+			axis y line = left,
+			xmode=log,
+			log basis x=2,
+			xmin = 2^5,
+			xmax = 2^15,
+			ymin = -15,
+			ymax = 35,
+			grid=major
+		]
+		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/second.csv};
+		\legend{Эксп., Теор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
+	\label{plot:rectifier}
+\end{center}
+\end{figure}
+
+\subsection{Both}
+
+\begin{table}[H]
+\begin{center}
+	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
+	\label{tab:diff-int}
+	\def\tabcolsep{20pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={f,u_in,u_out,k,lg_k},
+	    column type/.add={|c|}{},
+	    columns/f/.style={fixed, column name={$f$, Гц}},
+	    columns/u_in/.style={fixed, precision=3, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$, В}},
+	    columns/lg_k/.style={fixed, precision=3, zerofill, column name={$20 \cdot \lg K$, дБ}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/both.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.45\textheight,
+			width=0.95\textwidth,
+			legend pos = north east,
+			xlabel={$f$, Гц},
+			ylabel={$\lg k$},
+			axis x line = middle,
+			axis y line = left,
+			xmode=log,
+			log basis x=2,
+			xmin = 2^5,
+			xmax = 2^14,
+			ymin = -10,
+			ymax = 40,
+			grid=major
+		]
+		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/both.csv};
+		\legend{Эксп., Теор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
+	\label{plot:rectifier}
+\end{center}
+\end{figure}
 
 \section{Экспериментально снятые зависимости}
 
