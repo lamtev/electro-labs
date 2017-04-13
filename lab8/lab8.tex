@@ -189,7 +189,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 \end{center}
 \end{table}
 
-Затем последовательно уменьшая $R_4$, получили $R_4 = 560$ Ом, при котором $t_{\text{и2}} = 14$ мкс и достигается максимальное значение частоты работы мультивибратора на данном типе ОУ $f = 71.43$ кГц.
+Затем последовательно уменьшая $R_4$, получили $R_4 = 560$ Ом, при котором $t_{\text{и2}} = 7$ мкс и достигается максимальное значение частоты работы мультивибратора на данном типе ОУ $f_{max} = 71.43$ кГц.
 
 \newpage
 
@@ -217,7 +217,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость времени импульса $t_\text{имп}$ от емкости конденсатора $C$.}
+	\caption{Зависимость длительности импульса $t_\text{имп}$ от емкости конденсатора $C$.}
 	\label{tab:limiter}
 	\def\tabcolsep{20pt}
 	\def\arraystretch{1.23}
@@ -260,7 +260,7 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 		\addplot table[x=c,y=t,col sep=comma]{data/c.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость времени импульса $t_\text{имп}$ от емкости конденсатора $C$.}
+	\caption{Зависимость длительности импульса $t_\text{имп}$ от емкости конденсатора $C$.}
 	\label{plot:limiter_detail}
 \end{center}
 \end{figure}
@@ -272,33 +272,35 @@ $K_\text{Д} = 1 \Rightarrow$ $R_1 = R_2$. Пусть $R_1 = 20$ кОм, тог�
 \subsection{Предельно допустимая погрешность}
 
 \begin{displaymath}
-	\delta_{max} t_{\text{и}} = \delta_{max} t_{\text{в}} =\sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta C)^2} = \sqrt{4 \cdot 0.1^2} = 0.2 = 20 \%
+\begin{aligned}
+		\delta_{max} t_{\text{и}} = \delta_{max} t_{\text{в}} =\sqrt{\sqrt{\delta R_1} + \sqrt{\delta R_2} + (\delta R_3)^2 + (\delta C)^2} = \\ = \sqrt{\sqrt{0.1} + \sqrt{0.1} + 0.1^2 + 0.1^2} = 0.807 = 80.7 \%
+\end{aligned}
 \end{displaymath}
 
 \subsection{Симметричный мультивибратор}
 
 \begin{displaymath}
-	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{20.1 - 22}{20.1} \right| = 0.0945 = 9.45 \% < \delta_{max} t_{\text{и}} = 20 \%
+	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{20.1 - 22}{20.1} \right| = 0.0945 = 9.45 \% < \delta_{max} t_{\text{и}} = 80.7 \%
 \end{displaymath}
 
 \subsection{Несимметричный мультивибратор}
 
 \begin{displaymath}
-	\delta t_{\text{и1}} = \left| \frac{t_{\text{и1 теор}} - t_{\text{и1 эксп}}}{t_{\text{и1 теор}}} \right| = \left| \frac{19.8 - 23.5}{19.8} \right| = 0.187 = 18.7 \% < \delta_{max} t_{\text{и}} = 20 \%
+	\delta t_{\text{и1}} = \left| \frac{t_{\text{и1 теор}} - t_{\text{и1 эксп}}}{t_{\text{и1 теор}}} \right| = \left| \frac{19.8 - 23.5}{19.8} \right| = 0.187 = 18.7 \% < \delta_{max} t_{\text{и}} = 80.7 \%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta t_{\text{и2}} = \left| \frac{t_{\text{и2 теор}} - t_{\text{и2 эксп}}}{t_{\text{и2 теор}}} \right| = \left| \frac{39.6 - 38.8}{39.6} \right| = 0.0202 = 2.02 \% < \delta_{max} t_{\text{и}} = 20 \%
+	\delta t_{\text{и2}} = \left| \frac{t_{\text{и2 теор}} - t_{\text{и2 эксп}}}{t_{\text{и2 теор}}} \right| = \left| \frac{39.6 - 38.8}{39.6} \right| = 0.0202 = 2.02 \% < \delta_{max} t_{\text{и}} = 80.7 \%
 \end{displaymath}
 
 \subsection{Ждущий генератор}
 
 \begin{displaymath}
-	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{12.5 - 10.2}{12.5} \right| = 0.184 = 18.4 \% < \delta_{max} t_{\text{и}} = 20 \%
+	\delta t_{\text{и}} = \left| \frac{t_{\text{и теор}} - t_{\text{и эксп}}}{t_{\text{и теор}}} \right| = \left| \frac{12.5 - 10.2}{12.5} \right| = 0.184 = 18.4 \% < \delta_{max} t_{\text{и}} = 80.7 \%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta t_{\text{в}} = \left| \frac{t_{\text{в теор}} - t_{\text{в эксп}}}{t_{\text{в теор}}} \right| = \left| \frac{7.30 - 6.7}{7.30} \right| = 0.0821 = 8.21 \% < \delta_{max} t_{\text{в}} = 20 \%
+	\delta t_{\text{в}} = \left| \frac{t_{\text{в теор}} - t_{\text{в эксп}}}{t_{\text{в теор}}} \right| = \left| \frac{7.30 - 6.7}{7.30} \right| = 0.0821 = 8.21 \% < \delta_{max} t_{\text{в}} = 80.7 \%
 \end{displaymath}
 
 \section{Выводы}
