@@ -20,6 +20,7 @@ matrix:
     - env: LAB="lab4"
     - env: LAB="lab6"
     - env: LAB="lab7"
+    - env: LAB="lab8"
     - env: LAB="lab10"
 
 script:
