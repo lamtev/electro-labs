@@ -24,20 +24,28 @@ Cравнение теоретических и экспериментальны
 \begin{table}[H]
 \begin{center}
 	\caption{Исходные данные}
-	\def\tabcolsep{20pt}
-	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\def\tabcolsep{8pt}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 		\hline
 		$f_{\text{м1}}$, Гц &
-		$Q$ &
+		$Q_1$ &
 		$f_{\text{м2}}$, Гц &
-		$Q$ &
-		$\Delta L$, дБ \\
+		$Q_2$ &
+		$\Delta L$, дБ &
+		$C_3$, нФ &
+		$C_4$, нФ & 
+		$E_{01}$, В &
+		$E_{02}$, В \\
 		\hline
 		500 &
 		5 &
 		1000 &
 		5 &
-		6 \\
+		6 &
+		1 &
+		2 &
+		15 &
+		-15 \\
 	    \hline	
 	\end{tabular}
 \end{center}
@@ -45,7 +53,61 @@ Cравнение теоретических и экспериментальны
 
 \section{Теоретические расчёты}
 
-\subsection{First}
+\begin{equation}
+	\Delta f = \frac{f_{m, i}}{Q_i}
+\end{equation}
+
+\begin{equation}
+	R_2 = (2 \pi \Delta f_i C_4)^{-1}
+\end{equation}
+
+\begin{equation}
+	R_1 = \frac{C_4 R_2}{C_3 Q_i^2}
+\end{equation}
+
+\begin{equation}
+	L_{m,i} = 20 lg \left( \frac{R_2 C_4}{R_1 C_3} \right)
+\end{equation}
+
+\subsection{Первое звено фильтра}
+
+\begin{displaymath}
+	\Delta f_1 = \frac{f_{m,1}}{Q_1} = \frac{500}{5} = 100 \text{ Гц}
+\end{displaymath}
+
+\begin{displaymath}
+	R_2 = (2 \pi \Delta f_1 C_4)^{-1} = (2 \pi \cdot 100 \cdot 2 \cdot 10^{-9})^{-1} = 796 \text{ кОм}
+\end{displaymath}
+
+\begin{displaymath}
+	R_1 = \frac{C_4 R_2}{C_3 Q_1^2} = 2 \cdot 10^{-9} \cdot 796 \cdot 10^3 \cdot \frac{1}{10^{-9} \cdot 25} = 64 \text{ кОм}
+\end{displaymath}
+
+\begin{displaymath}
+	L_{m,1} = 20 lg \left( \frac{R_2 C_4}{R_1 C_3} \right) = 20 lg \left( \frac{796 \cdot 10^3 \cdot 2 \cdot 10^{-9}}{64 \cdot 10^3 \cdot 10^{-9}} \right) = 27.9
+\end{displaymath}
+
+\subsection{Второе звено фильтра}
+
+\begin{displaymath}
+	\Delta f_2 = \frac{f_{m,2}}{Q_2} = \frac{1000}{5} = 200 \text{ Гц}
+\end{displaymath}
+
+\begin{displaymath}
+	R_2 = (2 \pi \Delta f_2 C_4)^{-1} = (2 \pi \cdot 200 \cdot 2 \cdot 10^{-9})^{-1} = 398 \text{ кОм}
+\end{displaymath}
+
+\begin{displaymath}
+	R_1 = \frac{C_4 R_2}{C_3 Q_2^2} = 2 \cdot 10^{-9} \cdot 398 \cdot 10^3 \cdot \frac{1}{10^{-9} \cdot 25} = 32 \text{ кОм}
+\end{displaymath}
+
+\begin{displaymath}
+	L_{m,2} = 20 lg \left( \frac{R_2 C_4}{R_1 C_3} \right) = 20 lg \left( \frac{398 \cdot 10^3 \cdot 2 \cdot 10^{-9}}{32 \cdot 10^3 \cdot 10^{-9}} \right) = 27.9
+\end{displaymath}
+
+\section{Экспериментально снятые зависимости}
+
+\subsection{Первое звено фильтра}
 
 \begin{table}[H]
 \begin{center}
@@ -95,7 +157,7 @@ Cравнение теоретических и экспериментальны
 \end{center}
 \end{figure}
 
-\subsection{Second}
+\subsection{Второе звено фильтра}
 
 \begin{table}[H]
 \begin{center}
@@ -145,7 +207,7 @@ Cравнение теоретических и экспериментальны
 \end{center}
 \end{figure}
 
-\subsection{Both}
+\subsection{Последовательно включенные звенья фильтра}
 
 \begin{table}[H]
 \begin{center}
@@ -194,8 +256,6 @@ Cравнение теоретических и экспериментальны
 	\label{plot:rectifier}
 \end{center}
 \end{figure}
-
-\section{Экспериментально снятые зависимости}
 
 \section{Погрешности}
 
