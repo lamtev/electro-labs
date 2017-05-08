@@ -6,9 +6,7 @@
 
 \section{Цель работы}
 
-Cравнение теоретических и экспериментальных характеристик фильтров,
-проектирование и настройка фильтров высокого порядка, построенных на
-операционных усилителях. 
+Исследование RC-генераторов синусоидальных колебаний с постоянной и управляемой частотой, их настройка, сравнение теоретических и экспериментальных результатов.
 
 \section{Чертеж схемы исследуемого устройства}
 
@@ -88,7 +86,7 @@ Cравнение теоретических и экспериментальны
 
 \begin{table}[H]
 \begin{center}
-	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
+	\caption{Зависимость $f_0 = f(R_1)$}
 	\label{tab:diff-int}
 	\def\tabcolsep{20pt}
 	\pgfplotstabletypeset[col sep=comma,
@@ -122,11 +120,11 @@ Cравнение теоретических и экспериментальны
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_exp.csv};
-		\addplot [smooth, mark=square*, blue] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_theory.csv};
+		\addplot [smooth, black] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_theory.csv};
 		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
+	\caption{Зависимость $f_0 = f(R_1)$}
 	\label{plot:rectifier}
 \end{center}
 \end{figure}
