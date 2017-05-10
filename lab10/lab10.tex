@@ -119,8 +119,7 @@ $U_\text{вх} = 0.366$ В \\
 $U_\text{вых} = 9.29$ В \\
 $\omega_\text{рез} = 3003$ Гц \\
 $L_{m1} = \frac{U_{\text{вх}}}{U_{\text{вых}}} = \frac{9.29}{0.366} = 25.4$ В \\
-
-\noindent $U_{\text{вых}} = 9.29 \cdot 0.707 = 6.56$ В (по уровню 3 дБ)\\
+$U_{\text{вых}} = 9.29 \cdot 0.707 = 6.56$ В (по уровню 3 дБ)\\
 $f_1^* = 436$ Гц \\
 $f_2^* = 530$ Гц \\
 $\Delta f^* = 94$ Гц \\
@@ -166,7 +165,6 @@ $Q = \frac{f_1}{\Delta f^*} = \frac{478}{94} = 5.08$ В \\
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/first.csv};
-		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
@@ -227,7 +225,6 @@ $Q_2 = \frac{f_2}{\Delta f^*} = \frac{1000}{190} = 5.26$ В \\
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/second.csv};
-		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{ЛАЧХ активного RC-фильтра 2 порядка}
@@ -237,7 +234,7 @@ $Q_2 = \frac{f_2}{\Delta f^*} = \frac{1000}{190} = 5.26$ В \\
 
 \subsection{Последовательно включенные звенья фильтра}
 
-$f_{max}^1 = 490$ Гц ($U_\text{вых} = 8.9$ В) \\
+\noindent $f_{max}^1 = 490$ Гц ($U_\text{вых} = 8.9$ В) \\
 $f_{max}^2 = 985$ Гц ($U_\text{вых} = 9.28$ В)\\
 $f_{max}^{1,2} = 722.5$ Гц \\
 $f_{min}^2 = 700$ Гц ($U_\text{вых} = 4.4$ В)\\
@@ -286,7 +283,6 @@ $\Delta f^* = 688$ Гц \\
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/both.csv};
-		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
