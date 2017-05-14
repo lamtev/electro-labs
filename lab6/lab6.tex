@@ -10,26 +10,26 @@
 
 \section{Чертеж схемы исследуемого устройства}
 
-\vspace{-1cm}
 \begin{figure}[H]
 \begin{center}
 	\begin{subfigure}[b]{0.45\textwidth}\centering
-		\includegraphics[scale=0.3]{scheme1}
+		\includegraphics[scale=0.35]{scheme1}
 		\caption{Операционный усилитель с инверсией фазы}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}\centering
-		\includegraphics[scale=0.32]{scheme2}
+		\includegraphics[scale=0.37]{scheme2}
 		\caption{Операционный усилитель без инверсии фазы}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}\centering
-		\includegraphics[scale=0.38]{scheme3}
+	\begin{subfigure}[b]{0.6\textwidth}\centering
+		\includegraphics[scale=0.48]{scheme3}
 		\captionsetup{justification=centering}
 		\caption{Схема неинвертирующего усилителя с разделяющим конденсатором}
 	\end{subfigure}
 	\caption{}
 \end{center}
 \end{figure}
-\vspace{-1.5cm}
+
+\newpage
 
 \section{Исходные данные}
 
@@ -56,8 +56,34 @@
 
 \section{Теоретические расчёты}
 
+Были выбраны следующие элементы:
+\begin{center}
+	$R_1 = 10$ кОм
+	
+	$R_2 = K\cdot R_1 = 10$ кОм
+
+	$R_3 = R_1 = 10$ кОм
+
+	$R_4 = R_2 = 10$ кОм
+\end{center}
+
+Коэффициенты передачи для исследуемых схем при $K_u \rightarrow \infty$:
+\begin{equation}\label{eq:k1}
+	K = -\frac{R_2}{R_1} = -\frac{10\text{ кОм}}{10\text{ кОм}} = -1 
+\end{equation}
+\vspace{-0.75cm}
+\begin{equation}\label{eq:k2}
+	K = \left(1+\frac{R_2}{R_1}\right) \cdot \frac{R_4}{R_3 + R_4} = \left(1+\frac{10\text{ кОм}}{10\text{ кОм}}\right) \cdot \frac{10\text{ кОм}}{10\text{ кОм} + 10\text{ кОм}} = 1
+\end{equation}
+
+Частоту перегибу $f$ можно вычислить по формуле: 
+\begin{equation}
+f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
+\end{equation}
+
+Для схемы неинвертирующего усилителя с разделяющим конденсатором была рассчитана емкость конденсатора: \\
 \begin{displaymath}
-C = \frac{1}{2\pi f\cdot (R_3 + R_4)} = \frac{1}{2\pi \cdot 500\cdot  (10^4 + 10^4)} = 1.59\cdot 10^{-8}\text{ Ф}
+	C = \frac{1}{2\pi f\cdot (R_3 + R_4)} = \frac{1}{2\pi \cdot 500\cdot  (10^4 + 10^4)} = 1.59\cdot 10^{-8}\text{ Ф}
 \end{displaymath}
 
 \section{Экспериментально снятые зависимости}
@@ -349,6 +375,6 @@ C = \frac{1}{2\pi f\cdot (R_3 + R_4)} = \frac{1}{2\pi \cdot 500\cdot  (10^4 + 10
 
 \section{Выводы}
 
-Вычесленные уточнённые теоретические и полученные экспериментальные значения близки. Следовательно, формулы \ref{eq:r_in} -- \ref{eq:k_u0} могут быть использованы при расчетах.
+Вычесленные уточнённые теоретические и полученные экспериментальные значения близки. Следовательно, формулы \ref{eq:k1} -- \ref{eq:k2} могут быть использованы при расчетах.
 
 \end{document}
