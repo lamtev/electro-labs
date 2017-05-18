@@ -1,0 +1,220 @@
+\include{settings}
+
+\begin{document}
+
+\include{titlepage}
+
+\section{Цель работы}
+
+Целью данной работы являются ознакомление с принципом действия электронных стабилизаторов напряжения, их настройка и исследование, расчети силовых звеньев.
+
+\section{Чертеж схемы исследуемого устройства}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.55]{scheme}
+	\caption{Компенсационный стабилизатор}
+\end{center}
+\end{figure}
+
+\vspace{-0.5cm}
+
+\section{Исходные данные}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Исходные данные}
+	\def\tabcolsep{36pt}
+	\begin{tabular}{|c|c|}
+		\hline 
+		$\Delta U_\text{вх}$ & 20 \% \\ 
+		\hline 
+		$U_\text{вых}$ & 6 В \\ 
+		\hline 
+		$I_\text{вых}$ & 80 мА \\  
+		\hline 
+		$U_\text{кэ\ min}$ & 2.5 В \\ 
+		\hline 
+	\end{tabular} 
+\end{center}
+\end{table}
+
+\newpage
+
+\section{Теоретические расчеты и зависимости}
+
+\begin{displaymath}
+	U_\text{вых\ пульс} = 0.1 \cdot ( U_{\text{вых}\ макс} + U_{\text{кэ}\ мин} ) = 0.1 \cdot ( 6.6 + 2.5 ) = 0.91 \text{ В}
+\end{displaymath}
+
+\begin{displaymath}
+\begin{aligned}
+	U_{\text{вх}\ min} &= U_{\text{вых}\ max} + U_{\text{кэ}\ min} + 0.5 \cdot U_{\text{вых}\ пульс} = \\ &= 6.6 + 2.5 + 0.5 \cdot 0.91 = 9.6 \text{ В}
+\end{aligned}
+\end{displaymath}
+
+\begin{displaymath}
+\begin{aligned}
+	U_\text{вх\ max} &= U_\text{вх\ min} + 2 \cdot \Delta U_\text{вх\ пульс} + 0.5 \cdot U_\text{вх\ пульс} = \\ &= 9.6 + 2 \cdot 0.2 \cdot 9.6 + 0.5 \cdot 0.91 = 13.9 \text{ В}
+\end{aligned}
+\end{displaymath}
+
+\begin{displaymath}
+	U_\text{вх\ ном} = \frac{U_{min} + U_{max}}{2} = \frac{9.6 + 13.9}{2} = 11.75 \text{ В}
+\end{displaymath}
+
+\begin{displaymath}
+	R_\text{б} = \frac{U_\text{вх} - U_\text{ст}}{I_\text{ст}} = \frac{11.75 - 3}{5 \cdot 10^{-3}} = 1750 \text{ Ом}
+\end{displaymath}
+
+\begin{displaymath}
+	R_\text{н} = \frac{U_\text{вых ном}}{0.5 \cdot I_{\text{вых}\ max}} = ?
+\end{displaymath}
+
+\section{Экспериментально снятые зависимости}
+
+\subsection{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+
+В таблице \ref{tab:u_in} и на рисунке \ref{fig:u_in} приведена зависимость $U_\text{вых}$ от $U_\text{вх}$.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{tab:u_in}
+	\def\tabcolsep{40pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={u_in,u_out},
+	    column type/.add={|c|}{},
+	    columns/u_in/.style={fixed, precision=2, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/u_in.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+%			xmin=0,
+%			xmax=28,
+%			ymin=0,
+%			ymax=6,
+%			xtick={0,4,...,28},
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/u_in.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:u_in}
+\end{center}
+\end{figure}
+
+\subsection{Зависимость $U_\text{вых}$ от $I_\text{н}$}
+
+В таблице \ref{tab:i_n} и на рисунке \ref{fig:i_n} приведена зависимость $U_\text{вых}$ от $I_\text{н}$. 
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость $U_\text{вых}$ от $I_\text{н}$}
+	\label{tab:i_n}
+	\def\tabcolsep{45pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={i_n,u_out},
+	    column type/.add={|c|}{},
+	    columns/i_n/.style={fixed, column name={$I_\text{н}$, мА}},
+	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/i_n.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$R_\text{н}$, Ом},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+%			xmin=0,
+%			xmax=2000,
+%			ymin=0,
+%			ymax=6,
+%			xtick={0,250,...,2000},
+			grid=major
+		]
+		\addplot table[x=i_n,y=u_out,col sep=comma]{data/i_n.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $I_\text{н}$}
+	\label{fig:i_n}
+\end{center}
+\end{figure}
+
+\subsection{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+
+В таблице \ref{tab:u_in_2} и на рисунке \ref{fig:u_in_2} приведена зависимость $U_\text{вых}$ от $U_\text{вх}$.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{tab:u_in_2}
+	\def\tabcolsep{40pt}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={u_in,u_out},
+	    column type/.add={|c|}{},
+	    columns/u_in/.style={fixed, precision=2, zerofill, column name={$U_\text{вх}$, В}},
+	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/u_in_2.csv}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.4\textheight,
+			width=0.9\textwidth,
+			xlabel={$U_\text{вх}$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+%			xmin=0,
+%			xmax=28,
+%			ymin=0,
+%			ymax=6,
+%			xtick={0,4,...,28},
+			grid=major
+		]
+		\addplot table[x=u_in,y=u_out,col sep=comma]{data/u_in_2.csv};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
+	\label{fig:u_in_2}
+\end{center}
+\end{figure}
+
+\section{Анализ экспериментальных вычислений}
+
+\section{Выводы}
+
+Значение $K_\text{ст}$, вычисленное в ходе эксперимента, близко к уточненному теоретическому значению ($\delta = 6.6~\%$). Таким образом, теоретические формулы \ref{eq:k_st} и \ref{eq:r_out}  являются верными.
+
+\end{document}
