@@ -67,8 +67,10 @@
 	R_\text{б} = \frac{U_\text{вх} - U_\text{ст}}{I_\text{ст}} = \frac{11.75 - 3}{5 \cdot 10^{-3}} = 1750 \text{ Ом}
 \end{displaymath}
 
+\paragraph{TODO} Как считать пределы изменения $I_\text{н}$ -- вопрос. Но мы почему-то меняем от 40 до 400 мА.
+
 \begin{displaymath}
-	R_\text{н} = \frac{U_\text{вых ном}}{0.5 \cdot I_{\text{вых}\ max}} = ?
+	R_\text{н} = \frac{U_\text{вых ном}}{0.5 \cdot I_{\text{вых}\ max}} = \frac{6}{0.5 \cdot 0.4} = 30 \text{ Ом}
 \end{displaymath}
 
 \section{Экспериментально снятые зависимости}
@@ -104,10 +106,12 @@
 			ylabel={$U_\text{вых}$, В},
 			xlabel near ticks,
 			ylabel near ticks,
-%			xmin=0,
-%			xmax=28,
-%			ymin=0,
-%			ymax=6,
+			axis x line = middle,
+			axis y line = left,
+			xmin=0,
+			xmax=32,
+			ymin=0,
+			ymax=7,
 %			xtick={0,4,...,28},
 			grid=major
 		]
@@ -117,7 +121,10 @@
 	\caption{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
 	\label{fig:u_in}
 \end{center}
+
 \end{figure}
+
+Из рис. \ref{tab:u_in} видно, что заданное напряжение на выходе $U_\text{вых} = 6$ В было достигнуто при $U_\text{вх} \approx 12$ В.
 
 \subsection{Зависимость $U_\text{вых}$ от $I_\text{н}$}
 
@@ -144,17 +151,18 @@
 \begin{center}
 	\begin{tikzpicture} [every plot/.append style={thick}]
 		\begin{axis}[
-			height=0.4\textheight,
+			height=0.2\textheight,
 			width=0.9\textwidth,
-			xlabel={$R_\text{н}$, Ом},
+			xlabel={$I_\text{н}$, мА},
 			ylabel={$U_\text{вых}$, В},
 			xlabel near ticks,
 			ylabel near ticks,
-%			xmin=0,
-%			xmax=2000,
-%			ymin=0,
-%			ymax=6,
-%			xtick={0,250,...,2000},
+			axis x line = middle,
+			axis y line = left,
+			xmin=0,
+			xmax=450,
+			ymin=5.6,
+			ymax=6.4,
 			grid=major
 		]
 		\addplot table[x=i_n,y=u_out,col sep=comma]{data/i_n.csv};
@@ -165,9 +173,11 @@
 \end{center}
 \end{figure}
 
+Из рисунка \ref{fig:i_n} видно, что выходное напряжение $U_\text{вых} \approx const = 6$ В при изменении $I_\text{н}$ в заданном пределе, следовательно оно не зависит от него.
+
 \subsection{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
 
-В таблице \ref{tab:u_in_2} и на рисунке \ref{fig:u_in_2} приведена зависимость $U_\text{вых}$ от $U_\text{вх}$.
+В таблице \ref{tab:u_in_2} и на рисунке \ref{fig:u_in_2} приведена зависимость $U_\text{вых}$ от $U_\text{вх}$ при переносе $R_\text{бал}$ на выход стабилизатора.
 
 \begin{table}[H]
 \begin{center}
@@ -196,10 +206,12 @@
 			ylabel={$U_\text{вых}$, В},
 			xlabel near ticks,
 			ylabel near ticks,
-%			xmin=0,
-%			xmax=28,
-%			ymin=0,
-%			ymax=6,
+			axis x line = middle,
+			axis y line = left,
+			xmin=0,
+			xmax=32,
+			ymin=0,
+			ymax=7,
 %			xtick={0,4,...,28},
 			grid=major
 		]
@@ -210,6 +222,8 @@
 	\label{fig:u_in_2}
 \end{center}
 \end{figure}
+
+Из рис. \ref{tab:u_in_2} видно, что заданное напряжение на выходе $U_\text{вых} = 6$ В было достигнуто при $U_\text{вх} \approx 9$ В. Таким образом, в данной схеме заданное выходное напряжение было достигнуто при меньшем входном напряжении.
 
 \section{Анализ экспериментальных вычислений}
 
