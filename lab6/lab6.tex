@@ -162,7 +162,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{center}
 \end{figure}
 
-Среднее значение коэффициента передачи при положительном и отрицательном входном сигнале $\bar{K} = -0.956$.
+Среднее значение коэффициента передачи при положительном и отрицательном входном сигнале $\bar{K} \approx -0.956$.
 
 \subsubsection{Перменный входной сигнал}
 
@@ -185,6 +185,8 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{table}
 
 Среднее значение $\bar{K} \approx 0.996$.
+
+Итого, среднее значение коэффициента передачи при положитеьном, отрицательном и переменном входном сигнале $|\bar{K}| \approx 0.984$
 
 \begin{figure}[H]
 \begin{center}
@@ -267,7 +269,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 
 \subsection{Операционный усилитель без инверсии фазы}
 
-\subsection{Схема неинвертирующего усилителя с разделяющим конденсатором}
+\subsection{Операционный усилитель без инверсии фазы с разделяющим конденсатором}
 
 \begin{table}[H]
 \begin{center}
@@ -372,6 +374,46 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{figure}
 
 \section{Погрешности}
+
+\subsection{Операционный усилитель с инверсией фазы}
+
+\begin{displaymath}
+	\delta_{max} K = \sqrt{(\delta R_1)^2 + (\delta R_2)^2} =  \sqrt{0.1^2 + 0.1^2} = 0.141 = 14.1 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - 0.984}{1}\right| = 0.016 = 1.6\% < \delta_{max} K = 14.1\%
+\end{displaymath}
+
+\subsection{Операционный усилитель без инверсии фазы}
+
+\begin{displaymath}
+\begin{aligned}
+	\delta_{max} K = \sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta R_4)^2} = \sqrt{0.1^2 + 0.1^2 + 0.1^2 + 0.1^2} = \\ = 0.2 = 20 \%
+\end{aligned}
+\end{displaymath}
+
+\textbf{TODO}
+
+\subsection{Операционный усилитель без инверсии фазы с разделяющим конденсатором}
+
+\begin{displaymath}
+\begin{aligned}
+	\delta_{max} K = \sqrt{(\delta R_1)^2 + (\delta R_2)^2 + (\delta R_3)^2 + (\delta R_4)^2 + (\delta C_p)^2} = \\ = \sqrt{0.1^2 + 0.1^2 + 0.1^2 + 0.1^2 + 0.1^2} = 0.224 = 22.4 \%
+\end{aligned}
+\end{displaymath}
+
+\begin{displaymath}
+	\delta_{max} f = \sqrt{(\delta R_3)^2 + (\delta R_4)^2 + (\delta C_p)^2} =  \sqrt{0.1^2 + 0.1^2 + 0.1^2} = 0.173 = 17.3 \%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - ?}{1}\right| = ? = ?\% < \delta_{max} K = 22.4\%
+\end{displaymath}
+
+\begin{displaymath}
+	\delta f = \left|\frac{f_\text{теор.} - f_\text{эксп.}}{f_\text{теор.}} \right| = \left|\frac{500 - ?}{500}\right| = ? = ?\% < \delta_{max} f = 17.3\%
+\end{displaymath}
 
 \section{Выводы}
 
