@@ -273,7 +273,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость коэффициента передачи $K$ от $R_2$ инвертирующего усилителя при переменном входном сигнале}
+	\caption{Зависимость $U_\text{вых}$ от $e_c$ неинвертирующего усилителя с разделяющим конденсатором при переменном входном сигнале}
 	\def\tabcolsep{30pt}
 	\def\arraystretch{1.2}
 	\pgfplotstabletypeset[col sep=comma,
@@ -290,6 +290,8 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{table}
 
 \vspace{-1cm}
+
+$\bar{K} \approx 0.686$
 
 \begin{figure}[H]
 \begin{center}
@@ -315,7 +317,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 		\legend{Эксп., Teор.}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость коэффициента передачи $K$ от $R_2$ инвертирующего усилителя при переменном входном сигнале}
+	\caption{Зависимость $U_\text{вых}$ от $e_c$ неинвертирующего усилителя с разделяющим конденсатором при переменном входном сигнале}
 \end{center}
 \end{figure}
 
@@ -323,7 +325,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость коэффициента передачи $K$ от $R_2$ инвертирующего усилителя при переменном входном сигнале}
+	\caption{ЛАЧХ неинвертирующего усилителя с разделяющим конденсатором при переменном входном сигнале}
 	\def\tabcolsep{20pt}
 	\def\arraystretch{1.2}
 	\pgfplotstabletypeset[col sep=comma,
@@ -369,9 +371,20 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 		\legend{Эксп., Teор.}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость коэффициента передачи $K$ от $R_2$ инвертирующего усилителя при переменном входном сигнале}
+	\caption{ЛАЧХ неинвертирующего усилителя с разделяющим конденсатором при переменном входном сигнале}
 \end{center}
 \end{figure}
+
+По 4 точкам из диапозона $[2^8\dots2^{11}]$ построим интерполяционный полином 3-й степени. Решение уравнения -- частота перегиба:
+
+\begin{displaymath}
+	-13.61 + 0.032 \cdot f - 2.64 \cdot 10^{-5} \cdot f^2 + 6.79 \cdot 10^{-9} \cdot f^3 = -3
+\end{displaymath}
+
+\begin{displaymath}
+	f = 529 \text{ Гц}
+\end{displaymath}
+
 
 \section{Погрешности}
 
@@ -393,7 +406,10 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{aligned}
 \end{displaymath}
 
-\textbf{TODO}
+TODO
+\begin{displaymath}
+	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - ?}{1}\right| = ? = ?\% < \delta_{max} K = 20\%
+\end{displaymath}
 
 \subsection{Операционный усилитель без инверсии фазы с разделяющим конденсатором}
 
@@ -408,11 +424,11 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{displaymath}
 
 \begin{displaymath}
-	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - ?}{1}\right| = ? = ?\% < \delta_{max} K = 22.4\%
+	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - 0.686}{1}\right| = 0.314 = 31.4\% \approx \delta_{max} K = 22.4\%
 \end{displaymath}
 
 \begin{displaymath}
-	\delta f = \left|\frac{f_\text{теор.} - f_\text{эксп.}}{f_\text{теор.}} \right| = \left|\frac{500 - ?}{500}\right| = ? = ?\% < \delta_{max} f = 17.3\%
+	\delta f = \left|\frac{f_\text{теор.} - f_\text{эксп.}}{f_\text{теор.}} \right| = \left|\frac{500 - 529}{500}\right| = 0.058 = 5.8\% < \delta_{max} f = 17.3\%
 \end{displaymath}
 
 \section{Выводы}
