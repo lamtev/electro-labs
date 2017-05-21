@@ -82,9 +82,9 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{equation}
 
 Для схемы неинвертирующего усилителя с разделяющим конденсатором была рассчитана емкость конденсатора: \\
-\begin{displaymath}
-	C = \frac{1}{2\pi f\cdot (R_3 + R_4)} = \frac{1}{2\pi \cdot 500\cdot  (10^4 + 10^4)} = 1.59\cdot 10^{-8}\text{ Ф}
-\end{displaymath}
+\begin{equation}
+	C = \frac{1}{2\pi \cdot f\cdot (R_3 + R_4)} = \frac{1}{2\pi \cdot 500\cdot  (10^4 + 10^4)} = 1.59\cdot 10^{-8}\text{ Ф}
+\end{equation}
 
 \section{Экспериментально снятые зависимости}
 
@@ -154,7 +154,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 		]
 		\addplot+[blue, mark options={fill=blue}] table[x=e_c,y=u_out,col sep=comma]{data/1_k_dc_plus.csv};
 		\addplot+[blue, mark options={fill=blue}] table[x=e_c,y=u_out,col sep=comma]{data/1_k_dc_minus.csv};
-%		\addplot table[x=e_c,y=u_out,col sep=comma]{data/ampl_theory.csv};
+		\addplot +[mark=none, red, samples=2] coordinates {(-15,15) (15,-15)};
 		\legend{Эксп., ,Teор.}
 		\end{axis}
 	\end{tikzpicture}
@@ -206,9 +206,9 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 			grid=major
 		]
 		\addplot table[x=e_c,y=u_out,col sep=comma]{data/1_k_ac.csv};
-%		\addplot table[x=e_c,y=u_out,col sep=comma]{data/ampl_theory.csv};
+		\addplot +[mark=none, red, samples=2] coordinates {(1,1) (11.5,11.5)};
 		\addplot +[mark=none, dashed, black, samples=2] coordinates {(9.8,0) (9.8,12)};
-		\legend{Эксп., , Teор.}
+		\legend{Эксп., Teор.}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя при переменном входном сигнале}
