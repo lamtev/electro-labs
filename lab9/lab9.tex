@@ -135,13 +135,13 @@
 			axis y line = left,
 			xmode=linear,
 			xmin = 0,
-			xmax = 120,
+			xmax = 130,
 			ymin = 0,
-			ymax = 13,
+			ymax = 14,
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_exp.csv};
-		\addplot [smooth, black] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_theory.csv};
+		\addplot [smooth, red] table[x=r,y=f0,col sep=comma]{data/f0_as_f_of_R_theory.csv};
 		\legend{Эксп., Теор.}
 		\end{axis}
 	\end{tikzpicture}
@@ -172,6 +172,8 @@
 	R_1^{''} = 2 \cdot R_1 = 9 \cdot 10^3 \cdot 2 = 18 \text{ кОм}
 \end{displaymath}
 
+\paragraph{TODO} диагрммку
+
 \begin{displaymath}
 	f_1 = 4.17 \text{ кГц}
 \end{displaymath}
@@ -179,8 +181,6 @@
 \begin{displaymath}
 	f_2 = 9.28 \text{ кГц}
 \end{displaymath}
-
-%TODO paste diagram here
 
 \section{Погрешности}
 
