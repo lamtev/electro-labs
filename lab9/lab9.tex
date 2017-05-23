@@ -172,7 +172,39 @@
 	R_1^{''} = 2 \cdot R_1 = 9 \cdot 10^3 \cdot 2 = 18 \text{ кОм}
 \end{displaymath}
 
-\paragraph{TODO} диагрммку
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{axis} [
+	ticks=none,
+	width=\textwidth,
+	height=6cm,
+	grid=both,
+	minor tick num=1,
+	axis x line=center, 
+	axis y line=left, 
+	xlabel=$t$,
+	ymin=-20,
+	ymax=20,
+%	xmin=-200,
+%	xmax=200,
+	ylabel=$U_\text{вых}(t)$
+] 
+\addplot [black, thick, mark=none] coordinates {(0, 14) (2, 14)};
+\addplot [black, thick, mark=none] coordinates {(2, 14) (2, -14)};
+\addplot [black, thick, mark=none] coordinates {(2, -14) (7, -14)};
+\addplot [black, thick, mark=none] coordinates {(7, -14) (7, 14)};
+\addplot [black, thick, mark=none] coordinates {(7, 14) (12, 14)};
+\addplot [black, thick, mark=none] coordinates {(12, 14) (12, -14)};
+\addplot [black, thick, mark=none] coordinates {(12, -14) (14, -14)};
+\addplot [black, domain=0:2, samples=200] {sin(x*1200 + 90) * 13 * (1 - x / 25)};
+\addplot [black, domain=2:7, samples=200] {sin(x*700) * 10 * (1 - (x ) / 25)};
+\addplot [black, domain=7:12, samples=200] {sin(x*1000 + 50) * 13  * (1 - (x - 7) / 25)};
+\addplot [black, domain=12:14, samples=200] {sin(x*500 - 70) * 10 * (1 - (x - 7) / 25) };
+\end{axis}
+\end{tikzpicture}
+\caption{Выходной сигнал генератора колебаний}
+\label{osc}
+\end{figure}
 
 \begin{displaymath}
 	f_1 = 4.17 \text{ кГц}
