@@ -276,13 +276,17 @@ $\Delta f^* = 688$ Гц \\
 			axis y line = left,
 			xmode=log,
 			log basis x=2,
-			xmin = 2^6,
-			xmax = 2^13,
-			ymin = 0,
+			xmin = 2^4,
+			xmax = 2^15,
+			ymin = -10,
 			ymax = 40,
 			grid=major
 		]
 		\addplot [smooth, mark=square*, blue] table[x=f,y=lg_k,col sep=comma]{data/both.csv};
+		\addplot [smooth, mark=*, red, dotted] table[x=f,y=lg_k,col sep=comma]{data/first.csv};
+		\addplot [smooth, mark=*, red, dotted] table[x=f,y=lg_k,col sep=comma]{data/second.csv};
+		\addplot [smooth, mark=square*, black, dashed] table[x=f,y=lg_k,col sep=comma]{data/both_theory.csv};
+		\legend{Эксп.,Звено №1,Звено №2,Сумма}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{ЛАЧХ активного RC-фильтра 4 порядка}
