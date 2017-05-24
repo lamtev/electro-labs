@@ -236,7 +236,7 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{center}
 \end{table}
 
-\vspace{-1cm}
+%\vspace{-1cm}
 
 \begin{figure}[H]
 \begin{center}
@@ -268,6 +268,133 @@ f = \frac{1}{2 \pi \cdot C \cdot (R_3 + R_4)}
 \end{figure}
 
 \subsection{Операционный усилитель без инверсии фазы}
+
+\subsubsection{Постоянный входной сигнал}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя при положительном входном сигнале}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={e_c,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/e_c/.style={fixed, precision=3, zerofill, column name={$e_c$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/2_k_dc_plus.csv}
+\end{center}
+\end{table}
+
+%Среднее значение коэффициента передачи $\bar{K} \approx 0.985$.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя при отрицательном входном сигнале}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={e_c,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/e_c/.style={fixed, precision=3, zerofill, column name={$e_c$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/2_k_dc_minus.csv}
+\end{center}
+\end{table}
+
+Среднее значение коэффициента передачи $\bar{K} \approx 0.998$.
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.45\textheight,
+			width=0.95\textwidth,
+			legend pos=north west,
+			xlabel={$e_c$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			axis x line = middle,
+			axis y line = left,
+			xtick={-16, -12, -8, -4, 0, 4, 8, 12, 16},
+			xmin = -16,
+			xmax = 16,
+			ymin = -15,
+			ymax = 15,
+			grid=major
+		]
+		\addplot+[blue, mark options={fill=blue}] table[x=e_c,y=u_out,col sep=comma]{data/2_k_dc_plus.csv};
+		\addplot+[blue, mark options={fill=blue}] table[x=e_c,y=u_out,col sep=comma]{data/2_k_dc_minus.csv};
+		\addplot +[mark=none, red, samples=2] coordinates {(-15,-15) (15,15)};
+		\legend{Эксп., ,Teор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя}
+\end{center}
+\end{figure}
+
+Среднее значение коэффициента передачи при положительном и отрицательном входном сигнале $\bar{K} \approx 0.991$.
+
+\subsubsection{Перменный входной сигнал}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя при переменном входном сигнале}
+	\def\tabcolsep{40pt}
+	\def\arraystretch{1.2}
+	\pgfplotstabletypeset[col sep=comma,
+	    columns={e_c,u_out,k},
+	    column type/.add={|c|}{},
+	    columns/e_c/.style={fixed, precision=3, zerofill, column name={$e_c$, В}},
+	    columns/u_out/.style={fixed, precision=3, zerofill, column name={$U_\text{вых}$, В}},
+	    columns/k/.style={fixed, precision=3, zerofill, column name={$K$}},
+	    every nth row={1}{before row=\hline},
+	    every head row/.style={before row=\hline, after row=\hline},
+	    every last row/.style={after row=\hline}
+	   ]{data/2_k_ac.csv}
+\end{center}
+\end{table}
+
+Среднее значение $\bar{K} \approx 0.990$.
+
+Итого, среднее значение коэффициента передачи при положитеьном, отрицательном и переменном входном сигнале $|\bar{K}| \approx 0.991$
+
+\begin{figure}[H]
+\begin{center}
+	\begin{tikzpicture} [every plot/.append style={thick}]
+		\begin{axis}[
+			height=0.45\textheight,
+			width=0.95\textwidth,
+			legend pos=north west,
+			xlabel={$e_c$, В},
+			ylabel={$U_\text{вых}$, В},
+			xlabel near ticks,
+			ylabel near ticks,
+			axis x line = middle,
+			axis y line = left,
+			xmin = 0,
+			xmax = 12,
+			ymin = 0,
+			ymax = 12,
+			grid=major
+		]
+		\addplot table[x=e_c,y=u_out,col sep=comma]{data/2_k_ac.csv};
+		\addplot +[mark=none, red, samples=2] coordinates {(1,1) (11.5,11.5)};
+		\addplot +[mark=none, dashed, black, samples=2] coordinates {(9.8,0) (9.8,12)};
+		\legend{Эксп., Teор.}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Зависимость напряжения $U_\text{вых}$ от $e_c$ инвертирующего усилителя при переменном входном сигнале}
+\end{center}
+\end{figure}
 
 \subsection{Операционный усилитель без инверсии фазы с разделяющим конденсатором}
 
@@ -406,9 +533,8 @@ $\bar{K} \approx 0.686$
 \end{aligned}
 \end{displaymath}
 
-TODO
 \begin{displaymath}
-	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - ?}{1}\right| = ? = ?\% < \delta_{max} K = 20\%
+	\delta K = \left|\frac{K_\text{теор.} - K_\text{эксп.}}{K_\text{теор.}} \right| = \left|\frac{1 - 0.991}{1}\right| = 0.009 = 0.9\% < \delta_{max} K = 20\%
 \end{displaymath}
 
 \subsection{Операционный усилитель без инверсии фазы с разделяющим конденсатором}
