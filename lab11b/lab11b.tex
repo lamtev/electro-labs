@@ -67,11 +67,11 @@
 	R_\text{б} = \frac{U_\text{вх} - U_\text{ст}}{I_\text{ст}} = \frac{11.75 - 3}{5 \cdot 10^{-3}} = 1750 \text{ Ом}
 \end{displaymath}
 
-\paragraph{TODO} Как считать пределы изменения $I_\text{н}$ -- вопрос. Но мы почему-то меняем от 40 до 400 мА.
-
 \begin{displaymath}
 	R_\text{н} = \frac{U_\text{вых ном}}{0.5 \cdot I_{\text{вых}\ max}} = \frac{6}{0.5 \cdot 0.4} = 30 \text{ Ом}
 \end{displaymath}
+
+\newpage
 
 \section{Экспериментально снятые зависимости}
 
@@ -95,6 +95,12 @@
 	   ]{data/u_in.csv}
 \end{center}
 \end{table}
+
+Коэффициент нестабильности по напряжению вычисляется по формуле:
+
+\begin{displaymath}
+K_\text{н.}^U = \frac{\Delta U_\text{вых} \cdot U_\text{вх.ном}}{U_\text{вых.ном} \cdot \Delta U_\text{вх}} = \frac{0.3 \cdot 11.75}{6 \cdot 22} \approx 0.027
+\end{displaymath}
 
 \begin{figure}[H]
 \begin{center}
@@ -126,19 +132,22 @@
 
 Из рис. \ref{tab:u_in} видно, что заданное напряжение на выходе $U_\text{вых} = 6$ В было достигнуто при $U_\text{вх} \approx 12$ В.
 
-\subsection{Зависимость $U_\text{вых}$ от $I_\text{н}$}
+\newpage
 
-В таблице \ref{tab:i_n} и на рисунке \ref{fig:i_n} приведена зависимость $U_\text{вых}$ от $I_\text{н}$. 
+\subsection{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+
+В таблице \ref{tab:r_n} и на рисунке \ref{fig:r_n} приведена зависимость $U_\text{вых}$ от $I_\text{н}$. 
 
 \begin{table}[H]
 \begin{center}
-	\caption{Зависимость $U_\text{вых}$ от $I_\text{н}$}
-	\label{tab:i_n}
-	\def\tabcolsep{45pt}
+	\caption{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+	\label{tab:r_n}
+	\def\tabcolsep{35pt}
 	\pgfplotstabletypeset[col sep=comma,
-	    columns={i_n,u_out},
+	    columns={i_n,r_n,u_out},
 	    column type/.add={|c|}{},
-	    columns/i_n/.style={fixed, column name={$I_\text{н}$, мА}},
+	    columns/i_n/.style={fixed, column name={$I_\text{н}$, мА}},,
+	    columns/r_n/.style={fixed, column name={$R_\text{н}$, Ом}},
 	    columns/u_out/.style={fixed, precision=2, zerofill, column name={$U_\text{вых}$, В}},
 	    every nth row={1}{before row=\hline},
 	    every head row/.style={before row=\hline, after row=\hline},
@@ -153,27 +162,35 @@
 		\begin{axis}[
 			height=0.2\textheight,
 			width=0.9\textwidth,
-			xlabel={$I_\text{н}$, мА},
+			xlabel={$R_\text{н}$, мА},
 			ylabel={$U_\text{вых}$, В},
 			xlabel near ticks,
 			ylabel near ticks,
 			axis x line = middle,
 			axis y line = left,
-			xmin=0,
-			xmax=450,
+			xmin=10,
+			xmax=160,
 			ymin=5.6,
 			ymax=6.4,
 			grid=major
 		]
-		\addplot table[x=i_n,y=u_out,col sep=comma]{data/i_n.csv};
+		\addplot table[x=r_n,y=u_out,col sep=comma]{data/i_n.csv};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость $U_\text{вых}$ от $I_\text{н}$}
-	\label{fig:i_n}
+	\caption{Зависимость $U_\text{вых}$ от $R_\text{н}$}
+	\label{fig:r_n}
 \end{center}
 \end{figure}
 
-Из рисунка \ref{fig:i_n} видно, что выходное напряжение $U_\text{вых} \approx const = 6$ В при изменении $I_\text{н}$ в заданном пределе, следовательно оно не зависит от него.
+Из рисунка \ref{fig:r_n} видно, что выходное напряжение $U_\text{вых} \approx const = 6$ В при изменении $I_\text{н}$ и, следовательно, $R_\text{н}$ в заданном пределе, следовательно оно не зависит от нагрузки.
+
+Коэффициент нестабильности по току вычисляется по формуле:
+
+\begin{displaymath}
+K_\text{н.}^I = \frac{\Delta U_\text{вых} \cdot I_\text{н.ном}}{\Delta I_\text{н} \cdot U_\text{вых.ном}} = \frac{0.01 \cdot 0.1}{0.36 \cdot 6} \approx 4.6 \cdot 10^{-4}
+\end{displaymath}
+
+\newpage
 
 \subsection{Зависимость $U_\text{вых}$ от $U_\text{вх}$}
 
@@ -195,6 +212,12 @@
 	   ]{data/u_in_2.csv}
 \end{center}
 \end{table}
+
+Коэффициент нестабильности по напряжению вычисляется по формуле:
+
+\begin{displaymath}
+K_\text{н.}^U = \frac{\Delta U_\text{вых} \cdot U_\text{вх.ном}}{U_\text{вых.ном} \cdot \Delta U_\text{вх}} \approx 0
+\end{displaymath}
 
 \begin{figure}[H]
 \begin{center}
@@ -223,12 +246,10 @@
 \end{center}
 \end{figure}
 
-Из рис. \ref{tab:u_in_2} видно, что заданное напряжение на выходе $U_\text{вых} = 6$ В было достигнуто при $U_\text{вх} \approx 9$ В. Таким образом, в данной схеме заданное выходное напряжение было достигнуто при меньшем входном напряжении.
+Из рис. \ref{tab:u_in_2} видно, что заданное напряжение на выходе $U_\text{вых} = 6$ В было достигнуто при $U_\text{вх} \approx 9$ В. Таким образом, в данной схеме заданное выходное напряжение было достигнуто при меньшем входном напряжении, при этом коэффициент нестабильности оказался приблизительно равен нулю.
 
-\section{Анализ экспериментальных вычислений}
+\section{Вывод}
 
-\section{Выводы}
-
-Значение $K_\text{ст}$, вычисленное в ходе эксперимента, близко к уточненному теоретическому значению ($\delta = 6.6~\%$). Таким образом, теоретические формулы \ref{eq:k_st} и \ref{eq:r_out}  являются верными.
+Полученные в ходе работы зависимости соответсвуют теории.
 
 \end{document}
